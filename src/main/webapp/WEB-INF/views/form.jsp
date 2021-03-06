@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -26,11 +28,11 @@
         </ul>
 
         <ul>
-            <li><a href="index.html" class="btn btn--without-border active">Start</a></li>
-            <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
-            <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
-            <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="<c:url value="/"/>" class="btn btn--without-border active">Start</a></li>
+            <li><a href="<c:url value="/"/>"#steps class="btn btn--without-border">O co chodzi?</a></li>
+            <li><a href="<c:url value="/"/>"#about class="btn btn--without-border">O nas</a></li>
+            <li><a href="<c:url value="/"/>" #help class="btn btn--without-border">Fundacje i organizacje</a></li>
+            <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
 
@@ -85,17 +87,20 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form action="form-confirmation.html" method="post">
+
+
+        <form:form action="formConfirmation" method="post"  modelAttribute='donation' id="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <input
+                        <form
                                 type="checkbox"
-                                name="categories"
+                                name="category"
                                 value="clothes-to-use"
+                                path = "category_id"
                         />
                         <span class="checkbox"></span>
                         <span class="description"
@@ -164,7 +169,7 @@
 
 
 
-            <!-- STEP 4 -->
+            <!-- STEP 3 -->
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
@@ -202,7 +207,7 @@
                 </div>
             </div>
 
-            <!-- STEP 5 -->
+            <!-- STEP 4 -->
             <div data-step="4">
                 <h3>Podaj adres oraz termin odbioru rzecz przez kuriera:</h3>
 
@@ -254,7 +259,7 @@
                 </div>
             </div>
 
-            <!-- STEP 6 -->
+            <!-- STEP 5 -->
             <div data-step="5">
                 <h3>Podsumowanie Twojej darowizny</h3>
 
@@ -305,11 +310,39 @@
                     <button type="submit" class="btn">Potwierdzam</button>
                 </div>
             </div>
-        </form>
+        </form:form>
     </div>
 </section>
 
-<%@ include file="footer.jsp" %>
+<footer>
+    <div class="contact" id="contact">
+        <h2>Skontaktuj się z nami</h2>
+        <h3>Formularz kontaktowy</h3>
+        <form class="form--contact">
+            <div class="form-group form-group--50">
+                <input type="text" name="name" placeholder="Imię"/></div>
+            <div class="form-group form-group--50">
+                <input type="text" name="surname" placeholder="Nazwisko"/></div>
+
+            <div class="form-group">
+                <textarea name="message" placeholder="Wiadomość" rows="1"></textarea>
+            </div>
+
+            <button class="btn" type="submit">Wyślij</button>
+        </form>
+    </div>
+    <div class="bottom-line">
+        <span class="bottom-line--copy">Copyright &copy; 2018</span>
+        <div class="bottom-line--icons">
+            <a href="#" class="btn btn--small"><img src="<c:url value="resources/images/icon-facebook.svg"/>"/></a>
+            <a href="#" class="btn btn--small"><img src="<c:url value="resources/images/icon-instagram.svg"/>"/></a>
+
+
+
+        </div>
+    </div>
+</footer>
+
 
 
 </body>
