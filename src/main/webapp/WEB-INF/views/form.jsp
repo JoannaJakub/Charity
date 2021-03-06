@@ -89,61 +89,35 @@
 
 
 
-        <form:form action="formConfirmation" method="post"  modelAttribute='donation' id="donation">
+        <form:form action="formConfirmation" method="post"  modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
 
+                <c:forEach items="${categories}" var="category">
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <form
-                                type="checkbox"
+                        <form:checkbox
                                 name="category"
-                                value="clothes-to-use"
-                                path = "category_id"
-                        />
+                                value="${category}"
+                                path ="category"/>
                         <span class="checkbox"></span>
-                        <span class="description"
-                        >ubrania, które nadają się do ponownego użycia</span
+                        <span class="description">${category.name}</span
                         >
                     </label>
                 </div>
+                </c:forEach>
+               <%-- <form:checkboxes path="categories"
+                                 items="${categories}"/>
+                <form:select path="institution" items="${institutions}"/>
+                <form:input path="zipCode" />
+                <form:input path="street" />
+                <form:input path="city"/>
+                <form:input path="quantity"/>
+                <form:textarea path="pickUpComment"/>
+                <form:input type="date" path="pickUpDate"/>
+                <form:input type="time" path="pickUpTime" />--%>
 
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input
-                                type="checkbox"
-                                name="categories"
-                                value="clothes-useless"
-                        />
-                        <span class="checkbox"></span>
-                        <span class="description">ubrania, do wyrzucenia</span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="checkbox" name="categories" value="toys" />
-                        <span class="checkbox"></span>
-                        <span class="description">zabawki</span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="checkbox" name="categories" value="books" />
-                        <span class="checkbox"></span>
-                        <span class="description">książki</span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="checkbox" name="categories" value="other" />
-                        <span class="checkbox"></span>
-                        <span class="description">inne</span>
-                    </label>
-                </div>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
