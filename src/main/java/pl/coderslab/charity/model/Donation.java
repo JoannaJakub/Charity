@@ -35,8 +35,10 @@ public class Donation {
     @NotBlank(message = "Proszę wpisać numer telefonu")
     @Pattern(regexp="[0-9]{9}", message = "Błędny format numeru")
     private String phoneNumber;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate pickUpDate;
+  //  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+  @NotNull(message = "Proszę podać godzinę")
     private LocalTime pickUpTime;
     private String pickUpComment;
     @ManyToMany(cascade = CascadeType.ALL)

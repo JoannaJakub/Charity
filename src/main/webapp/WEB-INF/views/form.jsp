@@ -93,10 +93,11 @@
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
+                <c:forEach items="${categories}" var="category">
 
                 <div class="form-group form-group--checkbox">
-                    <c:forEach items="${categories}" var="category">
 
+//html checkbox
                     <label>
                         <form:checkbox path="categories" value="${category.id}"/>
                             <%--
@@ -201,17 +202,19 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data"/> </label>
+                            <label> Data <form:input type="date" name="data" path="pickUpDate" id="pickUpDate"/> </label>
+                            <form:errors path="pickUpDate"/>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time"/> </label>
+                            <label> Godzina <form:input type="time" name="time" path="pickUpTime" id="pickUpTime"/> </label>
+                            <form:errors path="pickUpTime"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <form:textarea name="more_info" rows="5"  path="pickUpComment" id="pickUpComment"/>
                             </label>
                         </div>
                     </div>

@@ -16,10 +16,18 @@
 <section>
     <div class="slogan container container--90">
         <h2>
-            Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie
-            informacje o odbiorze.
+            <br>
+            Dziękujemy za przesłanie formularza.
+            <br>
+            <br>
+            Na maila prześlemy wszelkie informacje o odbiorze.
         </h2>
     </div>
+</section>
+<section class="steps" id="steps">
+    <h1>Masz coś jeszcze do przekazania?</h1>
+    <a href="<c:url value="/form"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
+
 </section>
 
 <%@ include file="footer.jsp" %>
