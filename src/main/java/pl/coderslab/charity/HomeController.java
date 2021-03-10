@@ -1,11 +1,9 @@
 package pl.coderslab.charity;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.repository.CategoryRepository;
@@ -13,28 +11,29 @@ import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 @Controller
 public class HomeController {
-    @Autowired
-    InstitutionRepository institutionRepository;
-    @Autowired
-    DonationRepository donationRepository;
-    @Autowired
-    CategoryRepository categoryRepository;
+    private final InstitutionRepository institutionRepository;
+    private final DonationRepository donationRepository;
+    private final CategoryRepository categoryRepository;
+
+    public HomeController(InstitutionRepository institutionRepository, DonationRepository donationRepository, CategoryRepository categoryRepository) {
+        this.institutionRepository = institutionRepository;
+        this.donationRepository = donationRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
 
     @RequestMapping("/")
-    public String homeAction(Model model){
+    public String homeAction(Model model, Donation donation){
         List<Institution> institution = institutionRepository.findAll();
         model.addAttribute("institution", institution);
-        int quantity = donationRepository.sumOfDonationQuantity();
+        long quantity = donationRepository.sumOfDonationQuantity();
         model.addAttribute("quantity", quantity);
-        int id = donationRepository.numberOfDonationId();
+        long id = donationRepository.countAllById();
         model.addAttribute("id", id);
         return "index";
     }
@@ -42,7 +41,7 @@ public class HomeController {
     @GetMapping("/form")
     public String formAction(Model model){
         model.addAttribute("donation", new Donation());
-        model.addAttribute("categories", categoryRepository.findName() );
+        model.addAttribute("categories", categoryRepository.findAll() );
         List<Institution> institution = institutionRepository.findAll();
         model.addAttribute("institution", institution);
         return "form";

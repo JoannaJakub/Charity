@@ -7,6 +7,4 @@ import pl.coderslab.charity.model.Category;
 import java.util.List;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-    @Query(nativeQuery=true, value="SELECT *  FROM category;")
-    List<Category> findName();
 }

@@ -38,11 +38,12 @@ public class Donation {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate pickUpDate;
   //  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-  @NotNull(message = "Proszę podać godzinę")
+    @NotNull(message = "Proszę podać godzinę")
     private LocalTime pickUpTime;
     private String pickUpComment;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
+    //private Set<Category> categories = new HashSet<>();
     private List<Category> categories = new ArrayList<>();
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne
     private Institution institution;
 }
