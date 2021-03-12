@@ -2,6 +2,9 @@ package pl.coderslab.charity.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +21,7 @@ import java.util.Set;
 @Data
 @Component
 @RequiredArgsConstructor
+@ToString
 public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,8 +46,10 @@ public class Donation {
     private LocalTime pickUpTime;
     private String pickUpComment;
     @ManyToMany
-    //private Set<Category> categories = new HashSet<>();
-    private List<Category> categories = new ArrayList<>();
+            private List<Category> categories = new ArrayList<>();
+/*
+    Set<Category> categories = new HashSet<>();
+*/
     @ManyToOne
     private Institution institution;
 }
