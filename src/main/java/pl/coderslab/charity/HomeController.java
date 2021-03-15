@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.charity.model.Category;
+
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
@@ -26,7 +26,9 @@ public class HomeController {
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
 
-    public HomeController(InstitutionRepository institutionRepository, DonationRepository donationRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
+
+    public HomeController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
+                          CategoryRepository categoryRepository, UserRepository userRepository) {
         this.institutionRepository = institutionRepository;
         this.donationRepository = donationRepository;
         this.categoryRepository = categoryRepository;
@@ -48,14 +50,14 @@ public class HomeController {
     @GetMapping("/form")
     public String formAction(Model model) {
         model.addAttribute("donation", new Donation());
-        List<Category> categories = categoryRepository.findAll();
-        model.addAttribute("categories", categories);
+        model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("institution", institutionRepository.findAll());
         return "form";
     }
 
     @RequestMapping(value = "/formConfirmation", method = RequestMethod.POST)
     public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
+
         if (result.hasErrors()) {
             return "form";
         }
@@ -63,11 +65,6 @@ public class HomeController {
         return "form-confirmation";
     }
 
-
-    @GetMapping("/login")
-    public String loginAction() {
-        return "login";
-    }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -79,18 +76,31 @@ public class HomeController {
     public String processRegister(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "register";
-        } else if (userRepository.findByEmail(user.getEmail().toLowerCase()) !=null) {
+       /* }else if (!user.getPassword().equals(user.getRetypePassword())){
+            result.rejectValue("password", "register_success");*/
+        } else if (userRepository.findByEmail(user.getEmail().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "email", "Podany email znajduje się w naszej bazie danych"));
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
             user.setPassword(encodedPassword);
+
             userRepository.save(user);
             return "register_success";
         }
         return "register";
 
     }
-}
+
+
+    @GetMapping(value = {"/login"})
+    public String login(@RequestParam(value = "error", defaultValue = "false") boolean loginError) {
+        if (loginError) {
+            return "loginError";
+        } else {
+            return "login";
+        }
+    }
+    }
 
 

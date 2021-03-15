@@ -97,13 +97,17 @@
                 <c:forEach items="${categories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" path="categories" value="${category.id}"/>
+                            <input type="checkbox" name="categories" value="${category.id}" path = "categories"/>
+
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
+                            <errors path="categories"/>
+
                         </label>
                     </div>
-                </c:forEach>
 
+                </c:forEach>
+                <form:errors path="categories"/>
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
@@ -134,18 +138,19 @@
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
                 <c:forEach items="${institution}" var="institution">
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <form:radiobutton path="institution" value="${institution.id}" name="institution" checked="checked"/>
-                        <span class="checkbox radio"></span>
-                        <span class="description">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <form:radiobutton path="institution" value="${institution.id}" name="institution"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
                             <div class="title"><c:out value="${institution.name}"/></div>
                             <div class="subtitle"><c:out value="${institution.description}"/></div>
-                        </span>
-                    </label>
-                </div>
-                </c:forEach>
 
+                        </span>
+                        </label>
+                    </div>
+                </c:forEach>
+                <form:errors path="institution"/>
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
                     <button type="button" class="btn next-step">Dalej</button>
@@ -200,7 +205,7 @@
                         <div class="form-group form-group--inline">
                             <label> Godzina <form:input type="time" name="time" path="pickUpTime"
                                                         id="pickUpTime"/> </label>
-                           <form:errors path="pickUpTime"/>
+                            <form:errors path="pickUpTime"/>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -265,7 +270,7 @@
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="submit"  class="btn">Potwierdzam</button>
+                    <button type="submit" class="btn">Potwierdzam</button>
                 </div>
             </div>
         </form:form>

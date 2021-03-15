@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -17,12 +18,14 @@
 
     <section class="login-page">
       <h2>Zaloguj się</h2>
-      <form method="post">
+      <form:form method="post" authentication-failure-url="/login?error=true">
         <div class="form-group">
           <input type="email" name="email" placeholder="Email" />
+          <form:errors path="email"/>
         </div>
         <div class="form-group">
           <input type="password" name="password" placeholder="Hasło" />
+          <form:errors path="password"/>
           <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
 
@@ -31,7 +34,8 @@
           <button class="btn" type="submit">Zaloguj się</button>
           <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </div>
-      </form>
+
+      </form:form>
     </section>
 
   <%@ include file="footer.jsp" %>

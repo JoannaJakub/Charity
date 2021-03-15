@@ -9,5 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
+ //   @Query(value = "SELECT distinct a FROM Institution a ")
+    List<Institution> findTop4ById(long Id);
 
 }

@@ -75,18 +75,20 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <c:forEach items="${institution}" var="institution" varStatus="status">
+            <c:forEach items="${institution}" var="institution" varStatus="status">
+
+                <c:if test="${status.index%2 == 0}">
+                    <li>
+                </c:if>
                 <div class="col">
                     <div class="title"><c:out value="${institution.name}"/></div>
-                    <div class="subtitle"><c:out value="${institution.description}"/></div>
+                    <div class="subtitle"><c:out value="${institution.name}"/></div>
                 </div>
-                <c:if test="${status.index %2 != 0}">
-                </li>
-
+                
+                <c:if test="${status.index%2 == 1}">
+                    </li>
                 </c:if>
-                </c:forEach>
-
+            </c:forEach>
         </ul>
     </div>
 

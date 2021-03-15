@@ -3,6 +3,7 @@ package pl.coderslab.charity.model;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Check;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -46,10 +47,13 @@ public class Donation {
     private LocalTime pickUpTime;
     private String pickUpComment;
     @ManyToMany
-            private List<Category> categories = new ArrayList<>();
+   // @Size(min=1, max=5 ,message = "Proszę zaznaczyć przynajmnije jedną kategorie")
+    @NotEmpty(message = "Proszę wybrać przynajmniej jedną kategorie")
+    private List<Category> categories = new ArrayList<>();
 /*
     Set<Category> categories = new HashSet<>();
 */
     @ManyToOne
+    @NotNull(message = "Proszę wybrać instytucje")
     private Institution institution;
 }
