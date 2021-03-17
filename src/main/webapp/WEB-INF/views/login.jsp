@@ -18,14 +18,14 @@
 
     <section class="login-page">
       <h2>Zaloguj się</h2>
-      <form:form method="post" authentication-failure-url="/login?error=true">
+      <form:form method="post">
         <div class="form-group">
           <input type="email" name="email" placeholder="Email" />
-          <form:errors path="email"/>
+<%--          <form:errors path="email"/>--%>
         </div>
         <div class="form-group">
           <input type="password" name="password" placeholder="Hasło" />
-          <form:errors path="password"/>
+<%--          <form:errors path="password"/>--%>
           <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
 
