@@ -5,5 +5,6 @@ import pl.coderslab.charity.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail (String email);
+    User deleteUserById(Long id);
 
 }

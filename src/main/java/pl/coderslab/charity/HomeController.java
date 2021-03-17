@@ -7,7 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
-import pl.coderslab.charity.Service.UserService;
+import pl.coderslab.charity.service.UserService;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
@@ -99,6 +99,35 @@ public class HomeController {
     @GetMapping(value = {"/login"})
     public String login(){
             return "login";
+
+    }
+
+    @GetMapping(value = {"/admin"})
+    public String admin(Model model){
+        model.addAttribute("admin", userRepository.findAll());
+        return "admin";
+
+    }
+
+
+    @PostMapping(value = {"/deleteAdmin"})
+    public String deleteAdmin(@PathVariable long id){
+       userRepository.deleteUserById(id);
+        return "redirect:admin";
+
+    }
+
+    @GetMapping(value = {"/adminDonation"})
+    public String adminDonation(Model model){
+        model.addAttribute("adminDonation", donationRepository.findAll());
+        return "adminDonation";
+
+    }
+
+    @GetMapping(value = {"/adminInstitution"})
+    public String adminInstitution(Model model){
+        model.addAttribute("adminInstitution", institutionRepository.findAll());
+        return "adminInstitution";
 
     }
 }
