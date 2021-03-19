@@ -23,7 +23,7 @@
 
       <ul>
         <li><a href="<c:url value="/admin"/>" class="btn btn--without-border active">Start</a></li>
-        <li><a href="<c:url value="user"/>"  class="btn btn--without-border">Użytkownicy</a></li>
+        <li><a href="<c:url value="admin"/>"  class="btn btn--without-border">Użytkownicy</a></li>
         <li><a href="<c:url value="adminDonation"/>" class="btn btn--without-border">Darowizny</a></li>
         <li><a href="<c:url value="adminInstitution"/>" class="btn btn--without-border">Fundacje</a></li>
         <li><a href=#contact" class="btn btn--without-border">Kontakt</a></li>
@@ -33,7 +33,7 @@
 
 
   <section class="login-page">
-    <h2>Lista użytkowników</h2>
+    <h2>Lista darowizn</h2>
 
 
     <table style="width:100%" border="1" cellpadding="9">
@@ -41,28 +41,18 @@
       <thead>
       <tr>
         <th>Id</th>
-        <th>Email</th>
-        <th>Enabled</th>
-        <th>Imie</th>
-        <th>Nazwisko</th>
-        <th>Usuń</th>
-
+        <th>Nazwa</th>
+        <th>Opis</th>
       </tr>
       </thead>
       <tbody>
 
-      <c:forEach items="${admin}" var="admin">
+      <c:forEach items="${adminInstitution}" var="adminInstitution">
       <tr>
-        <td><c:out value="${admin.id}"/></td>
-        <td><c:out value="${admin.email}"/></td>
-        <td><c:out value="${admin.enabled}"/></td>
-        <td><c:out value="${admin.firstName}"/></td>
-        <td><c:out value="${admin.lastName}"/></td>
-        <td>
+        <td><c:out value="${adminInstitution.id}"/></td>
+        <td><c:out value="${adminInstitution.name}"/></td>
+        <td><c:out value="${adminInstitution.description}"/></td>
 
-          <a href="/adminDelete/${user.id}" class="btn btn--without-border">Usuń</a>
-
-        </td>
       </tr>
       </c:forEach>
 
@@ -71,6 +61,6 @@
 
   </section>
 
-  <%@ include file="footer.jsp" %>
+  <%@ include file="../footer.jsp" %>
   </body>
 </html>

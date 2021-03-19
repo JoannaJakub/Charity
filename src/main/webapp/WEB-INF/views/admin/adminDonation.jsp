@@ -23,7 +23,7 @@
 
       <ul>
         <li><a href="<c:url value="/admin"/>" class="btn btn--without-border active">Start</a></li>
-        <li><a href="<c:url value="user"/>"  class="btn btn--without-border">Użytkownicy</a></li>
+        <li><a href="<c:url value="admin"/>"  class="btn btn--without-border">Użytkownicy</a></li>
         <li><a href="<c:url value="adminDonation"/>" class="btn btn--without-border">Darowizny</a></li>
         <li><a href="<c:url value="adminInstitution"/>" class="btn btn--without-border">Fundacje</a></li>
         <li><a href=#contact" class="btn btn--without-border">Kontakt</a></li>
@@ -41,17 +41,28 @@
       <thead>
       <tr>
         <th>Id</th>
-        <th>Nazwa</th>
-        <th>Opis</th>
+        <th>Data</th>
+        <th>Godzina</th>
+        <th>ilość</th>
+        <th>Miasto</th>
+        <th>Kod pocztowy</th>
+        <th>Ulica</th>
+        <th>numer telefonu</th>
+
       </tr>
       </thead>
       <tbody>
 
-      <c:forEach items="${donation}" var="adminInstitution">
+      <c:forEach items="${adminDonation}" var="adminDonation">
       <tr>
-        <td><c:out value="${donation.id}"/></td>
-        <td><c:out value="${donation.name}"/></td>
-        <td><c:out value="${donation.decription}"/></td>
+        <td><c:out value="${adminDonation.id}"/></td>
+        <td><c:out value="${adminDonation.pickUpDate}"/></td>
+        <td><c:out value="${adminDonation.pickUpTime}"/></td>
+        <td><c:out value="${adminDonation.quantity}"/></td>
+        <td><c:out value="${adminDonation.city}"/></td>
+        <td><c:out value="${adminDonation.zipCode}"/></td>
+        <td><c:out value="${adminDonation.street}"/></td>
+        <td><c:out value="${adminDonation.phoneNumber}"/></td>
 
       </tr>
       </c:forEach>
@@ -61,6 +72,6 @@
 
   </section>
 
-  <%@ include file="footer.jsp" %>
+  <%@ include file="../footer.jsp" %>
   </body>
 </html>

@@ -23,7 +23,7 @@
 
       <ul>
         <li><a href="<c:url value="/admin"/>" class="btn btn--without-border active">Start</a></li>
-        <li><a href="<c:url value="user"/>"  class="btn btn--without-border">Użytkownicy</a></li>
+        <li><a href="<c:url value="admin"/>"  class="btn btn--without-border">Użytkownicy</a></li>
         <li><a href="<c:url value="adminDonation"/>" class="btn btn--without-border">Darowizny</a></li>
         <li><a href="<c:url value="adminInstitution"/>" class="btn btn--without-border">Fundacje</a></li>
         <li><a href=#contact" class="btn btn--without-border">Kontakt</a></li>
@@ -33,7 +33,7 @@
 
 
   <section class="login-page">
-    <h2>Lista darowizn</h2>
+    <h2>Lista użytkowników</h2>
 
 
     <table style="width:100%" border="1" cellpadding="9">
@@ -41,27 +41,24 @@
       <thead>
       <tr>
         <th>Id</th>
-        <th>Data</th>
-        <th>Godzina</th>
-        <th>ilość</th>
-        <th>Miasto</th>
-        <th>numer telefonu</th>
+        <th>Email</th>
+        <th>Enabled</th>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Usuń</th>
 
       </tr>
       </thead>
       <tbody>
 
-      <c:forEach items="${donation}" var="donation">
+      <c:forEach items="${admin}" var="admin">
       <tr>
-        <td><c:out value="${donation.id}"/></td>
-        <td><c:out value="${donation.pickUpDate}"/></td>
-        <td><c:out value="${donation.pickUpTime}"/></td>
-        <td><c:out value="${donation.quantity}"/></td>
-        <td><c:out value="${donation.phoneNumber}"/></td>
-        <td>
-
-
-        </td>
+        <td><c:out value="${admin.id}"/></td>
+        <td><c:out value="${admin.email}"/></td>
+        <td><c:out value="${admin.enabled}"/></td>
+        <td><c:out value="${admin.firstName}"/></td>
+        <td><c:out value="${admin.lastName}"/></td>
+        <td id="delete" colspan="2"><a href="/userDelete?id=${admin.id}">Usuń</a></td>
       </tr>
       </c:forEach>
 
@@ -70,6 +67,6 @@
 
   </section>
 
-  <%@ include file="footer.jsp" %>
+  <%@ include file="../footer.jsp" %>
   </body>
 </html>

@@ -16,9 +16,10 @@ public class WebConfig  extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-             //   .antMatchers("/form").hasAnyRole("USER", "ADMIN")
+             ///  .antMatchers("/form").hasAnyRole("USER", "ADMIN")
                 .and().formLogin().loginPage("/login").loginProcessingUrl("/login")
                 .usernameParameter("email")
+                .defaultSuccessUrl("/form")
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");;

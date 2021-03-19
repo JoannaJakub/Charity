@@ -16,7 +16,6 @@ public class SpringDataUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
     public SpringDataUserDetailsService(){
-        System.out.println("rz dwa trzey");
     }
 
 

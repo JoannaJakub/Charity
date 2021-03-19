@@ -1,17 +1,12 @@
 package pl.coderslab.charity.model;
 
 import lombok.*;
-import org.hibernate.annotations.SortComparator;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.Set;
 
 
@@ -21,7 +16,7 @@ import java.util.Set;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
+public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
