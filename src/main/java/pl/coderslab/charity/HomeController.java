@@ -79,8 +79,6 @@ public class HomeController {
     public String processRegister(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "register";
-       /* }else if (!user.getPassword().equals(user.getRetypePassword())){
-            result.rejectValue("password", "register_success");*/
         } else if (userRepository.findByEmail(user.getEmail().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "email", "Podany email znajduje się w naszej bazie danych"));
         } else {

@@ -22,12 +22,7 @@ public class WebConfig  extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/form")
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll()
-                .and().exceptionHandling().accessDeniedPage("/403");;
-
-          /*  .antMatchers("/form").hasAnyRole("USER", "ADMIN")
-                .and().formLogin().loginPage("/login")
-                .and().logout().logoutSuccessUrl("/")
-                .permitAll();*/
+                .and().exceptionHandling().accessDeniedPage("/403");
     }
 
 

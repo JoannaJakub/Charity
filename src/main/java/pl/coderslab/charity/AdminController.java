@@ -37,12 +37,12 @@ public class AdminController {
 
 
     @GetMapping(value = {"/userDelete"})
-    public String deleteUser(@RequestParam Long id){
-       // userRepository.deleteUserById(id);
-       userService.deleteUser(id);
+    public String deleteUser(@RequestParam Long id, Model model){
+     model.addAttribute("delete",  userRepository.deleteUserById(id));
         return "admin/admin";
-
     }
+
+
 
     @GetMapping(value = {"/adminDonation"})
     public String adminDonation(Model model){

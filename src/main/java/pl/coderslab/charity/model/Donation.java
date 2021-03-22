@@ -3,20 +3,15 @@ package pl.coderslab.charity.model;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.Check;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Data
@@ -42,17 +37,12 @@ public class Donation {
     private String phoneNumber;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate pickUpDate;
-  //  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     @NotNull(message = "Proszę podać godzinę")
     private LocalTime pickUpTime;
     private String pickUpComment;
     @ManyToMany
-   // @Size(min=1, max=5 ,message = "Proszę zaznaczyć przynajmnije jedną kategorie")
     @NotEmpty(message = "Proszę wybrać przynajmniej jedną kategorie")
     private List<Category> categories = new ArrayList<>();
-/*
-    Set<Category> categories = new HashSet<>();
-*/
     @ManyToOne
     @NotNull(message = "Proszę wybrać instytucje")
     private Institution institution;
