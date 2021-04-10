@@ -1,4 +1,4 @@
-package pl.coderslab.charity;
+package pl.coderslab.charity.controller;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
