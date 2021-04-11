@@ -2,6 +2,7 @@ package pl.coderslab.charity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.CategoryRepository;
@@ -9,6 +10,8 @@ import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
+
+import javax.validation.Valid;
 
 @Controller
 
@@ -36,12 +39,16 @@ public class AdminController {
     }
 
 
-    @GetMapping(value = {"/userDelete"})
-    public String deleteUser(@RequestParam Long id, Model model){
-     model.addAttribute("delete",  userRepository.deleteUserById(id));
-        return "admin/admin";
+    @GetMapping(value = {"/userDelete/{id}"})
+    public String userDelete(@PathVariable long id){
+     userService.delete(id);
+        return "redirect:/admin";
     }
-
+    @PostMapping(value = {"userEdit"})
+    public String userEdit(@Valid @ModelAttribute("admin") User user, BindingResult result){
+        userService.saveUser(user);
+        return "redirect:/admin/";
+    }
 
 
     @GetMapping(value = {"/adminDonation"})
