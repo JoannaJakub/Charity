@@ -50,16 +50,12 @@
       </tr>
       </thead>
       <tbody>
-      <form:form method="post" modelAttribute="admin" action="editUser">
-      <c:forEach items="${admin}" var="admin">
-      <tr>
-        <td><c:out value="${admin.id}"/></td>
-        <td><c:out value="${admin.email}"/></td>
-        <td><c:out value="${admin.enabled}"/></td>
-        <td><c:out value="${admin.firstName}"/></td>
-        <td><c:out value="${admin.lastName}"/></td>
-      </tr>
-      </c:forEach>
+      <form:form method="post" modelAttribute="admin" action="userEdit">
+          <form:hidden path="id"/>
+          <form:input path="admin.firstName"/>
+          <form:input path="admin.lastName"/>
+          <form:input path="admin.email"/>
+          <form:input path="admin.enabled"/>
       </form:form>
       </tbody>
     </table>

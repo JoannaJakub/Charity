@@ -43,6 +43,7 @@
         <th>Id</th>
         <th>Nazwa</th>
         <th>Opis</th>
+        <th>Usuń</th>
       </tr>
       </thead>
       <tbody>
@@ -52,7 +53,7 @@
         <td><c:out value="${adminInstitution.id}"/></td>
         <td><c:out value="${adminInstitution.name}"/></td>
         <td><c:out value="${adminInstitution.description}"/></td>
-
+        <td ><a href="/institutionDelete/${adminInstitution.id}">Usuń</a></td>
       </tr>
       </c:forEach>
 

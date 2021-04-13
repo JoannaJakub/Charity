@@ -47,7 +47,8 @@
         <th>Miasto</th>
         <th>Kod pocztowy</th>
         <th>Ulica</th>
-        <th>numer telefonu</th>
+        <th>Numer telefonu</th>
+        <th>Usuń</th>
 
       </tr>
       </thead>
@@ -63,7 +64,7 @@
         <td><c:out value="${adminDonation.zipCode}"/></td>
         <td><c:out value="${adminDonation.street}"/></td>
         <td><c:out value="${adminDonation.phoneNumber}"/></td>
-
+        <td ><a href="/donationDelete/${adminDonation.id}">Usuń</a></td>
       </tr>
       </c:forEach>
 

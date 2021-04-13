@@ -57,11 +57,21 @@ public class AdminController {
         return "admin/adminDonation";
 
     }
+    @GetMapping(value = {"/donationDelete/{id}"})
+    public String donationDelete(@PathVariable long id){
+        donationRepository.deleteById(id);
+        return "redirect:/adminDonation";
+    }
 
     @GetMapping(value = {"/adminInstitution"})
     public String adminInstitution(Model model){
         model.addAttribute("adminInstitution", institutionRepository.findAll());
         return "admin/adminInstitution";
 
+    }
+    @GetMapping(value = {"/institutionDelete/{id}"})
+    public String institutionDelete(@PathVariable long id){
+        institutionRepository.deleteById(id);
+        return "redirect:/adminInstitution";
     }
 }
