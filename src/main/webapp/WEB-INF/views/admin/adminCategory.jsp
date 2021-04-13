@@ -6,7 +6,15 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="adminHeader.jsp" %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>" />
+  </head>
+  <body>
+  <%@ include file="adminHeader.jsp" %>
 
 
   <section class="login-page">
@@ -18,30 +26,17 @@
       <thead>
       <tr>
         <th>Id</th>
-        <th>Data</th>
-        <th>Godzina</th>
-        <th>ilość</th>
-        <th>Miasto</th>
-        <th>Kod pocztowy</th>
-        <th>Ulica</th>
-        <th>Numer telefonu</th>
+        <th>Nazwa</th>
         <th>Usuń</th>
-
       </tr>
       </thead>
       <tbody>
 
-      <c:forEach items="${adminDonation}" var="adminDonation">
+      <c:forEach items="${adminCategory}" var="adminCategory">
       <tr>
-        <td><c:out value="${adminDonation.id}"/></td>
-        <td><c:out value="${adminDonation.pickUpDate}"/></td>
-        <td><c:out value="${adminDonation.pickUpTime}"/></td>
-        <td><c:out value="${adminDonation.quantity}"/></td>
-        <td><c:out value="${adminDonation.city}"/></td>
-        <td><c:out value="${adminDonation.zipCode}"/></td>
-        <td><c:out value="${adminDonation.street}"/></td>
-        <td><c:out value="${adminDonation.phoneNumber}"/></td>
-        <td ><a href="/donationDelete/${adminDonation.id}">Usuń</a></td>
+        <td><c:out value="${adminCategory.id}"/></td>
+        <td><c:out value="${adminCategory.name}"/></td>
+        <td ><a href="/categoryDelete/${adminCategory.id}">Usuń</a></td>
       </tr>
       </c:forEach>
 

@@ -74,4 +74,14 @@ public class AdminController {
         institutionRepository.deleteById(id);
         return "redirect:/adminInstitution";
     }
+    @GetMapping(value = {"/adminCategory"})
+    public String adminCategory(Model model){
+        model.addAttribute("adminCategory", categoryRepository.findAll());
+        return "admin/adminCategory";
+    }
+    @GetMapping(value = {"/categoryDelete/{id}"})
+    public String categoryDelete(@PathVariable long id){
+        categoryRepository.deleteById(id);
+        return "redirect:/adminCategory";
+    }
 }
