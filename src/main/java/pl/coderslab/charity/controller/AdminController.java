@@ -44,10 +44,16 @@ public class AdminController {
      userService.delete(id);
         return "redirect:/admin";
     }
+    @GetMapping(value = {"/userEdit/{id}"})
+    public String userEditForm(@PathVariable long id, Model model){
+       model.addAttribute("userEdit", userRepository.findById(id));
+        return "admin/userEdit";
+    }
+
     @PostMapping(value = {"userEdit"})
-    public String userEdit(@Valid @ModelAttribute("admin") User user, BindingResult result){
+    public String userEditSave(@Valid User user, BindingResult result){
         userService.saveUser(user);
-        return "redirect:/admin/";
+        return "redirect:/admin/admin";
     }
 
 

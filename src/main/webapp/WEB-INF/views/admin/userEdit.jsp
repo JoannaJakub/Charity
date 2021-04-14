@@ -10,7 +10,7 @@
 
 
   <section class="login-page">
-    <h2>Lista użytkowników</h2>
+    <h2>Edycja użytkownika</h2>
 
 
     <table style="width:100%" border="1" cellpadding="9">
@@ -27,18 +27,19 @@
       </tr>
       </thead>
       <tbody>
-      <form:form method="post" modelAttribute="admin" action="userEdit">
-          <form:hidden path="id"/>
-          <form:input path="admin.firstName"/>
-          <form:input path="admin.lastName"/>
-          <form:input path="admin.email"/>
-          <form:input path="admin.enabled"/>
+      <form:form method="post" modelAttribute="userEdit">
+          <form:input path="id" label/>
+          <form:input path="firstName"/>
+          <form:input path="lastName"/>
+          <form:input path="email"/>
+          <form:input path="enabled"/>
+        <input type="submit" value="Save">
       </form:form>
       </tbody>
     </table>
 
   </section>
 
-  <%@ include file="../footer.jsp" %>
+<script src="<c:url value="../resources/js/app.js"/>"></script>
   </body>
 </html>
