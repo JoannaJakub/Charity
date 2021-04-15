@@ -28,6 +28,7 @@
         <th>Id</th>
         <th>Nazwa</th>
         <th>Usuń</th>
+        <th>Edytuj</th>
       </tr>
       </thead>
       <tbody>
@@ -37,6 +38,7 @@
         <td><c:out value="${adminCategory.id}"/></td>
         <td><c:out value="${adminCategory.name}"/></td>
         <td ><a href="/categoryDelete/${adminCategory.id}">Usuń</a></td>
+        <td ><a href="/categoryEdit/${adminCategory.id}">Edytuj</a></td>
       </tr>
       </c:forEach>
 

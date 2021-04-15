@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
@@ -128,6 +129,20 @@ public class AdminController {
     @GetMapping(value = {"/categoryDelete/{id}"})
     public String categoryDelete(@PathVariable long id){
         categoryRepository.deleteById(id);
+        return "redirect:/adminCategory";
+    }
+    @GetMapping(value = {"/categoryEdit/{id}"})
+    public String categoryEditForm(@PathVariable long id, Model model){
+        model.addAttribute("categoryEdit", categoryRepository.findById(id));
+        return "admin/categoryEdit";
+    }
+
+    @PostMapping(value = {"categoryEdit/{id}"})
+    public String categoryEditSave(@Valid Category category, BindingResult result){
+        if(result.hasErrors()){
+            return "categoryEdit";
+        }
+        categoryRepository.save(category);
         return "redirect:/adminCategory";
     }
 }
