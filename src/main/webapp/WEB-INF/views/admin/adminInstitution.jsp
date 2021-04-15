@@ -21,6 +21,7 @@
         <th>Nazwa</th>
         <th>Opis</th>
         <th>Usuń</th>
+        <th>Edytuj</th>
       </tr>
       </thead>
       <tbody>
@@ -31,6 +32,7 @@
         <td><c:out value="${adminInstitution.name}"/></td>
         <td><c:out value="${adminInstitution.description}"/></td>
         <td ><a href="/institutionDelete/${adminInstitution.id}">Usuń</a></td>
+        <td ><a href="/institutionEdit/${adminInstitution.id}">Edytuj</a></td>
       </tr>
       </c:forEach>
 

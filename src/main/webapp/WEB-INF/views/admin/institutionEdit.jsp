@@ -15,35 +15,19 @@
 
     <tbody>
     <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
-        <form:form method="post" modelAttribute="userEdit">
+        <form:form method="post" modelAttribute="institutionEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
 
             </tr>
             <tr>
-                <td>Imie</td>
-                <td><form:input path="firstName"/></td>
+                <td>name</td>
+                <td><form:input path="name"/></td>
             </tr>
             <tr>
-                <td>Nazwisko</td>
-                <td><form:input path="lastName"/></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><form:input path="email"/></td>
-            </tr>
-            <tr>
-                <td>Hasło</td>
-                <td><form:input path="password"/></td>
-            </tr>
-            <tr>
-            <td>Hasło</td>
-            <td><form:input path="retypePassword"/></td>
-            </tr>
-            <tr>
-                <td>Uprawnienie admin</td>
-                <td><form:input path="enabled"/></td>
+                <td>Godzina odbioru</td>
+                <td><form:input path="description"/></td>
             </tr>
             <tr>
                 <td>

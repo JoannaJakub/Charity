@@ -15,35 +15,47 @@
 
     <tbody>
     <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
-        <form:form method="post" modelAttribute="userEdit">
+        <form:form method="post" modelAttribute="donationEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
 
             </tr>
             <tr>
-                <td>Imie</td>
-                <td><form:input path="firstName"/></td>
+                <td>Data odbioru</td>
+                <td><form:input path="pickUpDate"/></td>
             </tr>
             <tr>
-                <td>Nazwisko</td>
-                <td><form:input path="lastName"/></td>
+                <td>Godzina odbioru</td>
+                <td><form:input path="pickUpTime"/></td>
             </tr>
             <tr>
-                <td>Email</td>
-                <td><form:input path="email"/></td>
+                <td>Ilość worków</td>
+                <td><form:input path="quantity"/></td>
             </tr>
             <tr>
-                <td>Hasło</td>
-                <td><form:input path="password"/></td>
+                <td>Miasto</td>
+                <td><form:input path="city"/></td>
             </tr>
             <tr>
-            <td>Hasło</td>
-            <td><form:input path="retypePassword"/></td>
+                <td>Kod pocztowy</td>
+                <td><form:input path="zipCode"/></td>
             </tr>
             <tr>
-                <td>Uprawnienie admin</td>
-                <td><form:input path="enabled"/></td>
+                <td>Ulica</td>
+                <td><form:input path="street"/></td>
+            </tr>
+            <tr>
+                <td>Numer telefonu</td>
+                <td><form:input path="phoneNumber"/></td>
+            </tr>
+            <tr>
+                <td>institution</td>
+                <td><form:input path="institution"/></td>
+            </tr>
+            <tr>
+                <td>categories</td>
+                <td><form:input path="categories"/></td>
             </tr>
             <tr>
                 <td>

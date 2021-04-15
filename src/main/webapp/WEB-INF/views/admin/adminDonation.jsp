@@ -26,6 +26,7 @@
         <th>Ulica</th>
         <th>Numer telefonu</th>
         <th>Usuń</th>
+        <th>Edytuj</th>
 
       </tr>
       </thead>
@@ -42,6 +43,7 @@
         <td><c:out value="${adminDonation.street}"/></td>
         <td><c:out value="${adminDonation.phoneNumber}"/></td>
         <td ><a href="/donationDelete/${adminDonation.id}">Usuń</a></td>
+        <td ><a href="/donationEdit/${adminDonation.id}">Edytuj</a></td>
       </tr>
       </c:forEach>
 

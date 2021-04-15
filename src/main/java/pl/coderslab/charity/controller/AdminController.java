@@ -1,9 +1,12 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.model.Donation;
+import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
@@ -50,10 +53,13 @@ public class AdminController {
         return "admin/userEdit";
     }
 
-    @PostMapping(value = {"userEdit"})
-    public String userEditSave(@Valid User user, BindingResult result){
+    @PostMapping(value = {"userEdit/{id}"})
+    public String userEditSave(@Valid User user){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         userService.saveUser(user);
-        return "redirect:/admin/admin";
+        return "redirect:/admin";
     }
 
 
@@ -69,6 +75,23 @@ public class AdminController {
         return "redirect:/adminDonation";
     }
 
+    @GetMapping(value = {"/donationEdit/{id}"})
+    public String donationEditForm(@PathVariable long id, Model model){
+        model.addAttribute("donationEdit", donationRepository.findById(id));
+        return "admin/donationEdit";
+    }
+
+    @PostMapping(value = {"donationEdit/{id}"})
+    public String donationEditSave(@Valid Donation donation, BindingResult result){
+        if(result.hasErrors()){
+            return "donationEdit";
+        }
+        donationRepository.save(donation);
+        return "redirect:/adminDonation";
+    }
+
+
+
     @GetMapping(value = {"/adminInstitution"})
     public String adminInstitution(Model model){
         model.addAttribute("adminInstitution", institutionRepository.findAll());
@@ -80,6 +103,23 @@ public class AdminController {
         institutionRepository.deleteById(id);
         return "redirect:/adminInstitution";
     }
+
+    @GetMapping(value = {"/institutionEdit/{id}"})
+    public String institutionEditForm(@PathVariable long id, Model model){
+        model.addAttribute("institutionEdit", institutionRepository.findById(id));
+        return "admin/institutionEdit";
+    }
+
+    @PostMapping(value = {"institutionEdit/{id}"})
+    public String institutionEditSave(@Valid Institution institution, BindingResult result){
+        if(result.hasErrors()){
+            return "institutionEdit";
+        }
+        institutionRepository.save(institution);
+        return "redirect:/adminInstitution";
+    }
+
+
     @GetMapping(value = {"/adminCategory"})
     public String adminCategory(Model model){
         model.addAttribute("adminCategory", categoryRepository.findAll());
