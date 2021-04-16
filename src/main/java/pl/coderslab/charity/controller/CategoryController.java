@@ -59,4 +59,11 @@ public class CategoryController {
         categoryRepository.save(category);
         return "redirect:/adminCategory";
     }
+    @GetMapping(value = {"/categoryDetails/{id}"})
+    public String donationDetails(@PathVariable long id, Model model) {
+        Optional<Category> category = categoryRepository.findById(id);
+
+        model.addAttribute("categoryDetails", category.get());
+        return "admin/categoryDetails";
+    }
 }

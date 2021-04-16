@@ -18,7 +18,7 @@
 
 
   <section class="login-page">
-    <h2>Lista darowizn</h2>
+    <h2>Lista kategorii</h2>
 
 
     <table style="width:100%" border="1" cellpadding="9">
@@ -29,6 +29,7 @@
         <th>Nazwa</th>
         <th>Usuń</th>
         <th>Edytuj</th>
+        <th>Szczegóły</th>
       </tr>
       </thead>
       <tbody>
@@ -39,6 +40,7 @@
         <td><c:out value="${adminCategory.name}"/></td>
         <td ><a href="/categoryDelete/${adminCategory.id}">Usuń</a></td>
         <td ><a href="/categoryEdit/${adminCategory.id}">Edytuj</a></td>
+        <td ><a href="/categoryDetails/${adminCategory.id}">Szczegóły</a></td>
       </tr>
       </c:forEach>
 

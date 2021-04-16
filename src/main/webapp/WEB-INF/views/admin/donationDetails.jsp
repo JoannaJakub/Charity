@@ -49,6 +49,12 @@
 
         </tbody>
     </table>
+    <div class="form-group form-group--buttons">
+        <br>
+        <a href="<c:url value="/adminDonation"/>" class="btn btn--without-border">Powrót</a></li>
+        <a href="<c:url value="/donationEdit/${donationDetails.id}"/>" class="btn btn--without-border">Edycja</a></li>
+        <a href="<c:url value="/donationDelete/${donationDetails.id}"/>" class="btn btn--without-border">Usuń</a></li>
+    </div>
 
 </section>
 

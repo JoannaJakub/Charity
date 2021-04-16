@@ -59,17 +59,20 @@
             </tr>
             <tr>
                 <td>
-
+                    <a href="<c:url value="/adminDonation"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
                 </td>
             </tr>
 
         </form:form>
         </tbody>
     </table>
+    <div class="form-group form-group--buttons">
+        <br>
 
+    </div>
 </section>
 
 <script src="<c:url value="../resources/js/app.js"/>"></script>

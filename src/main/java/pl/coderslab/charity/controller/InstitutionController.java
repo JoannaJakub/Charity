@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
@@ -14,6 +15,7 @@ import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class InstitutionController {
@@ -58,5 +60,11 @@ public class InstitutionController {
         institutionRepository.save(institution);
         return "redirect:/adminInstitution";
     }
+    @GetMapping(value = {"/institutionDetails/{id}"})
+    public String donationDetails(@PathVariable long id, Model model) {
+        Optional<Institution> institution = institutionRepository.findById(id);
 
+        model.addAttribute("institutionDetails", institution.get());
+        return "admin/institutionDetails";
+    }
 }

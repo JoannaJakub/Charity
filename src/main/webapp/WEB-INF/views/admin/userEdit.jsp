@@ -47,10 +47,10 @@
             </tr>
             <tr>
                 <td>
-
+                    <a href="<c:url value="/admin"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
                 </td>
             </tr>
 

@@ -11,7 +11,7 @@
 
 <section class="login-page">
 
-    <h2>Edycja użytkownika</h2>
+    <h2>Edycja fundacji</h2>
 
     <tbody>
     <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
@@ -22,19 +22,19 @@
 
             </tr>
             <tr>
-                <td>name</td>
+                <td>Nazwa</td>
                 <td><form:input path="name"/></td>
             </tr>
             <tr>
-                <td>Godzina odbioru</td>
+                <td>Opis</td>
                 <td><form:input path="description"/></td>
             </tr>
             <tr>
                 <td>
-
+                    <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
                 </td>
             </tr>
 
