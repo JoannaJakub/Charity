@@ -27,6 +27,7 @@
         <th>Numer telefonu</th>
         <th>Usuń</th>
         <th>Edytuj</th>
+        <th>Szczegóły</th>
 
       </tr>
       </thead>
@@ -44,6 +45,7 @@
         <td><c:out value="${adminDonation.phoneNumber}"/></td>
         <td ><a href="/donationDelete/${adminDonation.id}">Usuń</a></td>
         <td ><a href="/donationEdit/${adminDonation.id}">Edytuj</a></td>
+        <td ><a href="/donationDetails/${adminDonation.id}">Szczegóły</a></td>
       </tr>
       </c:forEach>
 

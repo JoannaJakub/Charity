@@ -16,6 +16,8 @@ import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Collections;
+import java.util.Optional;
 
 @Controller
 
@@ -90,6 +92,15 @@ public class AdminController {
         donationRepository.save(donation);
         return "redirect:/adminDonation";
     }
+
+    @GetMapping(value = {"/donationDetails/{id}"})
+    public String donationDetails(@PathVariable long id, Model model) {
+        Optional<Donation> donation = donationRepository.findById(id);
+
+        model.addAttribute("donationDetails", donation.get());
+        return "admin/donationDetails";
+    }
+
 
 
 
