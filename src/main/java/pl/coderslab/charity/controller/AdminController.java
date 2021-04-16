@@ -66,94 +66,10 @@ public class AdminController {
     }
 
 
-    @GetMapping(value = {"/adminDonation"})
-    public String adminDonation(Model model){
-        model.addAttribute("adminDonation", donationRepository.findAll());
-        return "admin/adminDonation";
-
-    }
-    @GetMapping(value = {"/donationDelete/{id}"})
-    public String donationDelete(@PathVariable long id){
-        donationRepository.deleteById(id);
-        return "redirect:/adminDonation";
-    }
-
-    @GetMapping(value = {"/donationEdit/{id}"})
-    public String donationEditForm(@PathVariable long id, Model model){
-        model.addAttribute("donationEdit", donationRepository.findById(id));
-        return "admin/donationEdit";
-    }
-
-    @PostMapping(value = {"donationEdit/{id}"})
-    public String donationEditSave(@Valid Donation donation, BindingResult result){
-        if(result.hasErrors()){
-            return "donationEdit";
-        }
-        donationRepository.save(donation);
-        return "redirect:/adminDonation";
-    }
-
-    @GetMapping(value = {"/donationDetails/{id}"})
-    public String donationDetails(@PathVariable long id, Model model) {
-        Optional<Donation> donation = donationRepository.findById(id);
-
-        model.addAttribute("donationDetails", donation.get());
-        return "admin/donationDetails";
-    }
 
 
 
 
-    @GetMapping(value = {"/adminInstitution"})
-    public String adminInstitution(Model model){
-        model.addAttribute("adminInstitution", institutionRepository.findAll());
-        return "admin/adminInstitution";
-
-    }
-    @GetMapping(value = {"/institutionDelete/{id}"})
-    public String institutionDelete(@PathVariable long id){
-        institutionRepository.deleteById(id);
-        return "redirect:/adminInstitution";
-    }
-
-    @GetMapping(value = {"/institutionEdit/{id}"})
-    public String institutionEditForm(@PathVariable long id, Model model){
-        model.addAttribute("institutionEdit", institutionRepository.findById(id));
-        return "admin/institutionEdit";
-    }
-
-    @PostMapping(value = {"institutionEdit/{id}"})
-    public String institutionEditSave(@Valid Institution institution, BindingResult result){
-        if(result.hasErrors()){
-            return "institutionEdit";
-        }
-        institutionRepository.save(institution);
-        return "redirect:/adminInstitution";
-    }
 
 
-    @GetMapping(value = {"/adminCategory"})
-    public String adminCategory(Model model){
-        model.addAttribute("adminCategory", categoryRepository.findAll());
-        return "admin/adminCategory";
-    }
-    @GetMapping(value = {"/categoryDelete/{id}"})
-    public String categoryDelete(@PathVariable long id){
-        categoryRepository.deleteById(id);
-        return "redirect:/adminCategory";
-    }
-    @GetMapping(value = {"/categoryEdit/{id}"})
-    public String categoryEditForm(@PathVariable long id, Model model){
-        model.addAttribute("categoryEdit", categoryRepository.findById(id));
-        return "admin/categoryEdit";
-    }
-
-    @PostMapping(value = {"categoryEdit/{id}"})
-    public String categoryEditSave(@Valid Category category, BindingResult result){
-        if(result.hasErrors()){
-            return "categoryEdit";
-        }
-        categoryRepository.save(category);
-        return "redirect:/adminCategory";
-    }
 }

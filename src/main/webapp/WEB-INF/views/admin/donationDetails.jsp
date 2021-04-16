@@ -16,8 +16,7 @@
     <table style="width:100%" border="1" cellpadding="9">
 
         <thead>
-        <tr>
-            <td>>Id</tr>
+            <td>Id</td>
             <td>Data</td>
             <td>Godzina</td>
             <td>ilość</td>
@@ -28,8 +27,6 @@
             <td>Kategorie</td>
             <td>Instutucja</td>
             <td>Uzytkownik</td>
-
-        </tr>
         </thead>
         <tbody>
 
