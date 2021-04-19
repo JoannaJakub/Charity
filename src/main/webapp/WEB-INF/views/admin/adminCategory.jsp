@@ -46,7 +46,12 @@
 
       </tbody>
     </table>
-
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+      <a href="categoryAdd" class="btn btn--without-border">Dodaj kategorie</a>
+    </div>
   </section>
 
   <%@ include file="../footer.jsp" %>

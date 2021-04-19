@@ -17,20 +17,15 @@
 <%@ include file="adminHeader.jsp" %>
 
 <section class="login-page">
-    <h2>Dodaj fundacje</h2>
-    <form:form action="institutionAddSuccess" modelAttribute="institutionAdd" method="post">
+    <h2>Dodaj kategorię</h2>
+    <form:form action="categoryAddSuccess" modelAttribute="categoryAdd" method="post">
         <div class="form-group">
             <form:input placeholder="Nazwa" path="name" id="name"/>
             <form:errors path="name"/>
         </div>
-        <div class="form-group">
-            <form:input type="text" placeholder="Opis fundacji" path="description" id="description"/>
-            <form:errors path="description"/>
-
-        </div>
 
         <div class="form-group form-group--buttons">
-            <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-border">Powrót</a>
+            <a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Powrót</a>
             <button class="btn" type="submit">Dodaj</button>
         </div>
     </form:form>
