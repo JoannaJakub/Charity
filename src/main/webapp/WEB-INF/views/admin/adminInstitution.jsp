@@ -40,7 +40,12 @@
 
       </tbody>
     </table>
-
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+      <a href="institutionAdd" class="btn btn--without-border">Dodaj fundacje</a>
+    </div>
   </section>
 
   <%@ include file="../footer.jsp" %>

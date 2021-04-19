@@ -51,7 +51,12 @@
 
       </tbody>
     </table>
-
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+      <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+    </div>
   </section>
 
   <%@ include file="../footer.jsp" %>

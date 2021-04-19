@@ -43,6 +43,7 @@
                 <td><c:out value="${donationDetails.categories}"/></td>
                 <td><c:out value="${donationDetails.institution}"/></td>
 
+
             </tr>
         </form:form>
 

@@ -43,7 +43,12 @@
 
       </tbody>
     </table>
-
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+      <a href="register" class="btn btn--without-border">Dodaj użytkownika</a>
+    </div>
   </section>
 
   <%@ include file="../footer.jsp" %>
