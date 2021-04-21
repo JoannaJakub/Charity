@@ -6,16 +6,16 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="adminHeader.jsp" %>
+<%@ include file="../adminHeader.jsp" %>
 
 
 <section class="login-page">
 
-    <h2>Edycja kategorii</h2>
+    <h2>Edycja fundacji</h2>
 
     <tbody>
-    <table style="width:35%" cellpadding="15" class="btn btn--without-border active">
-        <form:form method="post" modelAttribute="categoryEdit">
+    <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
+        <form:form method="post" modelAttribute="institutionEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
@@ -26,11 +26,12 @@
                 <td><form:input path="name"/></td>
             </tr>
             <tr>
-
+                <td>Opis</td>
+                <td><form:input path="description"/></td>
             </tr>
             <tr>
                 <td>
-                    <a href="<c:url value="/adminCategory"/>" class="btn btn--without-active">Powrót</a></li>
+                    <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
                     <button type="submit" class="btn btn--without-active"/>Zapisz</button>

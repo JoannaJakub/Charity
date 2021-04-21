@@ -40,7 +40,7 @@ public class AdminController {
     @GetMapping(value = {"/admin"})
     public String admin(Model model){
         model.addAttribute("admin", userService.findAll());
-        return "admin/admin";
+        return "admin/users/adminUsers";
 
     }
 
@@ -53,7 +53,7 @@ public class AdminController {
     @GetMapping(value = {"/userEdit/{id}"})
     public String userEditForm(@PathVariable long id, Model model){
        model.addAttribute("userEdit", userRepository.findById(id));
-        return "admin/userEdit";
+        return "admin/users/userEdit";
     }
 
     @PostMapping(value = {"userEdit/{id}"})

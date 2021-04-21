@@ -6,7 +6,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="adminHeader.jsp" %>
+<%@ include file="../adminHeader.jsp" %>
 
 
   <section class="login-page">
@@ -59,6 +59,6 @@
     </div>
   </section>
 
-  <%@ include file="../footer.jsp" %>
+  <%@ include file="../../footer.jsp" %>
   </body>
 </html>

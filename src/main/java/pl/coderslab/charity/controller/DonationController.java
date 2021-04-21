@@ -36,7 +36,7 @@ public class DonationController {
     @GetMapping(value = {"/adminDonation"})
     public String adminDonation(Model model){
         model.addAttribute("adminDonation", donationRepository.findAll());
-        return "admin/adminDonation";
+        return "admin/donations/adminDonation";
 
     }
     @GetMapping(value = {"/donationDelete/{id}"})
@@ -48,7 +48,7 @@ public class DonationController {
     @GetMapping(value = {"/donationEdit/{id}"})
     public String donationEditForm(@PathVariable long id, Model model){
         model.addAttribute("donationEdit", donationRepository.findById(id));
-        return "admin/donationEdit";
+        return "admin/donations/donationEdit";
     }
 
     @PostMapping(value = {"donationEdit/{id}"})
@@ -65,7 +65,7 @@ public class DonationController {
         Optional<Donation> donation = donationRepository.findById(id);
 
         model.addAttribute("donationDetails", donation.get());
-        return "admin/donationDetails";
+        return "admin/donations/donationDetails";
     }
 
 }

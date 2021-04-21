@@ -55,7 +55,7 @@ public class HomeController {
         model.addAttribute("donation", new Donation());
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("institution", institutionRepository.findAll());
-        return "form";
+        return "user/form";
     }
 
     @RequestMapping(value = "/formConfirmation", method = RequestMethod.POST)
@@ -65,7 +65,7 @@ public class HomeController {
             return "form";
         }
         donationRepository.save(donation);
-        return "form-confirmation";
+        return "user/formConfirmation";
     }
 
 

@@ -38,7 +38,7 @@ public class User{
     private String lastName;
 
     @Transient
-    @NotEmpty(message = "Proszę powtórzyć hasło")
+  //  @NotEmpty(message = "Proszę powtórzyć hasło")
     private String retypePassword;
 
     private int enabled;

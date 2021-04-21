@@ -6,32 +6,48 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="adminHeader.jsp" %>
+<%@ include file="../adminHeader.jsp" %>
 
 
 <section class="login-page">
 
-    <h2>Edycja fundacji</h2>
+    <h2>Edycja użytkownika</h2>
 
     <tbody>
     <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
-        <form:form method="post" modelAttribute="institutionEdit">
+        <form:form method="post" modelAttribute="userEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
 
             </tr>
             <tr>
-                <td>Nazwa</td>
-                <td><form:input path="name"/></td>
+                <td>Imie</td>
+                <td><form:input path="firstName"/></td>
             </tr>
             <tr>
-                <td>Opis</td>
-                <td><form:input path="description"/></td>
+                <td>Nazwisko</td>
+                <td><form:input path="lastName"/></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><form:input path="email"/></td>
+            </tr>
+            <tr>
+                <td>Hasło</td>
+                <td><form:input path="password"/></td>
+            </tr>
+            <tr>
+            <td>Hasło</td>
+            <td><form:input path="retypePassword"/></td>
+            </tr>
+            <tr>
+                <td>Uprawnienie admin</td>
+                <td><form:input path="enabled"/></td>
             </tr>
             <tr>
                 <td>
-                    <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-active">Powrót</a></li>
+                    <a href="<c:url value="/admin"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
                     <button type="submit" class="btn btn--without-active"/>Zapisz</button>

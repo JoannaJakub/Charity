@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
 </head>
 <body>
-<%@ include file="headerLogReg.jsp" %>
+<%@ include file="../headerLogReg.jsp" %>
 
 <section>
     <div class="slogan container container--90">
@@ -31,7 +31,7 @@
     <a href="<c:url value="/form"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
 
-<%@ include file="footer.jsp" %>
+<%@ include file="../footer.jsp" %>
 
 </body>
 </html>

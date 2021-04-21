@@ -39,7 +39,7 @@ public class InstitutionController {
     @GetMapping(value = {"/adminInstitution"})
     public String adminInstitution(Model model) {
         model.addAttribute("adminInstitution", institutionRepository.findAll());
-        return "admin/adminInstitution";
+        return "admin/institutions/adminInstitution";
 
     }
 
@@ -52,7 +52,7 @@ public class InstitutionController {
     @GetMapping(value = {"/institutionEdit/{id}"})
     public String institutionEditForm(@PathVariable long id, Model model) {
         model.addAttribute("institutionEdit", institutionRepository.findById(id));
-        return "admin/institutionEdit";
+        return "admin/institutions/institutionEdit";
     }
 
     @PostMapping(value = {"institutionEdit/{id}"})
@@ -69,22 +69,22 @@ public class InstitutionController {
         Optional<Institution> institution = institutionRepository.findById(id);
 
         model.addAttribute("institutionDetails", institution.get());
-        return "admin/institutionDetails";
+        return "admin/institutions/institutionDetails";
     }
 
     @GetMapping("/institutionAdd")
     public String institutionAddForm(Model model) {
         model.addAttribute("institutionAdd", new Institution());
-        return "admin/institutionAdd";
+        return "admin/institutions/institutionAdd";
     }
 
     @RequestMapping(value = "/institutionAddSuccess", method = RequestMethod.POST)
     public String institutionAddSuccess(@Valid Institution institution, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/institutionAdd";
+            return "admin/institutions/institutionAdd";
         }
         institutionRepository.save(institution);
-        return "admin/institutionAddSuccess";
+        return "admin/institutions/institutionAddSuccess";
 
     }
 }

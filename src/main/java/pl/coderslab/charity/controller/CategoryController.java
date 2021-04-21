@@ -36,7 +36,7 @@ public class CategoryController {
     @GetMapping(value = {"/adminCategory"})
     public String adminCategory(Model model){
         model.addAttribute("adminCategory", categoryRepository.findAll());
-        return "admin/adminCategory";
+        return "admin/categories/adminCategory";
     }
     @GetMapping(value = {"/categoryDelete/{id}"})
     public String categoryDelete(@PathVariable long id){
@@ -46,7 +46,7 @@ public class CategoryController {
     @GetMapping(value = {"/categoryEdit/{id}"})
     public String categoryEditForm(@PathVariable long id, Model model){
         model.addAttribute("categoryEdit", categoryRepository.findById(id));
-        return "admin/categoryEdit";
+        return "admin/categories/categoryEdit";
     }
 
     @PostMapping(value = {"categoryEdit/{id}"})
@@ -62,22 +62,22 @@ public class CategoryController {
         Optional<Category> category = categoryRepository.findById(id);
 
         model.addAttribute("categoryDetails", category.get());
-        return "admin/categoryDetails";
+        return "admin/categories/categoryDetails";
     }
     @GetMapping("/categoryAdd")
     public String formAction(Model model) {
         model.addAttribute("categoryAdd", new Category());
-        return "admin/categoryAdd";
+        return "admin/categories/categoryAdd";
     }
 
     @RequestMapping(value = "/categoryAddSuccess", method = RequestMethod.POST)
     public String formConfirmationAction(@Valid Category category, BindingResult result) {
 
         if (result.hasErrors()) {
-            return "admin/categoryAdd";
+            return "admin/categories/categoryAdd";
         }
         categoryRepository.save(category);
-        return "admin/categoryAddSuccess";
+        return "redirect:/adminCategory";
     }
 
 }
