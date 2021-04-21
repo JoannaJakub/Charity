@@ -30,6 +30,5 @@
     <a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
 
-<%@ include file="../../footer.jsp" %>
 </body>
 </html>

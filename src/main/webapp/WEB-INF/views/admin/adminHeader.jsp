@@ -24,7 +24,6 @@
             <li><a href="<c:url value="/adminDonation"/>" class="btn btn--without-border">Darowizny</a></li>
             <li><a href="<c:url value="/adminInstitution"/>" class="btn btn--without-border">Fundacje</a></li>
             <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Kategorie</a></li>
-            <li><a href="<c:url value="/admin/#contact"/>" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
 </header>
