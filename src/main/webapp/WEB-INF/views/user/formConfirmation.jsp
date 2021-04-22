@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
 </head>
 <body>
-<%@ include file="../headerLogReg.jsp" %>
+<%@ include file="userHeader.jsp" %>
 
 <section>
-    <div class="slogan container container--90">
+
         <h2>
             <br>
             Dziękujemy za przesłanie formularza.
@@ -23,7 +23,7 @@
             <br>
             Na maila prześlemy wszelkie informacje o odbiorze.
         </h2>
-    </div>
+
 </section>
 
 <section class="steps" id="steps">

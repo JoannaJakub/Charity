@@ -50,23 +50,7 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/form")
-    public String formAction(Model model) {
-        model.addAttribute("donation", new Donation());
-        model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("institution", institutionRepository.findAll());
-        return "user/form";
-    }
 
-    @RequestMapping(value = "/formConfirmation", method = RequestMethod.POST)
-    public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
-
-        if (result.hasErrors()) {
-            return "form";
-        }
-        donationRepository.save(donation);
-        return "user/formConfirmation";
-    }
 
 
     @GetMapping("/register")
