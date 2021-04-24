@@ -30,46 +30,47 @@ public class AdminController {
 
 
     public AdminController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                          CategoryRepository categoryRepository, UserRepository userRepository, UserService userService) {
+                           CategoryRepository categoryRepository, UserRepository userRepository, UserService userService) {
         this.institutionRepository = institutionRepository;
         this.donationRepository = donationRepository;
         this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
-        this.userService =  userService;
+        this.userService = userService;
     }
+
     @GetMapping(value = {"/admin"})
-    public String admin(Model model){
+    public String admin(Model model) {
         model.addAttribute("admin", userService.findAll());
         return "admin/users/adminUsers";
 
     }
 
+    @RequestMapping("/userConfirmDelete/{id}")
+    public String confirmShow() {
+        return "admin/users/userConfirmDelete";
+    }
 
     @GetMapping(value = {"/userDelete/{id}"})
-    public String userDelete(@PathVariable long id){
-     userService.delete(id);
+    public String userDelete(@PathVariable long id) {
+        userService.delete(id);
         return "redirect:/admin";
     }
+
+
     @GetMapping(value = {"/userEdit/{id}"})
-    public String userEditForm(@PathVariable long id, Model model){
-       model.addAttribute("userEdit", userRepository.findById(id));
+    public String userEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("userEdit", userRepository.findById(id));
         return "admin/users/userEdit";
     }
 
     @PostMapping(value = {"userEdit/{id}"})
-    public String userEditSave(@Valid User user){
+    public String userEditSave(@Valid User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userService.saveUser(user);
         return "redirect:/admin";
     }
-
-
-
-
-
-
 
 
 }
