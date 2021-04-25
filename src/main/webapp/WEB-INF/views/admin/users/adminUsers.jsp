@@ -24,6 +24,7 @@
         <th>Nazwisko</th>
         <th>Usuń</th>
         <th>Edytuj</th>
+        <th>Szczegóły</th>
 
       </tr>
       </thead>
@@ -38,6 +39,7 @@
         <td><c:out value="${admin.lastName}"/></td>
         <td ><a href="<c:url value="/userConfirmDelete/?id=${admin.id}"/>">Usuń</a></td>
         <td ><a href="<c:url value="/userEdit/${admin.id}"/>">Edytuj</a></td>
+        <td ><a href="<c:url value="/userDetails/${admin.id}"/>">Szczegóły</a></td>
       </tr>
       </c:forEach>
 

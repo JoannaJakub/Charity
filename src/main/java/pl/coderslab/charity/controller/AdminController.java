@@ -71,6 +71,12 @@ public class AdminController {
         userService.saveUser(user);
         return "redirect:/admin";
     }
+    @GetMapping(value = {"/userDetails/{id}"})
+    public String userDetails(@PathVariable long id, Model model) {
+        Optional<User> user = userRepository.findById(id);
 
+        model.addAttribute("userDetails", user.get());
+        return "admin/users/userDetails";
+    }
 
 }
