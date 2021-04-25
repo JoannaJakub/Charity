@@ -1,19 +1,12 @@
 package pl.coderslab.charity.controller;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Institution;
-import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.repository.CategoryRepository;
-import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
-import pl.coderslab.charity.repository.UserRepository;
-import pl.coderslab.charity.service.UserService;
+
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -21,19 +14,10 @@ import java.util.Optional;
 @Controller
 public class InstitutionController {
     private final InstitutionRepository institutionRepository;
-    private final DonationRepository donationRepository;
-    private final CategoryRepository categoryRepository;
-    private final UserRepository userRepository;
-    private final UserService userService;
 
-
-    public InstitutionController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                                 CategoryRepository categoryRepository, UserRepository userRepository, UserService userService) {
+    public InstitutionController(InstitutionRepository institutionRepository) {
         this.institutionRepository = institutionRepository;
-        this.donationRepository = donationRepository;
-        this.categoryRepository = categoryRepository;
-        this.userRepository = userRepository;
-        this.userService = userService;
+
     }
 
     @GetMapping(value = {"/adminInstitution"})
@@ -42,6 +26,7 @@ public class InstitutionController {
         return "admin/institutions/adminInstitution";
 
     }
+
     @RequestMapping("/institutionConfirmDelete")
     public String institutionConfirmDelete() {
         return "admin/institutions/institutionConfirmDelete";

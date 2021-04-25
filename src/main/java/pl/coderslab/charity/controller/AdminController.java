@@ -3,37 +3,22 @@ package pl.coderslab.charity.controller;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.charity.model.Category;
-import pl.coderslab.charity.model.Donation;
-import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.repository.CategoryRepository;
-import pl.coderslab.charity.repository.DonationRepository;
-import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.Optional;
 
 @Controller
 
 public class AdminController {
-    private final InstitutionRepository institutionRepository;
-    private final DonationRepository donationRepository;
-    private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
     private final UserService userService;
 
 
-    public AdminController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                           CategoryRepository categoryRepository, UserRepository userRepository, UserService userService) {
-        this.institutionRepository = institutionRepository;
-        this.donationRepository = donationRepository;
-        this.categoryRepository = categoryRepository;
+    public AdminController(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
         this.userService = userService;
     }
@@ -71,6 +56,7 @@ public class AdminController {
         userService.saveUser(user);
         return "redirect:/admin";
     }
+
     @GetMapping(value = {"/userDetails/{id}"})
     public String userDetails(@PathVariable long id, Model model) {
         Optional<User> user = userRepository.findById(id);

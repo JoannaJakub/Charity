@@ -19,47 +19,40 @@ import java.util.Optional;
 
 @Controller
 public class DonationController {
-    private final InstitutionRepository institutionRepository;
     private final DonationRepository donationRepository;
-    private final CategoryRepository categoryRepository;
-    private final UserRepository userRepository;
-    private final UserService userService;
 
 
-    public DonationController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                           CategoryRepository categoryRepository, UserRepository userRepository, UserService userService) {
-        this.institutionRepository = institutionRepository;
+    public DonationController(DonationRepository donationRepository) {
         this.donationRepository = donationRepository;
-        this.categoryRepository = categoryRepository;
-        this.userRepository = userRepository;
-        this.userService =  userService;
     }
+
     @GetMapping(value = {"/adminDonation"})
-    public String adminDonation(Model model){
+    public String adminDonation(Model model) {
         model.addAttribute("adminDonation", donationRepository.findAll());
         return "admin/donations/adminDonation";
 
     }
+
     @RequestMapping("/donationConfirmDelete")
     public String donationConfirmDelete() {
         return "admin/donations/donationConfirmDelete";
     }
 
     @GetMapping(value = {"/donationDelete/{id}"})
-    public String donationDelete(@PathVariable long id){
+    public String donationDelete(@PathVariable long id) {
         donationRepository.deleteById(id);
         return "redirect:/adminDonation";
     }
 
     @GetMapping(value = {"/donationEdit/{id}"})
-    public String donationEditForm(@PathVariable long id, Model model){
+    public String donationEditForm(@PathVariable long id, Model model) {
         model.addAttribute("donationEdit", donationRepository.findById(id));
         return "admin/donations/donationEdit";
     }
 
     @PostMapping(value = {"donationEdit/{id}"})
-    public String donationEditSave(@Valid Donation donation, BindingResult result){
-        if(result.hasErrors()){
+    public String donationEditSave(@Valid Donation donation, BindingResult result) {
+        if (result.hasErrors()) {
             return "donationEdit";
         }
         donationRepository.save(donation);

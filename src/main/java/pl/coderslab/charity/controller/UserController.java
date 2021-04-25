@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.charity.model.Donation;
@@ -31,8 +30,9 @@ public class UserController {
         this.donationRepository = donationRepository;
         this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
-        this.userService =  userService;
+        this.userService = userService;
     }
+
     @GetMapping("/form")
     public String formAction(Model model) {
         model.addAttribute("donation", new Donation());
@@ -53,8 +53,8 @@ public class UserController {
 
 
     @GetMapping(value = {"/ownDonation"})
-    public String admin(Model model){
-       // model.addAttribute("ownDonation", userService.findById(id));
+    public String admin(Model model) {
+        // model.addAttribute("ownDonation", userService.findById(id));
         model.addAttribute("ownDonation", donationRepository.findAll());
         return "user/ownDonation";
 

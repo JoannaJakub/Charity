@@ -10,7 +10,7 @@
 
 
 <section class="login-page">
-    <h2>Lista darowizn</h2>
+    <h2>Szczegóły kategori</h2>
 
 
     <table style="width:50%" border="1" cellpadding="20">

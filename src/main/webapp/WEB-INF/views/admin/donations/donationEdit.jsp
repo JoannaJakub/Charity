@@ -11,7 +11,7 @@
 
 <section class="login-page">
 
-    <h2>Edycja użytkownika</h2>
+    <h2>Edycja darowizny</h2>
 
     <tbody>
     <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">

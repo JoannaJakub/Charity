@@ -7,11 +7,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
-import pl.coderslab.charity.service.UserService;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
@@ -24,18 +22,14 @@ import java.util.List;
 public class HomeController {
     private final InstitutionRepository institutionRepository;
     private final DonationRepository donationRepository;
-    private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
-    private final UserService userService;
 
 
     public HomeController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                          CategoryRepository categoryRepository, UserRepository userRepository, UserService userService) {
+                          UserRepository userRepository) {
         this.institutionRepository = institutionRepository;
         this.donationRepository = donationRepository;
-        this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
-        this.userService =  userService;
     }
 
 
@@ -49,8 +43,6 @@ public class HomeController {
         model.addAttribute("id", id);
         return "index";
     }
-
-
 
 
     @GetMapping("/register")
@@ -79,8 +71,8 @@ public class HomeController {
 
 
     @GetMapping(value = {"/login"})
-    public String login(){
-            return "login";
+    public String login() {
+        return "login";
 
     }
 
