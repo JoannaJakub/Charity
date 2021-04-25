@@ -38,9 +38,9 @@
       <tr>
         <td><c:out value="${adminCategory.id}"/></td>
         <td><c:out value="${adminCategory.name}"/></td>
-        <td ><a href="/categoryDelete/${adminCategory.id}">Usuń</a></td>
-        <td ><a href="/categoryEdit/${adminCategory.id}">Edytuj</a></td>
-        <td ><a href="/categoryDetails/${adminCategory.id}">Szczegóły</a></td>
+        <td ><a href="<c:url value="/categoryConfirmDelete/?id=${adminCategory.id}"/>">Usuń</a></td>
+        <td ><a href="<c:url value="/categoryEdit/${adminCategory.id}"/>">Edytuj</a></td>
+        <td ><a href="<c:url value="/categoryDetails/${adminCategory.id}"/>">Szczegóły</a></td>
       </tr>
       </c:forEach>
 

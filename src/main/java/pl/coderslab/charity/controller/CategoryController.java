@@ -38,6 +38,10 @@ public class CategoryController {
         model.addAttribute("adminCategory", categoryRepository.findAll());
         return "admin/categories/adminCategory";
     }
+    @RequestMapping("/categoryConfirmDelete")
+    public String categoryConfirmDelete() {
+        return "admin/categories/categoryConfirmDelete";
+    }
     @GetMapping(value = {"/categoryDelete/{id}"})
     public String categoryDelete(@PathVariable long id){
         categoryRepository.deleteById(id);

@@ -37,7 +37,7 @@
         <br>
         <a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Powrót</a></li>
         <a href="<c:url value="/categoryEdit/${categoryDetails.id}"/>" class="btn btn--without-border">Edycja</a></li>
-        <a href="<c:url value="/categoryDelete/${categoryDetails.id}"/>" class="btn btn--without-border">Usuń</a></li>
+        <a href="<c:url value="/categoryConfirmDelete/?id=${categoryDetails.id}"/>" class="btn btn--without-border">Usuń</a></li>
     </div>
 </section>
 

@@ -42,6 +42,10 @@ public class InstitutionController {
         return "admin/institutions/adminInstitution";
 
     }
+    @RequestMapping("/institutionConfirmDelete")
+    public String institutionConfirmDelete() {
+        return "admin/institutions/institutionConfirmDelete";
+    }
 
     @GetMapping(value = {"/institutionDelete/{id}"})
     public String institutionDelete(@PathVariable long id) {

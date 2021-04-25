@@ -11,17 +11,17 @@
 
 <section class="login-page">
 
-    <h2>Czy jesteś pewien usunięcia użytkownika?</h2>
+    <h2>Czy jesteś pewien usunięcia darowizny?</h2>
 
     <tbody>
     <table style="width:35%"  cellpadding="45" class="btn btn--without-border active">
 
             <tr>
                 <td>
-                    <a href="<c:url value="/admin"/>" class="btn btn--without-active">NIE</a>
+                    <a href="<c:url value="/adminDonation"/>" class="btn btn--without-active">NIE</a>
                 </td>
                 <td>
-                    <a href="<c:url value="/userDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
+                    <a href="<c:url value="/donationDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
                 </td>
             </tr>
 

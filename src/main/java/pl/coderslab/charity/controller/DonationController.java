@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
@@ -39,6 +40,11 @@ public class DonationController {
         return "admin/donations/adminDonation";
 
     }
+    @RequestMapping("/donationConfirmDelete")
+    public String donationConfirmDelete() {
+        return "admin/donations/donationConfirmDelete";
+    }
+
     @GetMapping(value = {"/donationDelete/{id}"})
     public String donationDelete(@PathVariable long id){
         donationRepository.deleteById(id);

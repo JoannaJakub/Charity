@@ -43,9 +43,9 @@
         <td><c:out value="${adminDonation.zipCode}"/></td>
         <td><c:out value="${adminDonation.street}"/></td>
         <td><c:out value="${adminDonation.phoneNumber}"/></td>
-        <td ><a href="/donationDelete/${adminDonation.id}">Usuń</a></td>
-        <td ><a href="/donationEdit/${adminDonation.id}">Edytuj</a></td>
-        <td ><a href="/donationDetails/${adminDonation.id}">Szczegóły</a></td>
+        <td ><a href="<c:url value="/donationConfirmDelete/?id=${adminDonation.id}"/>">Usuń</a></td>
+        <td ><a href="<c:url value="/donationEdit/${adminDonation.id}"/>">Edytuj</a></td>
+        <td ><a href="<c:url value="/donationDetails/${adminDonation.id}"/>">Szczegóły</a></td>
       </tr>
       </c:forEach>
 

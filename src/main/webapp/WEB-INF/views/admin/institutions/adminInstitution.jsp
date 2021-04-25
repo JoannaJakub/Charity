@@ -32,9 +32,9 @@
         <td><c:out value="${adminInstitution.id}"/></td>
         <td><c:out value="${adminInstitution.name}"/></td>
         <td><c:out value="${adminInstitution.description}"/></td>
-        <td ><a href="/institutionDelete/${adminInstitution.id}">Usuń</a></td>
-        <td ><a href="/institutionEdit/${adminInstitution.id}">Edytuj</a></td>
-        <td ><a href="/institutionDetails/${adminInstitution.id}">Szczegóły</a></td>
+        <td ><a href="<c:url value="/institutionConfirmDelete/?id=${adminInstitution.id}"/>">Usuń</a></td>
+        <td ><a href="<c:url value="/institutionEdit/${adminInstitution.id}"/>">Edytuj</a></td>
+        <td ><a href="<c:url value="/institutionDetails/${adminInstitution.id}"/>">Szczegóły</a></td>
       </tr>
       </c:forEach>
 

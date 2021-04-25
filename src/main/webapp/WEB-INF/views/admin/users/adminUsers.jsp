@@ -36,8 +36,8 @@
         <td><c:out value="${admin.enabled}"/></td>
         <td><c:out value="${admin.firstName}"/></td>
         <td><c:out value="${admin.lastName}"/></td>
-        <td ><a href="/userConfirmDelete/${admin.id}">Usuń</a></td>
-        <td ><a href="/userEdit/${admin.id}">Edytuj</a></td>
+        <td ><a href="<c:url value="/userConfirmDelete/?id=${admin.id}"/>">Usuń</a></td>
+        <td ><a href="<c:url value="/userEdit/${admin.id}"/>">Edytuj</a></td>
       </tr>
       </c:forEach>
 

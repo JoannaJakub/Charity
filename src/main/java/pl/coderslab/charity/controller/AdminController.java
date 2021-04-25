@@ -45,8 +45,8 @@ public class AdminController {
 
     }
 
-    @RequestMapping("/userConfirmDelete/{id}")
-    public String confirmShow() {
+    @RequestMapping("/userConfirmDelete")
+    public String userConfirmDelete() {
         return "admin/users/userConfirmDelete";
     }
 
