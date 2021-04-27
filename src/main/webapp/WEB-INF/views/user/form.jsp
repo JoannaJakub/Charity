@@ -61,6 +61,7 @@
 
 
         <form:form action="formConfirmation" method="post" modelAttribute="donation">
+            <input type="hidden" name="user" value="${user.id}">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>

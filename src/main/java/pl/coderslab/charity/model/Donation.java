@@ -46,4 +46,6 @@ public class Donation {
     @ManyToOne
     @NotNull(message = "Proszę wybrać instytucje")
     private Institution institution;
+    @ManyToOne
+    private User user;
 }

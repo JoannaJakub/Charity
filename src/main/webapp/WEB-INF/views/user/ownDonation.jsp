@@ -34,6 +34,7 @@
       <tbody>
 
       <c:forEach items="${ownDonation}" var="ownDonation">
+        <input type="hidden" name="user" value="${user.id}">
       <tr>
         <td><c:out value="${ownDonation.id}"/></td>
         <td><c:out value="${ownDonation.pickUpDate}"/></td>

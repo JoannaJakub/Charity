@@ -1,12 +1,15 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.charity.model.Donation;
+import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
@@ -14,6 +17,7 @@ import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -34,10 +38,11 @@ public class UserController {
     }
 
     @GetMapping("/form")
-    public String formAction(Model model) {
+    public String formAction(Model model, Authentication authentication) {
         model.addAttribute("donation", new Donation());
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("institution", institutionRepository.findAll());
+        model.addAttribute("user", userService.findByEmail(authentication.getName()));
         return "user/form";
     }
 
@@ -59,5 +64,13 @@ public class UserController {
         return "user/ownDonation";
 
     }
+    @GetMapping(value = {"/userPersonalDetails"})
+    public String userPersonalDetails(@PathVariable long id, Model model, Authentication authentication) {
+     //   Optional<User> user = userRepository.findById(id);
+      //  model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        model.addAttribute("user", userService.findByEmail(authentication.getName()));
 
+        model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));;
+        return "user/userPersonalDetails";
+    }
 }
