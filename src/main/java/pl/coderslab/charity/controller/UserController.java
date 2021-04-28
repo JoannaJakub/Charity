@@ -73,4 +73,10 @@ public class UserController {
         model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));;
         return "user/userPersonalDetails";
     }
+    @GetMapping(value = {"/contact"})
+    public String contact(Model model) {
+
+        return "user/contact";
+
+    }
 }
