@@ -16,10 +16,17 @@
   <nav class="container container--70">
     <ul class="nav--actions">
       <li class="logged-user">
-        Witaj Agata
+        Witaj         <c:out value="${pageContext.request.remoteUser}"/>
         <ul class="dropdown">
           <li><a href="#">Zmień hasło</a></li>
-          <li><a href="#">Wyloguj</a></li>
+          <li>
+            <a href="<c:url var="logoutUrl" value="/logout"/>">
+            <form:form action="${logoutUrl}" method="post">
+              <input type="submit" value="Wyloguj" />
+              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form:form>
+            </a></li>
+
         </ul>
       </li>
     </ul>
