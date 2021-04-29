@@ -18,7 +18,7 @@
       <li class="logged-user">
         Witaj         <c:out value="${pageContext.request.remoteUser}"/>
         <ul class="dropdown">
-          <li><a href="#">Zmień hasło</a></li>
+          <li><a href="<c:url value="/changePassword"/>">Zmień hasło</a></li>
           <li>
             <a href="<c:url var="logoutUrl" value="/logout"/>">
             <form:form action="${logoutUrl}" method="post">

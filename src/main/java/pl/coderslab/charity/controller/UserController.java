@@ -1,13 +1,13 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.CategoryRepository;
@@ -16,7 +16,9 @@ import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.Optional;
 
 @Controller
@@ -64,15 +66,18 @@ public class UserController {
         return "user/ownDonation";
 
     }
+
     @GetMapping(value = {"/userPersonalDetails"})
     public String userPersonalDetails(@PathVariable long id, Model model, Authentication authentication) {
-     //   Optional<User> user = userRepository.findById(id);
-      //  model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        //   Optional<User> user = userRepository.findById(id);
+        //  model.addAttribute("user", userService.findByEmail(authentication.getName()));
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
 
-        model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));;
+        model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));
+        ;
         return "user/userPersonalDetails";
     }
+
     @GetMapping(value = {"/contact"})
     public String contact(Model model) {
 
@@ -80,4 +85,24 @@ public class UserController {
 
     }
 
+    @GetMapping("/changePassword")
+    public String changePassword(Model model) {
+        model.addAttribute("user", new User());
+        return "user/changePassword";
+    }
+
+    @RequestMapping(value = "/changePasswordSuccess", method = RequestMethod.POST)
+    public String processRegister(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "changePassword";
+        } else {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = passwordEncoder.encode(user.getPassword());
+            user.setPassword(encodedPassword);
+
+            userRepository.save(user);
+            return "user/changePasswordSuccess";
+        }
+
+    }
 }
