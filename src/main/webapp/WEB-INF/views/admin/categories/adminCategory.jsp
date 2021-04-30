@@ -102,6 +102,35 @@
         <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
+<section class="login-page">
+    <h2>Lista kategorii według fundacji</h2>
+    <table style="width:100%" border="1" cellpadding="9">
+
+        <thead>
+        <tr>
+            <th>Kategorie</th>
+            <th>Instytucje</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach items="${categoryInstitutions}" var="categoryInstitutions">
+            <tr>
+                <td><c:out value="${categoryInstitutions.categories}"/></td>
+                <td><c:out value="${categoryInstitutions.institution}"/></td>
+
+            </tr>
+        </c:forEach>
+
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+        <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+    </div>
+</section>
 
 </body>
 </html>

@@ -27,6 +27,7 @@ public class CategoryController {
     public String adminCategory(Model model) {
         model.addAttribute("adminCategory", categoryRepository.findAll());
         model.addAttribute("categoryDonations", donationRepository.findAll());
+        model.addAttribute("categoryInstitutions", donationRepository.findAll());
         return "admin/categories/adminCategory";
     }
 
