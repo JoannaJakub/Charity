@@ -40,7 +40,54 @@
         <a href="<c:url value="/categoryConfirmDelete/?id=${categoryDetails.id}"/>" class="btn btn--without-border">Usuń</a></li>
     </div>
 </section>
+<section class="login-page">
+    <h2>Lista darowizn dla kategorii
+    </h2>
+    <table style="width:100%" border="1" cellpadding="9">
 
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Godzina</th>
+            <th>ilość</th>
+            <th>Miasto</th>
+            <th>Kod pocztowy</th>
+            <th>Ulica</th>
+            <th>Numer telefonu</th>
+            <th>Usuń</th>
+            <th>Edytuj</th>
+            <th>Szczegóły</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach items="${oneCategoryDonations}" var="oneCategoryDonations">
+            <tr>
+                <td><c:out value="${oneCategoryDonations.id}"/></td>
+                <td><c:out value="${oneCategoryDonations.pickUpDate}"/></td>
+                <td><c:out value="${oneCategoryDonations.pickUpTime}"/></td>
+                <td><c:out value="${oneCategoryDonations.quantity}"/></td>
+                <td><c:out value="${oneCategoryDonations.city}"/></td>
+                <td><c:out value="${oneCategoryDonations.zipCode}"/></td>
+                <td><c:out value="${oneCategoryDonations.street}"/></td>
+                <td><c:out value="${oneCategoryDonations.phoneNumber}"/></td>
+                <td><a href="/donationDelete/${oneCategoryDonations.id}">Usuń</a></td>
+                <td><a href="/donationEdit/${oneCategoryDonations.id}">Edytuj</a></td>
+                <td><a href="/donationDetails/${oneCategoryDonations.id}">Szczegóły</a></td>
+            </tr>
+        </c:forEach>
+
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+        <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+    </div>
+</section>
 
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>

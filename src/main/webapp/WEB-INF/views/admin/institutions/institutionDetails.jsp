@@ -16,9 +16,9 @@
     <table style="width:50%" border="1" cellpadding="20">
 
         <thead>
-            <td>Id</td>
-            <td>Nazwa</td>
-            <td>Opis</td>
+        <td>Id</td>
+        <td>Nazwa</td>
+        <td>Opis</td>
         </thead>
         <tbody>
 
@@ -38,13 +38,14 @@
     <div class="form-group form-group--buttons">
         <br>
         <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-border">Powrót</a></li>
-        <a href="<c:url value="/institutionEdit/${institutionDetails.id}"/>" class="btn btn--without-border">Edycja</a></li>
-        <a href="<c:url value="/institutionConfirmDelete/?id=${institutionDetails.id}"/>" class="btn btn--without-border">Usuń</a></li>
+        <a href="<c:url value="/institutionEdit/${institutionDetails.id}"/>"
+           class="btn btn--without-border">Edycja</a></li>
+        <a href="<c:url value="/institutionConfirmDelete/?id=${institutionDetails.id}"/>"
+           class="btn btn--without-border">Usuń</a></li>
     </div>
 </section>
 <section class="login-page">
-    <h2>Lista darowizn dla fundacji
-    </h2>
+    <h2>Lista darowizn dla fundacji</h2>
     <table style="width:100%" border="1" cellpadding="9">
 
         <thead>

@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.repository.CategoryRepository;
+import pl.coderslab.charity.repository.DonationRepository;
 
 
 import javax.validation.Valid;
@@ -14,15 +15,19 @@ import java.util.Optional;
 @Controller
 public class CategoryController {
     private final CategoryRepository categoryRepository;
+    private final DonationRepository donationRepository;
 
 
-    public CategoryController(CategoryRepository categoryRepository) {
+    public CategoryController(CategoryRepository categoryRepository, DonationRepository donationRepository) {
         this.categoryRepository = categoryRepository;
+        this.donationRepository = donationRepository;
     }
 
     @GetMapping(value = {"/adminCategory"})
     public String adminCategory(Model model) {
         model.addAttribute("adminCategory", categoryRepository.findAll());
+        model.addAttribute("categoryDonations", donationRepository.findAll());
+        System.out.println(donationRepository.findAll());
         return "admin/categories/adminCategory";
     }
 
@@ -57,6 +62,8 @@ public class CategoryController {
         Optional<Category> category = categoryRepository.findById(id);
 
         model.addAttribute("categoryDetails", category.get());
+        model.addAttribute("oneCategoryDonations", donationRepository.findDonationByCategoryId(id));
+
         return "admin/categories/categoryDetails";
     }
 

@@ -16,4 +16,9 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     List<Donation> findDonationByUserId(long User);
     List<Donation> findDonationByInstitutionId(long Institution);
+
+    @Query(value ="SELECT*FROM donation d JOIN  donation_categories dc  ON d.id = dc.donation_id where categories_id=?", nativeQuery=true)
+    List<Donation> findDonationByCategoryId(long Category);
+
+
 }
