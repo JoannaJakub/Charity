@@ -85,24 +85,18 @@ public class UserController {
 
     }
 
-    @GetMapping("/changePassword")
-    public String changePassword(Model model) {
-        model.addAttribute("user", new User());
+
+    @GetMapping(value = {"/changePassword"})
+    public String userChangePassword(@PathVariable long id, Model model) {
+        model.addAttribute("changePassword", userRepository.findById(id));
         return "user/changePassword";
     }
 
-    @RequestMapping(value = "/changePasswordSuccess", method = RequestMethod.POST)
-    public String processRegister(@Valid User user, BindingResult result) {
-        if (result.hasErrors()) {
-            return "changePassword";
-        } else {
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String encodedPassword = passwordEncoder.encode(user.getPassword());
-            user.setPassword(encodedPassword);
-
-            userRepository.save(user);
-            return "user/changePasswordSuccess";
-        }
-
+    @PostMapping(value = {"changePassword/{id}"})
+    public String userChangePasswordSave(@Valid User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        return "redirect:/form";
     }
 }

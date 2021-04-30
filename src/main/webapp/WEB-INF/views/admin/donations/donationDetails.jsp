@@ -42,6 +42,7 @@
                 <td><c:out value="${donationDetails.phoneNumber}"/></td>
                 <td><c:out value="${donationDetails.categories}"/></td>
                 <td><c:out value="${donationDetails.institution}"/></td>
+                <td><c:out value="${donationDetails.user}"/></td>
 
 
             </tr>

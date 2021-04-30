@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
@@ -16,11 +17,13 @@ import java.util.Optional;
 public class AdminController {
     private final UserRepository userRepository;
     private final UserService userService;
+    private final DonationRepository donationRepository;
 
 
-    public AdminController(UserRepository userRepository, UserService userService) {
+    public AdminController(UserRepository userRepository, UserService userService, DonationRepository donationRepository) {
         this.userRepository = userRepository;
         this.userService = userService;
+        this.donationRepository = donationRepository;
     }
 
     @GetMapping(value = {"/admin"})
@@ -64,5 +67,9 @@ public class AdminController {
         model.addAttribute("userDetails", user.get());
         return "admin/users/userDetails";
     }
-
+    @GetMapping(value = {"/oneUserDonations/{id}"})
+    public String donationEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("oneUserDonations", donationRepository.findDonationById(id));
+        return "admin/users/oneUserDonations";
+    }
 }

@@ -25,6 +25,7 @@
         <th>Usuń</th>
         <th>Edytuj</th>
         <th>Szczegóły</th>
+        <th>Darowizny użytkownika</th>
 
       </tr>
       </thead>
@@ -40,6 +41,7 @@
         <td ><a href="<c:url value="/userConfirmDelete/?id=${admin.id}"/>">Usuń</a></td>
         <td ><a href="<c:url value="/userEdit/${admin.id}"/>">Edytuj</a></td>
         <td ><a href="<c:url value="/userDetails/${admin.id}"/>">Szczegóły</a></td>
+        <td ><a href="<c:url value="/oneUserDonations/${admin.id}"/>">Darowizny użytkownika</a></td>
       </tr>
       </c:forEach>
 

@@ -12,20 +12,24 @@
 <section class="login-page">
     <h2>Szczegóły użytkownika</h2>
 
-    <form:form action="changePasswordSuccess" modelAttribute="changePassword" method="post">
-        <div class="form-group">
-            <form:input type="password" name="password" placeholder="Hasło" path="password" />
-            <form:errors path="password"/>
-        </div>
-        <div class="form-group">
-            <form:input type="password" name="retypePassword" placeholder="Powtórz hasło" path="retypePassword"   />
-            <form:errors path="retypePassword"/>
-        </div>
-
-        <div class="form-group form-group--buttons">
-            <a href="<c:url value="/login"/>" class="btn btn--without-border">Zaloguj się</a>
-            <button class="btn" type="submit">Załóż konto</button>
-        </div>
+    <form:form modelAttribute="changePassword" method="post">
+        <tr>
+            <td><c:out value="${id}"/></td>
+            <td>Hasło</td>
+            <td><form:input path="password"/></td>
+        </tr>
+        <tr>
+            <td>Hasło</td>
+            <td><form:input path="retypePassword"/></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="<c:url value="/admin"/>" class="btn btn--without-active">Powrót</a></li>
+            </td>
+            <td>
+                <button type="submit" class="btn btn--without-active"/>Zapisz</button>
+            </td>
+        </tr>
     </form:form>
 
 </section>
