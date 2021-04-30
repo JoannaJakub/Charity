@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Institution;
+import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
 
@@ -14,10 +15,12 @@ import java.util.Optional;
 @Controller
 public class InstitutionController {
     private final InstitutionRepository institutionRepository;
+    private final DonationRepository donationRepository;
 
-    public InstitutionController(InstitutionRepository institutionRepository) {
+    public InstitutionController(InstitutionRepository institutionRepository, DonationRepository donationRepository) {
         this.institutionRepository = institutionRepository;
 
+        this.donationRepository = donationRepository;
     }
 
     @GetMapping(value = {"/adminInstitution"})
@@ -58,6 +61,7 @@ public class InstitutionController {
         Optional<Institution> institution = institutionRepository.findById(id);
 
         model.addAttribute("institutionDetails", institution.get());
+        model.addAttribute("oneInstitutionDonations", donationRepository.findDonationByInstitutionId(id));
         return "admin/institutions/institutionDetails";
     }
 
@@ -76,4 +80,5 @@ public class InstitutionController {
         return "admin/institutions/institutionAddSuccess";
 
     }
+
 }

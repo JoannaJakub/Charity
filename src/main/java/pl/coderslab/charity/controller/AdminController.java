@@ -4,12 +4,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -67,9 +69,11 @@ public class AdminController {
         model.addAttribute("userDetails", user.get());
         return "admin/users/userDetails";
     }
+
     @GetMapping(value = {"/oneUserDonations/{id}"})
     public String donationEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("oneUserDonations", donationRepository.findDonationByUserId(id));
+        List<Donation> oneUserDonations = donationRepository.findDonationByUserId(id);
+        model.addAttribute("oneUserDonations", oneUserDonations);
         return "admin/users/oneUserDonations";
     }
 }
