@@ -10,9 +10,13 @@
 
 
   <section class="login-page">
-    <h2>Lista darowizn użytkownika</h2>
-
-
+    <h2>Lista darowizn użytkownika
+<c:forEach items="${oneUserDonations}" var="oneUserDonations">
+  <tr>
+  <td><c:out value="${oneUserDonations.user}"/></td>
+  </tr>
+</c:forEach>
+    </h2>
     <table style="width:100%" border="1" cellpadding="9">
 
       <thead>

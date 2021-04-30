@@ -69,7 +69,7 @@ public class AdminController {
     }
     @GetMapping(value = {"/oneUserDonations/{id}"})
     public String donationEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("oneUserDonations", donationRepository.findDonationById(id));
+        model.addAttribute("oneUserDonations", donationRepository.findDonationByUserId(id));
         return "admin/users/oneUserDonations";
     }
 }
