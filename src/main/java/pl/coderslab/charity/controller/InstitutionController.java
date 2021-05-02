@@ -27,6 +27,7 @@ public class InstitutionController {
     public String adminInstitution(Model model) {
         model.addAttribute("adminInstitution", institutionRepository.findAll());
         model.addAttribute("institutionDonations", donationRepository.findAll());
+        model.addAttribute("institutionCategories", donationRepository.findAll());
         return "admin/institutions/adminInstitution";
 
     }
