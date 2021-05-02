@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Donation;
+import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
@@ -98,5 +99,20 @@ public class UserController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         return "redirect:/form";
+    }
+    @GetMapping("/institutionAddByUser")
+    public String institutionAddForm(Model model) {
+        model.addAttribute("institutionAddByUser", new Institution());
+        return "user/institutionAddByUser";
+    }
+
+    @RequestMapping(value = "/institutionAddByUserSuccess", method = RequestMethod.POST)
+    public String institutionAddSuccess(@Valid Institution institution, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user/institutionAddByUser";
+        }
+        institutionRepository.save(institution);
+        return "user/institutionAddByUserSuccess";
+
     }
 }

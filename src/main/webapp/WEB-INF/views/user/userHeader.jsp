@@ -34,6 +34,7 @@
     <ul>
       <li><a href="<c:url value="/form"/>" class="btn btn--without-border active">Start</a></li>
       <li><a href="<c:url value="/ownDonation"/>" class="btn btn--without-border">Moje darowizny</a></li>
+      <li><a href="<c:url value="/institutionAddByUser"/>" class="btn btn--without-border">Dodaj fundację</a></li>
       <li><a href="<c:url value="/userPersonalDetails"/>" class="btn btn--without-border">Moje dane</a></li>
       <li><a href="<c:url value="/contact"/>" class="btn btn--without-border">Zgłoś problem</a></li>
     </ul>
