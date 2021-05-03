@@ -59,7 +59,14 @@ public class AdminController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userService.saveUser(user);
-        return "redirect:/admin";
+        return "redirect:/userConfirmEditing/{id}";
+    }
+    @RequestMapping("/userConfirmEditing/{id}")
+    public String userConfirmEditing(@PathVariable long id, Model model) {
+        Optional<User> user = userRepository.findById(id);
+        model.addAttribute("userConfirmEdit", user.get());
+        System.out.println(user);
+        return "admin/users/userConfirmEdit";
     }
 
     @GetMapping(value = {"/userDetails/{id}"})
