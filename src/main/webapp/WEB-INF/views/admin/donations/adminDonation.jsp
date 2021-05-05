@@ -55,7 +55,7 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-      <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+      <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
   </section>
 

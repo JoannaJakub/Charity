@@ -44,7 +44,7 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-      <a href="institutionAdd" class="btn btn--without-border">Dodaj fundacje</a>
+      <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj fundacje</a>
     </div>
   </section>
 <section class="login-page">
@@ -92,7 +92,7 @@
   <br>
   <br>
   <div class="form-group form-group--buttons">
-    <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+    <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
   </div>
 </section>
 <section class="login-page">
@@ -121,7 +121,7 @@
   <br>
   <br>
   <div class="form-group form-group--buttons">
-    <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+    <a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a>
   </div>
 </section>
   </body>

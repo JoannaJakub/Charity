@@ -1,12 +1,16 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
+import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
 import pl.coderslab.charity.service.UserService;
 
@@ -20,12 +24,18 @@ public class AdminController {
     private final UserRepository userRepository;
     private final UserService userService;
     private final DonationRepository donationRepository;
+    private final CategoryRepository categoryRepository;
+    private final InstitutionRepository institutionRepository;
 
 
-    public AdminController(UserRepository userRepository, UserService userService, DonationRepository donationRepository) {
+    public AdminController(UserRepository userRepository, UserService userService,
+                           DonationRepository donationRepository, CategoryRepository categoryRepository, InstitutionRepository institutionRepository) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.donationRepository = donationRepository;
+        this.categoryRepository = categoryRepository;
+        this.institutionRepository = institutionRepository;
+        ;
     }
 
     @GetMapping(value = {"/admin"})
@@ -65,7 +75,6 @@ public class AdminController {
     public String userConfirmEditing(@PathVariable long id, Model model) {
         Optional<User> user = userRepository.findById(id);
         model.addAttribute("userConfirmEdit", user.get());
-        System.out.println(user);
         return "admin/users/userConfirmEdit";
     }
 
@@ -82,5 +91,22 @@ public class AdminController {
         List<Donation> oneUserDonations = donationRepository.findDonationByUserId(id);
         model.addAttribute("oneUserDonations", oneUserDonations);
         return "admin/users/oneUserDonations";
+    }
+    @GetMapping("/adminForm")
+    public String formAction(Model model) {
+        model.addAttribute("donation", new Donation());
+        model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("institution", institutionRepository.findAll());
+        return "admin/donations/adminForm";
+    }
+
+    @RequestMapping(value = "/adminFormConfirmation", method = RequestMethod.POST)
+    public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "adminForm";
+        }
+        donationRepository.save(donation);
+        return "admin/donations/adminFormConfirmation";
     }
 }
