@@ -58,6 +58,101 @@
       <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
   </section>
+<section class="login-page">
+  <h2>Lista darowizn wg kategorii</h2>
+  <table style="width:100%" border="1" cellpadding="9">
 
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Id</th>
+      <th>Data</th>
+      <th>Godzina</th>
+      <th>ilość</th>
+      <th>Miasto</th>
+      <th>Kod pocztowy</th>
+      <th>Ulica</th>
+      <th>Numer telefonu</th>
+      <th>Usuń</th>
+      <th>Edytuj</th>
+      <th>Szczegóły</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${donationCategories}" var="donationCategories">
+      <tr>
+        <td><c:out value="${donationCategories.categories}"/></td>
+        <td><c:out value="${donationCategories.id}"/></td>
+        <td><c:out value="${donationCategories.pickUpDate}"/></td>
+        <td><c:out value="${donationCategories.pickUpTime}"/></td>
+        <td><c:out value="${donationCategories.quantity}"/></td>
+        <td><c:out value="${donationCategories.city}"/></td>
+        <td><c:out value="${donationCategories.zipCode}"/></td>
+        <td><c:out value="${donationCategories.street}"/></td>
+        <td><c:out value="${donationCategories.phoneNumber}"/></td>
+        <td><a href="/donationDelete/${donationCategories.id}">Usuń</a></td>
+        <td><a href="/donationEdit/${donationCategories.id}">Edytuj</a></td>
+        <td><a href="/donationDetails/${donationCategories.id}">Szczegóły</a></td>
+      </tr>
+    </c:forEach>
+
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <div class="form-group form-group--buttons">
+    <a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a>
+  </div>
+</section>
+<section class="login-page">
+  <h2>Lista darowizn wg fundacji</h2>
+  <table style="width:100%" border="1" cellpadding="9">
+
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Id</th>
+      <th>Data</th>
+      <th>Godzina</th>
+      <th>ilość</th>
+      <th>Miasto</th>
+      <th>Kod pocztowy</th>
+      <th>Ulica</th>
+      <th>Numer telefonu</th>
+      <th>Usuń</th>
+      <th>Edytuj</th>
+      <th>Szczegóły</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${donationInstitutions}" var="donationInstitutions">
+      <tr>
+        <td><c:out value="${donationInstitutions.institution}"/></td>
+        <td><c:out value="${donationInstitutions.id}"/></td>
+        <td><c:out value="${donationInstitutions.pickUpDate}"/></td>
+        <td><c:out value="${donationInstitutions.pickUpTime}"/></td>
+        <td><c:out value="${donationInstitutions.quantity}"/></td>
+        <td><c:out value="${donationInstitutions.city}"/></td>
+        <td><c:out value="${donationInstitutions.zipCode}"/></td>
+        <td><c:out value="${donationInstitutions.street}"/></td>
+        <td><c:out value="${donationInstitutions.phoneNumber}"/></td>
+        <td><a href="/donationDelete/${donationInstitutions.id}">Usuń</a></td>
+        <td><a href="/donationEdit/${institutionDonations.id}">Edytuj</a></td>
+        <td><a href="/donationDetails/${donationInstitutions.id}">Szczegóły</a></td>
+      </tr>
+    </c:forEach>
+
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <div class="form-group form-group--buttons">
+    <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj instytucje</a>
+  </div>
+</section>
   </body>
 </html>

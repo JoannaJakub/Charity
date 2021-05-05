@@ -29,6 +29,8 @@ public class DonationController {
     @GetMapping(value = {"/adminDonation"})
     public String adminDonation(Model model) {
         model.addAttribute("adminDonation", donationRepository.findAll());
+        model.addAttribute("donationCategories", donationRepository.findAll());
+        model.addAttribute("donationInstitutions", donationRepository.findAll());
         return "admin/donations/adminDonation";
 
     }
