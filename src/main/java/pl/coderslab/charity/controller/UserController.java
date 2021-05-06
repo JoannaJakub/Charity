@@ -68,7 +68,7 @@ public class UserController {
 
     }
 
-    @GetMapping(value = {"/userPersonalDetails"})
+/*    @GetMapping(value = {"/userPersonalDetails"})
     public String userPersonalDetails(@PathVariable long id, Model model, Authentication authentication) {
         //   Optional<User> user = userRepository.findById(id);
         //  model.addAttribute("user", userService.findByEmail(authentication.getName()));
@@ -77,6 +77,14 @@ public class UserController {
         model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));
         ;
         return "user/userPersonalDetails";
+    }*/
+    @GetMapping(value = {"/userPersonalDetails"})
+    public String userDetails(Model model) {
+        model.addAttribute("userPersonalDetails", userService.getCurrentUser());
+     //   Optional<User> user = Optional.ofNullable(userService.findById(id));
+       // model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));
+        //model.addAttribute("userPersonalDetails", user.get());
+         return "user/userPersonalDetails";
     }
 
     @GetMapping(value = {"/contact"})

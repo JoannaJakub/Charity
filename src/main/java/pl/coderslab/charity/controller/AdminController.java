@@ -1,17 +1,14 @@
 package pl.coderslab.charity.controller;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.model.Contact;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.repository.CategoryRepository;
-import pl.coderslab.charity.repository.DonationRepository;
-import pl.coderslab.charity.repository.InstitutionRepository;
-import pl.coderslab.charity.repository.UserRepository;
+import pl.coderslab.charity.repository.*;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
@@ -26,16 +23,17 @@ public class AdminController {
     private final DonationRepository donationRepository;
     private final CategoryRepository categoryRepository;
     private final InstitutionRepository institutionRepository;
+    private final ContactRepository contactRepository;
 
 
     public AdminController(UserRepository userRepository, UserService userService,
-                           DonationRepository donationRepository, CategoryRepository categoryRepository, InstitutionRepository institutionRepository) {
+                           DonationRepository donationRepository, CategoryRepository categoryRepository, InstitutionRepository institutionRepository, ContactRepository contactRepository) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.donationRepository = donationRepository;
         this.categoryRepository = categoryRepository;
         this.institutionRepository = institutionRepository;
-        ;
+        this.contactRepository = contactRepository;
     }
 
     @GetMapping(value = {"/admin"})
@@ -81,7 +79,6 @@ public class AdminController {
     @GetMapping(value = {"/userDetails/{id}"})
     public String userDetails(@PathVariable long id, Model model) {
         Optional<User> user = userRepository.findById(id);
-
         model.addAttribute("userDetails", user.get());
         return "admin/users/userDetails";
     }
@@ -109,4 +106,5 @@ public class AdminController {
         donationRepository.save(donation);
         return "admin/donations/adminFormConfirmation";
     }
+
 }

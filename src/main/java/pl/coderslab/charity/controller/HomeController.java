@@ -7,9 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
-import pl.coderslab.charity.model.Donation;
-import pl.coderslab.charity.model.Institution;
-import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.model.*;
+import pl.coderslab.charity.repository.ContactRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
@@ -23,13 +22,15 @@ public class HomeController {
     private final InstitutionRepository institutionRepository;
     private final DonationRepository donationRepository;
     private final UserRepository userRepository;
+    private final ContactRepository contactRepository;
 
 
     public HomeController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                          UserRepository userRepository) {
+                          UserRepository userRepository, ContactRepository contactRepository) {
         this.institutionRepository = institutionRepository;
         this.donationRepository = donationRepository;
         this.userRepository = userRepository;
+        this.contactRepository = contactRepository;
     }
 
 
@@ -76,7 +77,21 @@ public class HomeController {
 
     }
 
+    @GetMapping("/contact")
+    public String contact(Model model) {
+        model.addAttribute("contact", new Contact());
+        return "index";
+    }
 
+    @RequestMapping(value = "/contactAddSuccess", method = RequestMethod.POST)
+    public String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "index";
+        }
+        contactRepository.save(contact);
+        return "redirect:/contactAddSuccess";
+    }
 }
 
 
