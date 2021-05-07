@@ -11,7 +11,7 @@
   <nav class="container container--70">
     <ul>
       <li><a href="<c:url value="#donationsList"/>" class="btn btn--without-border">Lista darowizn</a></li>
-      <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Ostatnia darowizna</a></li>
+      <li><a href="<c:url value="#lastDonation"/>" class="btn btn--without-border">Ostatnia darowizna</a></li>
       <li><a href="<c:url value="#donationsListCategory"/>" class="btn btn--without-border">Lista darowizn wg kategorii</a></li>
       <li><a href="<c:url value="#donationsListInstitution"/>" class="btn btn--without-border">Lista darowizn wg fundacji</a></li>
       <li><a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a></li>
@@ -67,6 +67,53 @@
       <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
   </section>
+
+<section class="login-page" id="lastDonation">
+  <h2>Ostatnio dodana darowizna</h2>
+  <table style="width:100%" border="1" cellpadding="9">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Data</th>
+      <th>Godzina</th>
+      <th>ilość</th>
+      <th>Miasto</th>
+      <th>Kod pocztowy</th>
+      <th>Ulica</th>
+      <th>Numer telefonu</th>
+      <th>Usuń</th>
+      <th>Edytuj</th>
+      <th>Szczegóły</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <form:form items="${lastDonation}" var="lastDonation">
+      <tr>
+        <td><c:out value="${lastDonation.id}"/></td>
+        <td><c:out value="${lastDonation.pickUpDate}"/></td>
+        <td><c:out value="${lastDonation.pickUpTime}"/></td>
+        <td><c:out value="${lastDonation.quantity}"/></td>
+        <td><c:out value="${lastDonation.city}"/></td>
+        <td><c:out value="${lastDonation.zipCode}"/></td>
+        <td><c:out value="${lastDonation.street}"/></td>
+        <td><c:out value="${lastDonation.phoneNumber}"/></td>
+        <td ><a href="<c:url value="/donationConfirmDelete/?id=${lastDonation.id}"/>">Usuń</a></td>
+        <td ><a href="<c:url value="/donationEdit/${lastDonation.id}"/>">Edytuj</a></td>
+        <td ><a href="<c:url value="/donationDetails/${lastDonation.id}"/>">Szczegóły</a></td>
+      </tr>
+    </form:form>
+
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <div class="form-group form-group--buttons">
+    <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
+  </div>
+</section>
 <section class="login-page" id="donationsListCategory">
   <h2>Lista darowizn wg kategorii</h2>
   <table style="width:100%" border="1" cellpadding="9">
