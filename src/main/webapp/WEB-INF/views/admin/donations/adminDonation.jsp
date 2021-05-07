@@ -7,14 +7,23 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
+<header>
+  <nav class="container container--70">
+    <ul>
+      <li><a href="<c:url value="#donationsList"/>" class="btn btn--without-border">Lista darowizn</a></li>
+      <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Ostatnia darowizna</a></li>
+      <li><a href="<c:url value="#donationsListCategory"/>" class="btn btn--without-border">Lista darowizn wg kategorii</a></li>
+      <li><a href="<c:url value="#donationsListInstitution"/>" class="btn btn--without-border">Lista darowizn wg fundacji</a></li>
+      <li><a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a></li>
+
+    </ul>
+  </nav>
+</header>
 
 
-  <section class="login-page">
+  <section class="login-page" id="donationsList">
     <h2>Lista darowizn</h2>
-
-
     <table style="width:100%" border="1" cellpadding="9">
-
       <thead>
       <tr>
         <th>Id</th>
@@ -58,7 +67,7 @@
       <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
   </section>
-<section class="login-page">
+<section class="login-page" id="donationsListCategory">
   <h2>Lista darowizn wg kategorii</h2>
   <table style="width:100%" border="1" cellpadding="9">
 
@@ -106,7 +115,7 @@
     <a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a>
   </div>
 </section>
-<section class="login-page">
+<section class="login-page" id="donationsListInstitution">
   <h2>Lista darowizn wg fundacji</h2>
   <table style="width:100%" border="1" cellpadding="9">
 

@@ -7,9 +7,20 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
+<header>
+  <nav class="container container--70">
+    <ul>
+      <li><a href="<c:url value="#institutionsList"/>" class="btn btn--without-border">Lista fundacji</a></li>
+      <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Ostatnio doadna fundacja</a></li>
+      <li><a href="<c:url value="#institutionsListDonation"/>" class="btn btn--without-border">Lista fundacji wg darowizn</a></li>
+      <li><a href="<c:url value="#institutionsListCategory"/>" class="btn btn--without-border">Lista fundacji według kategorii</a></li>
+      <li><a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj fundacje</a></li>
 
+    </ul>
+  </nav>
+</header>
 
-  <section class="login-page">
+  <section class="login-page" id="institutionsList">
     <h2>Lista fundacji</h2>
 
 
@@ -47,7 +58,7 @@
       <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj fundacje</a>
     </div>
   </section>
-<section class="login-page">
+<section class="login-page" id="institutionsListDonation">
   <h2>Lista darowizn wg fundacji</h2>
   <table style="width:100%" border="1" cellpadding="9">
 
@@ -95,7 +106,7 @@
     <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
   </div>
 </section>
-<section class="login-page">
+<section class="login-page" id="institutionsListCategory">
   <h2>Lista fundacji według kategorii</h2>
   <table style="width:100%" border="1" cellpadding="9">
 

@@ -76,7 +76,7 @@ public class HomeController {
         return "login";
 
     }
-
+/*
     @GetMapping("/contact")
     public String contact(Model model) {
         model.addAttribute("contact", new Contact());
@@ -91,7 +91,7 @@ public class HomeController {
         }
         contactRepository.save(contact);
         return "redirect:/contactAddSuccess";
-    }
+    }*/
 }
 
 
