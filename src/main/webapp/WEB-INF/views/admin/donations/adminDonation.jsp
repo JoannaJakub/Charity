@@ -89,7 +89,7 @@
     </thead>
     <tbody>
 
-    <form:form items="${lastDonation}" var="lastDonation">
+    <c:forEach items="${lastDonation}" var="lastDonation">
       <tr>
         <td><c:out value="${lastDonation.id}"/></td>
         <td><c:out value="${lastDonation.pickUpDate}"/></td>
@@ -103,7 +103,7 @@
         <td ><a href="<c:url value="/donationEdit/${lastDonation.id}"/>">Edytuj</a></td>
         <td ><a href="<c:url value="/donationDetails/${lastDonation.id}"/>">Szczegóły</a></td>
       </tr>
-    </form:form>
+    </c:forEach>
 
     </tbody>
   </table>

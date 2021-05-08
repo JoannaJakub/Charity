@@ -20,13 +20,9 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Proszę wpisać imie")
     private String name;
-    @NotBlank(message = "Proszę wpisać nazwisko")
     private String surname;
-    @NotBlank(message = "Proszę wpisać email")
     private String email;
-    @NotBlank(message = "Proszę dodać wiadomość")
     private String message;
 
 

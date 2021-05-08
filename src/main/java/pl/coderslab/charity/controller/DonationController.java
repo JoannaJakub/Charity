@@ -31,7 +31,7 @@ public class DonationController {
         model.addAttribute("adminDonation", donationRepository.findAll());
         model.addAttribute("donationCategories", donationRepository.findAll());
         model.addAttribute("donationInstitutions", donationRepository.findAll());
-        model.addAttribute("lastDonation", donationRepository.findTopById());
+        model.addAttribute("lastDonation", donationRepository.findAll());
         System.out.println(donationRepository.findTopById());
 
         return "admin/donations/adminDonation";

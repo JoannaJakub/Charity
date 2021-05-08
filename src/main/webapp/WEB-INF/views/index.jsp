@@ -91,8 +91,8 @@
             </c:forEach>
         </ul>
     </div>
-
 </section>
+
 
 <%@ include file="footer.jsp" %>
 </body>

@@ -34,14 +34,16 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/")
-    public String homeAction(Model model, Donation donation) {
+    @GetMapping("/")
+    public String homeAction(Model model) {
         List<Institution> institution = institutionRepository.findAll();
         model.addAttribute("institution", institution);
         Integer quantity = donationRepository.sumOfDonationQuantity();
         model.addAttribute("quantity", quantity);
         int id = donationRepository.countAllById();
         model.addAttribute("id", id);
+        model.addAttribute("contact", new Contact());
+        System.out.println(new Contact());
         return "index";
     }
 
@@ -76,22 +78,17 @@ public class HomeController {
         return "login";
 
     }
-/*
-    @GetMapping("/contact")
-    public String contact(Model model) {
-        model.addAttribute("contact", new Contact());
-        return "index";
-    }
+
 
     @RequestMapping(value = "/contactAddSuccess", method = RequestMethod.POST)
-    public String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
+    private String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
 
-        if (result.hasErrors()) {
-            return "index";
-        }
+  /*      if (result.hasErrors()) {
+            return "/";
+        }*/
         contactRepository.save(contact);
         return "redirect:/contactAddSuccess";
-    }*/
+    }
 }
 
 
