@@ -42,8 +42,6 @@ public class HomeController {
         model.addAttribute("quantity", quantity);
         int id = donationRepository.countAllById();
         model.addAttribute("id", id);
-        model.addAttribute("contact", new Contact());
-        System.out.println(new Contact());
         return "index";
     }
 
@@ -79,15 +77,19 @@ public class HomeController {
 
     }
 
-
+    @GetMapping("/contact")
+    public String contact(Model model) {
+        model.addAttribute("contact", new Contact());
+        return "footer";
+    }
     @RequestMapping(value = "/contactAddSuccess", method = RequestMethod.POST)
     private String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
 
-  /*      if (result.hasErrors()) {
-            return "/";
-        }*/
+      if (result.hasErrors()) {
+            return "contact";
+        }
         contactRepository.save(contact);
-        return "redirect:/contactAddSuccess";
+        return "contactAddSuccess";
     }
 }
 

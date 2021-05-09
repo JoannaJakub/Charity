@@ -87,12 +87,7 @@ public class UserController {
          return "user/userPersonalDetails";
     }
 
-    @GetMapping(value = {"/contact"})
-    public String contact(Model model) {
 
-        return "user/contact";
-
-    }
 
 
     @GetMapping(value = {"/changePassword"})

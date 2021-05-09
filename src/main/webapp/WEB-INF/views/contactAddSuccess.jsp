@@ -4,29 +4,43 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
+
     <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<header class="header--main-page">
+    <nav class="container container--70">
+        <ul class="nav--actions">
+            <li><a href="login" class="btn btn--small btn--without-border">Zaloguj</a></li>
+            <li><a href="register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+        </ul>
 
-<section>
-        <h2>
-            <br>
-            Pomyślnie wysłano wiadomość.
-            <br>
+        <ul>
+            <li><a href="<c:url value="/"/>" class="btn btn--without-border active">Start</a></li>
+            <li><a href="<c:url value="/#steps"/>" class="btn btn--without-border">O co chodzi?</a></li>
+            <li><a href="<c:url value="/#about"/>" class="btn btn--without-border">O nas</a></li>
+            <li><a href="<c:url value="/#help"/>" class="btn btn--without-border">Fundacje i organizacje</a></li>
+            <li><a href="<c:url value="/form"/>" class="btn btn--without-border">Przekaż dary</a></li>
+            <li><a href="<c:url value="/#contact"/>" class="btn btn--without-border">Kontakt</a></li>
+        </ul>
+    </nav>
 
-        </h2>
-    </section>
+    <div class="slogan container container--90">
+        <div class="slogan--item">
+            <h1>
+                Pomyślnie wysłano wiadomość.<br/>
 
-<section class="steps" id="steps">
-    <h1>Chcesz dodać jeszcze jedną?</h1>
-    <a href="<c:url value="/institutionAddByUser"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
-</section>
+            </h1>
+        </div>
+    </div>
+</header>
+
 
 </body>
 </html>

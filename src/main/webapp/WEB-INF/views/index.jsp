@@ -84,14 +84,16 @@
                     <div class="title"><c:out value="${institution.name}"/></div>
                     <div class="subtitle"><c:out value="${institution.name}"/></div>
                 </div>
-                
+
                 <c:if test="${status.index%2 == 1}">
                     </li>
                 </c:if>
             </c:forEach>
         </ul>
     </div>
+
 </section>
+
 
 
 <%@ include file="footer.jsp" %>
