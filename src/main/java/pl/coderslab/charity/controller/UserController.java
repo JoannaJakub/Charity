@@ -1,26 +1,19 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.model.Contact;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.repository.CategoryRepository;
-import pl.coderslab.charity.repository.DonationRepository;
-import pl.coderslab.charity.repository.InstitutionRepository;
-import pl.coderslab.charity.repository.UserRepository;
+import pl.coderslab.charity.repository.*;
 import pl.coderslab.charity.service.UserService;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.security.Principal;
-import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -29,15 +22,19 @@ public class UserController {
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
     private final UserService userService;
+    private final ContactRepository contactRepository;
+
+
 
 
     public UserController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                          CategoryRepository categoryRepository, UserRepository userRepository, UserService userService) {
+                          CategoryRepository categoryRepository, UserRepository userRepository, UserService userService, ContactRepository contactRepository) {
         this.institutionRepository = institutionRepository;
         this.donationRepository = donationRepository;
         this.categoryRepository = categoryRepository;
         this.userRepository = userRepository;
         this.userService = userService;
+        this.contactRepository = contactRepository;
     }
 
     @GetMapping("/form")
@@ -78,6 +75,7 @@ public class UserController {
         ;
         return "user/userPersonalDetails";
     }*/
+
     @GetMapping(value = {"/userPersonalDetails"})
     public String userDetails(Model model) {
         model.addAttribute("userPersonalDetails", userService.getCurrentUser());
@@ -86,9 +84,6 @@ public class UserController {
         //model.addAttribute("userPersonalDetails", user.get());
          return "user/userPersonalDetails";
     }
-
-
-
 
     @GetMapping(value = {"/changePassword"})
     public String userChangePassword(@PathVariable long id, Model model) {
@@ -117,5 +112,20 @@ public class UserController {
         institutionRepository.save(institution);
         return "user/institutionAddByUserSuccess";
 
+    }
+    @GetMapping("/contactAddByUser")
+    public String contactAddByUser(Model model, Authentication authentication) {
+        model.addAttribute("contactAddByUser", new Contact());
+        model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        return "user/contactAddByUser";
+    }
+    @RequestMapping(value = "/contactAddByUserSuccess", method = RequestMethod.POST)
+    private String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "user/contactAddByUser";
+        }
+        contactRepository.save(contact);
+        return "user/contactAddByUserSuccess";
     }
 }
