@@ -86,7 +86,7 @@ public class HomeController {
     private String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
 
       if (result.hasErrors()) {
-            return "contact";
+            return "index";
         }
         contactRepository.save(contact);
         return "contactAddSuccess";

@@ -9,21 +9,28 @@
         <h2>Skontaktuj się z nami</h2>
         <h3>Formularz kontaktowy</h3>
         <form:form  method="post" action="contactAddSuccess" modelAttribute="contact">
+            <input type="hidden" name="createdDate" value="${contact.createdDate}">
             <div class="form-group">
                 <label>
-                    <input type="text" name="name" placeholder="Imię" path="name"></input>
+                    <input type="text" name="name" placeholder="Imię" path="name"/>
+                    <form:errors path="name"/>
 
                 </label>
             </div>
             <div class="form-group form-group--20">
                 <input type="text" name="surname" placeholder="Nazwisko" path="surname"/>
+
+                <form:errors path="surname"/>
             </div>
             <div class="form-group form-group--20">
                 <input type="text" name="email" placeholder="Email" path="email"/>
+                <form:errors path="email"/>
             </div>
 
             <div class="form-group">
-                <textarea name="message" placeholder="Wiadomość" rows="1" path="message"></textarea>
+                <textarea name="message" placeholder="Wiadomość" rows="3" path="message"></textarea>
+            <br>
+                <form:errors path="message"/>
             </div>
             <div>
                 <button class="btn" type="submit">Wyślij</button>
