@@ -50,7 +50,7 @@ public class UserController {
     public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
 
         if (result.hasErrors()) {
-            return "form";
+            return "user/form";
         }
         donationRepository.save(donation);
         return "user/formConfirmation";
@@ -98,6 +98,7 @@ public class UserController {
         user.setPassword(encodedPassword);
         return "redirect:/form";
     }
+
     @GetMapping("/institutionAddByUser")
     public String institutionAddForm(Model model) {
         model.addAttribute("institutionAddByUser", new Institution());
@@ -113,6 +114,7 @@ public class UserController {
         return "user/institutionAddByUserSuccess";
 
     }
+
     @GetMapping("/contactAddByUser")
     public String contactAddByUser(Model model, Authentication authentication) {
         model.addAttribute("contactAddByUser", new Contact());

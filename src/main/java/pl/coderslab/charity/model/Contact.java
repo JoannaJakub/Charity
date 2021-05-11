@@ -35,6 +35,8 @@ public class Contact {
     private LocalDateTime createdDate;
     @UpdateTimestamp
     private LocalDateTime updateDate;
+    @ManyToOne
+    private User user;
 
 
 }
