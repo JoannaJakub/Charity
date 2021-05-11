@@ -65,24 +65,26 @@ public class UserController {
 
     }
 
-/*    @GetMapping(value = {"/userPersonalDetails"})
-    public String userPersonalDetails(@PathVariable long id, Model model, Authentication authentication) {
-        //   Optional<User> user = userRepository.findById(id);
-        //  model.addAttribute("user", userService.findByEmail(authentication.getName()));
-        model.addAttribute("user", userService.findByEmail(authentication.getName()));
-
+  @GetMapping(value = {"/userPersonalDetails"})
+    public String userPersonalDetails(Model model, Authentication authentication) {
         model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));
-        ;
         return "user/userPersonalDetails";
-    }*/
+    }
 
-    @GetMapping(value = {"/userPersonalDetails"})
-    public String userDetails(Model model) {
-        model.addAttribute("userPersonalDetails", userService.getCurrentUser());
-     //   Optional<User> user = Optional.ofNullable(userService.findById(id));
-       // model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));
-        //model.addAttribute("userPersonalDetails", user.get());
-         return "user/userPersonalDetails";
+
+    @GetMapping(value = {"/userEditPersonalDetails"})
+    public String userEditPersonalDetails(Model model, Authentication authentication) {
+        model.addAttribute("userEditPersonalDetails", userService.findByEmail(authentication.getName()));
+        return "user/userEditPersonalDetails";
+    }
+
+    @RequestMapping(value = "/userEditPersonalDetailsConfirmation", method = RequestMethod.POST)
+    public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user/userEditPersonalDetails";
+        }
+        userService.saveUser(user);
+        return "user/userPersonalDetails";
     }
 
     @GetMapping(value = {"/changePassword"})

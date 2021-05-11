@@ -13,6 +13,7 @@
     <h2>Szczegóły użytkownika</h2>
 
     <form:form modelAttribute="changePassword" method="post">
+        <input type="hidden" name="user" value="${user.id}">
         <tr>
             <td><c:out value="${id}"/></td>
             <td>Hasło</td>

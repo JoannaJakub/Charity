@@ -26,16 +26,12 @@
         <div class="form-group">
             <form:input type="text" placeholder="Opis fundacji" path="description" id="description"/>
             <form:errors path="description"/>
-
         </div>
-
         <div class="form-group form-group--buttons">
             <a href="<c:url value="/form"/>" class="btn btn--without-border">Powrót</a>
             <button class="btn" type="submit">Dodaj</button>
         </div>
     </form:form>
-
 </section>
-
 </body>
 </html>

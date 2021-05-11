@@ -12,27 +12,35 @@
     <h2>Szczegóły użytkownika</h2>
     <tbody>
     <table style="width:35%" cellpadding="15" class="btn btn--without-border active">
-        <form:form action="userPersonalDetails" modelAttribute="userPersonalDetails">
+        <form:form action="userEditPersonalDetailsConfirmation" modelAttribute="userEditPersonalDetails" method="post">
             <input type="hidden" name="user" value="${user.id}">
             <tr>
                 <td>Imie</td>
-                <td><c:out value="${userPersonalDetails.firstName}"/></td>
+                <td><form:input value="${userPersonalDetails.firstName}" path="firstName"/></td>
             </tr>
             <tr>
                 <td>Nazwisko</td>
-                <td><c:out value="${userPersonalDetails.lastName}"/></td>
+                <td><form:input value="${userPersonalDetails.lastName}" path="lastName"/></td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><c:out value="${userPersonalDetails.email}"/></td>
+                <td><form:input value="${userPersonalDetails.email}" path="email"/></td>
+            </tr>
+
+
+            <tr>
+
+                <td>
+                <a href="<c:url value="/changePassword"/>" class="btn btn--without-active">Zmień hasło</a>
+                </td>
             </tr>
 
             <tr>
                 <td>
-                    <a href="<c:url value="/form"/>" class="btn btn--without-active">Powrót</a></li>
+                    <a href="<c:url value="/form"/>" class="btn btn--without-active">Powrót</a>
                 </td>
                 <td>
-                    <a href="<c:url value="/userEditPersonalDetails"/>" class="btn btn--without-active">Edytuj</a>
+                    <button type="submit" class="btn">Zapisz</button>
                 </td>
             </tr>
 
