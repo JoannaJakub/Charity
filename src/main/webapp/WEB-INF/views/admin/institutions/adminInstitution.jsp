@@ -64,8 +64,9 @@
 
     <thead>
     <tr>
-      <th>Id</th>
-      <th>Id</th>
+      <th>Id fundacji</th>
+      <th>Nazwa fundacji</th>
+      <th>Id darowizny</th>
       <th>Data</th>
       <th>Godzina</th>
       <th>ilość</th>
@@ -82,7 +83,8 @@
     <tbody>
     <c:forEach items="${institutionDonations}" var="institutionDonations">
       <tr>
-        <td><c:out value="${institutionDonations.institution}"/></td>
+        <td><c:out value="${institutionDonations.institution.id}"/></td>
+        <td><c:out value="${institutionDonations.institution.name}"/></td>
         <td><c:out value="${institutionDonations.id}"/></td>
         <td><c:out value="${institutionDonations.pickUpDate}"/></td>
         <td><c:out value="${institutionDonations.pickUpTime}"/></td>
@@ -112,17 +114,19 @@
 
     <thead>
     <tr>
-      <th>Kategorie</th>
-      <th>Instytucje</th>
+      <th>Kategoria</th>
+      <th>Id Instytucji</th>
+      <th>Nazwa Instytucji</th>
+
     </tr>
     </thead>
     <tbody>
 
     <c:forEach items="${institutionCategories}" var="institutionCategories">
       <tr>
-        <td><c:out value="${institutionCategories.institution}"/></td>
         <td><c:out value="${institutionCategories.categories}"/></td>
-
+        <td><c:out value="${institutionCategories.institution.id}"/></td>
+        <td><c:out value="${institutionCategories.institution.name}"/></td>
       </tr>
     </c:forEach>
 

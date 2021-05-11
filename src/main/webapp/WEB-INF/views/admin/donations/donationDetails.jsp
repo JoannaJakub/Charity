@@ -41,8 +41,8 @@
                 <td><c:out value="${donationDetails.street}"/></td>
                 <td><c:out value="${donationDetails.phoneNumber}"/></td>
                 <td><c:out value="${donationDetails.categories}"/></td>
-                <td><c:out value="${donationDetails.institution}"/></td>
-                <td><c:out value="${donationDetails.user}"/></td>
+                <td><c:out value="${donationDetails.institution.name}"/></td>
+                <td><c:out value="${donationDetails.user.id}"/></td>
 
 
             </tr>

@@ -168,7 +168,8 @@
 
     <thead>
     <tr>
-      <th>Id</th>
+      <th>Id fundacji</th>
+      <th>Nazwa fundacji</th>
       <th>Id</th>
       <th>Data</th>
       <th>Godzina</th>
@@ -186,7 +187,8 @@
     <tbody>
     <c:forEach items="${donationInstitutions}" var="donationInstitutions">
       <tr>
-        <td><c:out value="${donationInstitutions.institution}"/></td>
+        <td><c:out value="${donationInstitutions.institution.id}"/></td>
+        <td><c:out value="${donationInstitutions.institution.name}"/></td>
         <td><c:out value="${donationInstitutions.id}"/></td>
         <td><c:out value="${donationInstitutions.pickUpDate}"/></td>
         <td><c:out value="${donationInstitutions.pickUpTime}"/></td>

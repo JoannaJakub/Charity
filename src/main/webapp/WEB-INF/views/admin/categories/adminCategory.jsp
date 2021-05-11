@@ -121,7 +121,9 @@
         <thead>
         <tr>
             <th>Kategorie</th>
-            <th>Instytucje</th>
+            <th>Id fundacji</th>
+            <th>Nazwa fundacji</th>
+
         </tr>
         </thead>
         <tbody>
@@ -129,7 +131,8 @@
         <c:forEach items="${categoryInstitutions}" var="categoryInstitutions">
             <tr>
                 <td><c:out value="${categoryInstitutions.categories}"/></td>
-                <td><c:out value="${categoryInstitutions.institution}"/></td>
+                <td><c:out value="${categoryInstitutions.institution.id}"/></td>
+                <td><c:out value="${categoryInstitutions.institution.name}"/></td>
 
             </tr>
         </c:forEach>
