@@ -77,12 +77,9 @@ public class UserController {
         model.addAttribute("userEditPersonalDetails", userService.findByEmail(authentication.getName()));
         return "user/userEditPersonalDetails";
     }
-
     @RequestMapping(value = "/userEditPersonalDetailsConfirmation", method = RequestMethod.POST)
     public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result) {
-        if (result.hasErrors()) {
-            return "user/userEditPersonalDetails";
-        }
+
         userService.saveUser(user);
         return "user/userPersonalDetails";
     }

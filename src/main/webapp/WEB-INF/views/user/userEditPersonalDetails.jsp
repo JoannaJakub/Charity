@@ -14,6 +14,7 @@
     <table style="width:35%" cellpadding="15" class="btn btn--without-border active">
         <form:form action="userEditPersonalDetailsConfirmation" modelAttribute="userEditPersonalDetails" method="post">
             <input type="hidden" name="user" value="${user.id}">
+            <input type="hidden" name="user" value="${user.password}">
             <tr>
                 <td>Imie</td>
                 <td><form:input value="${userPersonalDetails.firstName}" path="firstName"/></td>
@@ -37,7 +38,7 @@
 
             <tr>
                 <td>
-                    <a href="<c:url value="/form"/>" class="btn btn--without-active">Powrót</a>
+                    <a href="<c:url value="/userPersonalDetails"/>" class="btn btn--without-active">Powrót</a>
                 </td>
                 <td>
                     <button type="submit" class="btn">Zapisz</button>
@@ -49,6 +50,7 @@
     </table>
 
 </section>
+</header>
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>
