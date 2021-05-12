@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.model.Category;
+import pl.coderslab.charity.model.Contact;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.*;
@@ -50,6 +52,25 @@ public class ContactController {
     @GetMapping(value = {"/contactDelete/{id}"})
     public String userDelete(@PathVariable long id) {
         contactRepository.deleteById(id);
+        return "redirect:/adminContact";
+    }
+    @GetMapping(value = {"/contactEdit/{id}"})
+    public String contactEditForm(@PathVariable long id, Model model) {
+        Optional<Contact> contact = contactRepository.findById(id);
+
+        model.addAttribute("contactEdit", contact.get());
+
+
+       model.addAttribute("contactEdit2", contactRepository.findById(id));
+        return "admin/contact/contactEdit";
+    }
+
+    @PostMapping(value = {"contactEdit/{id}"})
+    public String contactEditSave(@Valid Contact contact, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/contact/contactEdit";
+        }
+        contactRepository.save(contact);
         return "redirect:/adminContact";
     }
 
