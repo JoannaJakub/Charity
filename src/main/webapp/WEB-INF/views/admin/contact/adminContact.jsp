@@ -58,7 +58,7 @@
                 <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
                 <td ><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edytuj</a></td>
                 <td ><a href="<c:url value="/contactDetails/${adminContact.id}"/>">Szczegóły</a></td>
-                <td ><a href="<c:url value="/oneUserDonations/${adminContact.id}"/>">Darowizny użytkownika</a></td>
+                <td ><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>">Wiadomości użytkownika</a></td>
             </tr>
         </c:forEach>
 

@@ -106,5 +106,10 @@ public class AdminController {
         donationRepository.save(donation);
         return "admin/donations/adminFormConfirmation";
     }
-
+    @GetMapping(value = {"/oneUserContacts/{id}"})
+    public String oneUserContacts(@PathVariable long id, Model model) {
+        List<Contact> oneUserContact = contactRepository.findContactByUserId(id);
+        model.addAttribute("oneUserContacts", oneUserContact);
+        return "admin/users/oneUserContacts";
+    }
 }
