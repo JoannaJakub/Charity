@@ -73,5 +73,11 @@ public class ContactController {
         contactRepository.save(contact);
         return "redirect:/adminContact";
     }
+    @GetMapping(value = {"/contactDetails/{id}"})
+    public String donationDetails(@PathVariable long id, Model model) {
+        Optional<Contact> contact = contactRepository.findById(id);
 
+        model.addAttribute("contactDetails", contact.get());
+        return "admin/contact/contactDetails";
+    }
 }
