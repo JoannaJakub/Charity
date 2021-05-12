@@ -55,9 +55,9 @@
                 <td><c:out value="${adminContact.user.id}"/></td>
                 <td><c:out value="${adminContact.message}"/></td>
                 <td><c:out value="${adminContact.createdDate}"/></td>
-                <td ><a href="<c:url value="/userConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
-                <td ><a href="<c:url value="/userEdit/${adminContact.id}"/>">Edytuj</a></td>
-                <td ><a href="<c:url value="/userDetails/${adminContact.id}"/>">Szczegóły</a></td>
+                <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
+                <td ><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edytuj</a></td>
+                <td ><a href="<c:url value="/contactDetails/${adminContact.id}"/>">Szczegóły</a></td>
                 <td ><a href="<c:url value="/oneUserDonations/${adminContact.id}"/>">Darowizny użytkownika</a></td>
             </tr>
         </c:forEach>

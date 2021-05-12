@@ -106,11 +106,5 @@ public class AdminController {
         donationRepository.save(donation);
         return "admin/donations/adminFormConfirmation";
     }
-    @GetMapping(value = {"/adminContact"})
-    public String adminContact(Model model) {
-        model.addAttribute("adminContact", contactRepository.findAll());
-        return "admin/contact/adminContact";
-
-    }
 
 }
