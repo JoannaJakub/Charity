@@ -25,8 +25,6 @@ public class UserController {
     private final ContactRepository contactRepository;
 
 
-
-
     public UserController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
                           CategoryRepository categoryRepository, UserRepository userRepository, UserService userService, ContactRepository contactRepository) {
         this.institutionRepository = institutionRepository;
@@ -58,14 +56,26 @@ public class UserController {
 
 
     @GetMapping(value = {"/ownDonation"})
-    public String admin(Model model,Authentication authentication) {
-        User user =  userService.findByEmail(authentication.getName());
+    public String admin(Model model, Authentication authentication) {
+        User user = userService.findByEmail(authentication.getName());
         model.addAttribute("ownDonation", donationRepository.findDonationByUserId(user.getId()));
         return "user/ownDonation";
 
     }
 
-  @GetMapping(value = {"/userPersonalDetails"})
+    @RequestMapping("/donationConfirmDeleteByUser")
+    public String donationConfirmDeleteByUser() {
+        return "user/donationConfirmDeleteByUser";
+    }
+
+    @GetMapping(value = {"/donationDeleteByUser/{id}"})
+    public String donationDeleteByUser(@PathVariable long id) {
+        donationRepository.deleteById(id);
+        return "redirect:/ownDonation";
+    }
+
+
+    @GetMapping(value = {"/userPersonalDetails"})
     public String userPersonalDetails(Model model, Authentication authentication) {
         model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));
         return "user/userPersonalDetails";
@@ -77,6 +87,7 @@ public class UserController {
         model.addAttribute("userEditPersonalDetails", userService.findByEmail(authentication.getName()));
         return "user/userEditPersonalDetails";
     }
+
     @RequestMapping(value = "/userEditPersonalDetailsConfirmation", method = RequestMethod.POST)
     public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result) {
 
@@ -120,6 +131,7 @@ public class UserController {
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
         return "user/contactAddByUser";
     }
+
     @RequestMapping(value = "/contactAddByUserSuccess", method = RequestMethod.POST)
     private String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result) {
 

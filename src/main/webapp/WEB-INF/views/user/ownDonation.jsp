@@ -44,7 +44,7 @@
         <td><c:out value="${ownDonation.street}"/></td>
         <td><c:out value="${ownDonation.phoneNumber}"/></td>
         <td><c:out value="${ownDonation.institution.name}"/></td>
-        <td ><a href="/donationDelete/${ownDonation.id}">Usuń</a></td>
+        <td ><a href="/donationConfirmDeleteByUser/?id=${ownDonation.id}">Usuń</a></td>
         <td ><a href="/donationEdit/${ownDonation.id}">Edytuj</a></td>
         <td ><a href="/donationDetails/${ownDonation.id}">Szczegóły</a></td>
       </tr>
