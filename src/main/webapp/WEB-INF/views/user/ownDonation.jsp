@@ -17,7 +17,6 @@
 
       <thead>
       <tr>
-        <th>Id</th>
         <th>Data</th>
         <th>Godzina</th>
         <th>ilość</th>
@@ -25,6 +24,7 @@
         <th>Kod pocztowy</th>
         <th>Ulica</th>
         <th>Numer telefonu</th>
+        <th>Dla Fundacji</th>
         <th>Usuń</th>
         <th>Edytuj</th>
         <th>Szczegóły</th>
@@ -36,7 +36,6 @@
       <c:forEach items="${ownDonation}" var="ownDonation">
         <input type="hidden" name="user" value="${user.id}">
       <tr>
-        <td><c:out value="${ownDonation.id}"/></td>
         <td><c:out value="${ownDonation.pickUpDate}"/></td>
         <td><c:out value="${ownDonation.pickUpTime}"/></td>
         <td><c:out value="${ownDonation.quantity}"/></td>
@@ -44,6 +43,7 @@
         <td><c:out value="${ownDonation.zipCode}"/></td>
         <td><c:out value="${ownDonation.street}"/></td>
         <td><c:out value="${ownDonation.phoneNumber}"/></td>
+        <td><c:out value="${ownDonation.institution.name}"/></td>
         <td ><a href="/donationDelete/${ownDonation.id}">Usuń</a></td>
         <td ><a href="/donationEdit/${ownDonation.id}">Edytuj</a></td>
         <td ><a href="/donationDetails/${ownDonation.id}">Szczegóły</a></td>

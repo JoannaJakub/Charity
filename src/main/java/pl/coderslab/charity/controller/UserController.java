@@ -58,9 +58,9 @@ public class UserController {
 
 
     @GetMapping(value = {"/ownDonation"})
-    public String admin(Model model) {
-        // model.addAttribute("ownDonation", userService.findById(id));
-        model.addAttribute("ownDonation", donationRepository.findAll());
+    public String admin(Model model,Authentication authentication) {
+        User user =  userService.findByEmail(authentication.getName());
+        model.addAttribute("ownDonation", donationRepository.findDonationByUserId(user.getId()));
         return "user/ownDonation";
 
     }
