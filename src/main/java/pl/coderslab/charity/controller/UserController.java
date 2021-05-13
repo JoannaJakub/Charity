@@ -90,23 +90,25 @@ public class UserController {
 
     @RequestMapping(value = "/userEditPersonalDetailsConfirmation", method = RequestMethod.POST)
     public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result) {
-
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         userService.saveUser(user);
         return "user/userPersonalDetails";
     }
 
     @GetMapping(value = {"/changePassword"})
-    public String userChangePassword(@PathVariable long id, Model model) {
-        model.addAttribute("changePassword", userRepository.findById(id));
+    public String userChangePassword(Authentication authentication, Model model) {
+        model.addAttribute("changePassword", userService.findByEmail(authentication.getName()));
         return "user/changePassword";
     }
 
-    @PostMapping(value = {"changePassword/{id}"})
+    @PostMapping(value = {"changePasswordSuccess"})
     public String userChangePasswordSave(@Valid User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        String encodedPassword = new String(String.valueOf(new BCryptPasswordEncoder()));
         user.setPassword(encodedPassword);
-        return "redirect:/form";
+        return "redirect:/changePasswordSuccess";
     }
 
     @GetMapping("/institutionAddByUser")

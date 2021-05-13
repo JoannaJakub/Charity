@@ -12,16 +12,16 @@
 <section class="login-page">
     <h2>Szczegóły użytkownika</h2>
 
-    <form:form modelAttribute="changePassword" method="post">
-        <input type="hidden" name="user" value="${user.id}">
+    <form:form modelAttribute="changePassword" method="post" action="changePasswordSuccess">
+
         <tr>
-            <td><c:out value="${id}"/></td>
+
             <td>Hasło</td>
-            <td><form:input path="password"/></td>
+            <td><input path="password" placeholder="Hasło"/></td>
         </tr>
         <tr>
             <td>Hasło</td>
-            <td><form:input path="retypePassword"/></td>
+            <td><input path="retypePassword" required="password" placeholder="Powtórz hasło"/></td>
         </tr>
         <tr>
             <td>

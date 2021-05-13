@@ -13,7 +13,7 @@
     <div class="slogan container container--90">
         <h2>
             <br>
-            Proces rejestracji przebiegł pomyślnie.
+            Hasło zostało zmienione
             <br>
 
         </h2>
