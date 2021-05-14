@@ -110,6 +110,6 @@ public class AdminController {
     public String oneUserContacts(@PathVariable long id, Model model) {
         List<Contact> oneUserContact = contactRepository.findContactByUserId(id);
         model.addAttribute("oneUserContacts", oneUserContact);
-        return "admin/users/oneUserContacts";
+        return "admin/contact/oneUserContacts";
     }
 }

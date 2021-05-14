@@ -89,10 +89,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userEditPersonalDetailsConfirmation", method = RequestMethod.POST)
-    public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+    public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result,Authentication authentication) {
         userService.saveUser(user);
         return "user/userPersonalDetails";
     }

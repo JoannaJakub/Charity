@@ -15,6 +15,7 @@
         <form:form action="userEditPersonalDetailsConfirmation" modelAttribute="userEditPersonalDetails" method="post">
             <input type="hidden" name="user" value="${user.id}">
             <input type="hidden" name="user" value="${user.password}">
+            <input type="hidden" name="user" value="${user.retypePassword}">
             <tr>
                 <td>Imie</td>
                 <td><form:input value="${userPersonalDetails.firstName}" path="firstName"/></td>

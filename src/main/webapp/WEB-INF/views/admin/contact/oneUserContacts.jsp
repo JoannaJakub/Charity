@@ -16,22 +16,44 @@
                 <td><c:out value="${oneUserContacts.user.firstName}"/></td>
             </tr>
         </c:forEach>
+
     </h2>
+    <h3>
+        <table style="width:100%" border="1" cellpadding="9">
+
+            <thead>
+            <tr>
+                <th>Id użytkownika</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <c:forEach items="${oneUserContacts}" var="oneUserContacts">
+                <tr>
+                    <td><c:out value="${oneUserContacts.user.id}"/></td>
+                    <td><c:out value="${oneUserContacts.name}"/></td>
+                    <td><c:out value="${oneUserContacts.surname}"/></td>
+                    <td><c:out value="${oneUserContacts.email}"/></td>
+                </tr>
+            </c:forEach>
+
+            </tbody>
+        </table>
+    </h3>
     <table style="width:100%" border="1" cellpadding="9">
 
         <thead>
         <tr>
             <th>Id</th>
-            <th>Data</th>
-            <th>Godzina</th>
-            <th>ilość</th>
-            <th>Miasto</th>
-            <th>Kod pocztowy</th>
-            <th>Ulica</th>
-            <th>Numer telefonu</th>
+            <th>Treść</th>
+            <th>Data wysłania</th>
+            <th>Data modyfikacji</th>
             <th>Usuń</th>
-            <th>Edytuj</th>
-            <th>Szczegóły</th>
+            <th>Odpowiedz</th>
+
 
         </tr>
         </thead>
@@ -40,13 +62,11 @@
         <c:forEach items="${oneUserContacts}" var="oneUserContacts">
             <tr>
                 <td><c:out value="${oneUserContacts.id}"/></td>
-                <td><c:out value="${oneUserContacts.user.id}"/></td>
-                <td><c:out value="${oneUserContacts.name}"/></td>
-                <td><c:out value="${oneUserContacts.surname}"/></td>
                 <td><c:out value="${oneUserContacts.message}"/></td>
+                <td><c:out value="${oneUserContacts.createdDate}"/></td>
+                <td><c:out value="${oneUserContacts.updateDate}"/></td>
                 <td><a href="/donationDelete/${oneUserContacts.id}">Usuń</a></td>
                 <td><a href="/donationEdit/${oneUserContacts.id}">Edytuj</a></td>
-                <td><a href="/donationDetails/${oneUserContacts.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
 
