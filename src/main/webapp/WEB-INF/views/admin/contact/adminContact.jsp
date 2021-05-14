@@ -44,6 +44,7 @@
             <th>Edytuj</th>
             <th>Szczegóły</th>
             <th>Darowizny użytkownika</th>
+            <th>Odpowiedz</th>
 
         </tr>
         </thead>
@@ -52,13 +53,14 @@
         <c:forEach items="${adminContact}" var="adminContact">
             <tr>
                 <td><c:out value="${adminContact.id}"/></td>
-                <td><c:out value="${adminContact.user.id}"/></td>
-                <td><c:out value="${adminContact.message}"/></td>
+                <td><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>"><c:out value="${adminContact.user.id}"/></a></td>
+                <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>"><c:out value="${adminContact.message}"/></a></td>
                 <td><c:out value="${adminContact.createdDate}"/></td>
                 <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
                 <td ><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edytuj</a></td>
                 <td ><a href="<c:url value="/contactDetails/${adminContact.id}"/>">Szczegóły</a></td>
                 <td ><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>">Wiadomości użytkownika</a></td>
+                <td ><a href="<c:url value="/contactReplay/${adminContact.id}"/>">Odpowiedz</a></td>
             </tr>
         </c:forEach>
 

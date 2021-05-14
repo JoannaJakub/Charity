@@ -58,7 +58,6 @@ public class ContactController {
     @GetMapping(value = {"/contactEdit/{id}"})
     public String contactEditForm(@PathVariable long id, Model model) {
         Optional<Contact> contact = contactRepository.findById(id);
-
         model.addAttribute("contactEdit", contact.get());
 
 
@@ -82,5 +81,25 @@ public class ContactController {
         return "admin/contact/contactDetails";
     }
 
+
+    @GetMapping(value = {"/contactReplay/{id}"})
+    public String contactReplay(@PathVariable long id, Model model) {
+        Optional<Contact> contact = contactRepository.findById(id);
+
+        model.addAttribute("contactReplay", contact.get());
+
+
+        model.addAttribute("contactEdit2", contactRepository.findById(id));
+        return "admin/contact/contactReplay";
+    }
+
+    @PostMapping(value = {"contactReplay/{id}"})
+    public String contactReplaySave(@Valid Contact contact, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/contact/contactReplay";
+        }
+        contactRepository.save(contact);
+        return "redirect:/adminContact";
+    }
 
 }

@@ -11,7 +11,7 @@
 
 <section class="login-page" align="left">
 
-    <h2>Edycja wiadomości</h2>
+    <h2>Szczegóły wiadomości</h2>
 
     <tbody>
     <table style="width:35%" cellpadding="15" class="btn btn--without-border-align active">
