@@ -14,6 +14,7 @@ import pl.coderslab.charity.repository.*;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -139,5 +140,13 @@ public class UserController {
         }
         contactRepository.save(contact);
         return "user/contactAddByUserSuccess";
+    }
+
+    @GetMapping(value = {"/contactsOfUser"})
+    public String contactsOfUser(Model model, Authentication authentication) {
+        User user = userService.findByEmail(authentication.getName());
+        model.addAttribute("contactsOfUser", contactRepository.findContactByUserId(user.getId()));
+        return "user/contactsOfUser";
+
     }
 }
