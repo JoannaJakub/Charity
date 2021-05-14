@@ -17,6 +17,7 @@
         <thead>
         <tr>
             <th>Id</th>
+            <th>Id</th>
             <th>Treść</th>
             <th>Data wysłania</th>
             <th>Data modyfikacji</th>
