@@ -15,6 +15,7 @@ import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -158,5 +159,22 @@ public class UserController {
     public String userDelete(@PathVariable long id) {
         contactRepository.deleteById(id);
         return "redirect:/contactsOfUser";
+    }
+
+    @GetMapping(value = {"/contactEditByUser/{id}"})
+    public String contactEditForm(@PathVariable long id, Model model, Authentication authentication) {
+        Optional<Contact> contact = contactRepository.findById(id);
+        model.addAttribute("contactEditByUser", contact.get());
+        model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        return "user/contactEditByUser";
+    }
+
+    @PostMapping(value = {"contactEditByUser/{id}"})
+    public String contactEditSave(@Valid Contact contact, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user/contactEditByUser";
+        }
+        contactRepository.save(contact);
+        return "user/contactsOfUser";
     }
 }
