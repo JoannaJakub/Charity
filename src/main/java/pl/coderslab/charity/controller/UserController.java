@@ -149,4 +149,14 @@ public class UserController {
         return "user/contactsOfUser";
 
     }
+    @RequestMapping("/contactConfirmDeleteByUser")
+    public String userConfirmDelete() {
+        return "user/contactConfirmDeleteByUser";
+    }
+
+    @GetMapping(value = {"/contactDeleteByUser/{id}"})
+    public String userDelete(@PathVariable long id) {
+        contactRepository.deleteById(id);
+        return "redirect:/contactsOfUser";
+    }
 }

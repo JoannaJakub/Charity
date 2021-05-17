@@ -66,7 +66,7 @@
                 <td><c:out value="${oneUserContacts.createdDate}"/></td>
                 <td><c:out value="${oneUserContacts.updateDate}"/></td>
                 <td ><a href="<c:url value="/contactConfirmDelete/?id=${oneUserContacts.id}"/>">Usuń</a></td>
-                <td><a href="/donationEdit/${oneUserContacts.id}">Edytuj</a></td>
+                <td><a href="/contactEdit/${oneUserContacts.id}">Edytuj</a></td>
             </tr>
         </c:forEach>
 

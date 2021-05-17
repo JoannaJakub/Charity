@@ -55,6 +55,8 @@ public class ContactController {
         contactRepository.deleteById(id);
         return "redirect:/adminContact";
     }
+
+
     @GetMapping(value = {"/contactEdit/{id}"})
     public String contactEditForm(@PathVariable long id, Model model) {
         Optional<Contact> contact = contactRepository.findById(id);

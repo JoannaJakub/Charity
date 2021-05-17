@@ -17,7 +17,6 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>Id</th>
             <th>Treść</th>
             <th>Data wysłania</th>
             <th>Data modyfikacji</th>
@@ -35,7 +34,7 @@
                 <td><c:out value="${contactsOfUser.message}"/></td>
                 <td><c:out value="${contactsOfUser.createdDate}"/></td>
                 <td><c:out value="${contactsOfUser.updateDate}"/></td>
-                <td ><a href="<c:url value="/contactConfirmDelete/?id=${contactsOfUser.id}"/>">Zamknij</a></td>
+                <td><a href="<c:url value="/contactConfirmDeleteByUser/?id=${contactsOfUser.id}"/>">Zamknij</a></td>
                 <td><a href="/contactsEditByUser/${contactsOfUser.id}">Edytuj</a></td>
             </tr>
         </c:forEach>
