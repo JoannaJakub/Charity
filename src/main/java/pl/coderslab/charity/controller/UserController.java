@@ -14,7 +14,9 @@ import pl.coderslab.charity.repository.*;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Controller
@@ -179,7 +181,7 @@ public class UserController {
     }
     @GetMapping("/forum")
     public String forum(Model model, Authentication authentication) {
-        //model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        model.addAttribute("lastlyDonatedForum", donationRepository.findAll());
         return "user/forum";
     }
 

@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import pl.coderslab.charity.model.Donation;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,5 +23,5 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     List<Donation> findDonationByCategoryId(long Category);
 
     @Query(value = "SELECT max(d.id) from Donation d")
-    Optional<Donation> findTopById();
+    Optional<Donation> findTop5ById();
 }
