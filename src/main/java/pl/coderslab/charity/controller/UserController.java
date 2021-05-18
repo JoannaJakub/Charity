@@ -177,4 +177,27 @@ public class UserController {
         contactRepository.save(contact);
         return "user/contactsOfUser";
     }
+    @GetMapping("/forum")
+    public String forum(Model model, Authentication authentication) {
+        //model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        return "user/forum";
+    }
+
+
+
+    @GetMapping(value = {"/ownDonationEdit/{id}"})
+    public String ownDonationEditEditForm(@PathVariable long id, Model model, Authentication authentication) {
+        model.addAttribute("ownDonationEdit", donationRepository.findById(id));
+        model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        return "user/ownDonationEdit";
+    }
+
+    @PostMapping(value = {"ownDonationEdit/{id}"})
+    public String ownDonationEditEditSave(@Valid Donation donation, BindingResult result) {
+        if (result.hasErrors()) {
+            return "ownDonationEdit";
+        }
+        donationRepository.save(donation);
+        return "redirect:/ownDonation";
+    }
 }

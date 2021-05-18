@@ -38,5 +38,6 @@
       <li><a href="<c:url value="/userPersonalDetails"/>" class="btn btn--without-border">Moje dane</a></li>
       <li><a href="<c:url value="/contactAddByUser"/>" class="btn btn--without-border">Zgłoś problem</a></li>
       <li><a href="<c:url value="/contactsOfUser"/>" class="btn btn--without-border">Moje wiadomości</a></li>
+      <li><a href="<c:url value="/forum"/>" class="btn btn--without-border">Forum</a></li>
     </ul>
   </nav>
