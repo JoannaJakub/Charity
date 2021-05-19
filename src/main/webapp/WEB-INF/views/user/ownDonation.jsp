@@ -46,7 +46,7 @@
         <td><c:out value="${ownDonation.institution.name}"/></td>
         <td ><a href="/donationConfirmDeleteByUser/?id=${ownDonation.id}">Usuń</a></td>
         <td ><a href="/ownDonationEdit/${ownDonation.id}">Edytuj</a></td>
-        <td ><a href="/donationDetails/${ownDonation.id}">Szczegóły</a></td>
+        <td ><a href="/ownDonationDetail/${ownDonation.id}">Szczegóły</a></td>
       </tr>
       </c:forEach>
 
