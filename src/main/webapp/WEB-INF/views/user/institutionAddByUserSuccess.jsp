@@ -25,7 +25,7 @@
 
 <section class="steps" id="steps">
     <h1>Chcesz wysłać jeszcze jedną wiadomość?</h1>
-    <a href="<c:url value="/contactAddByUser"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
+    <a href="<c:url value="/institutionAddByUser"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
 
 </body>

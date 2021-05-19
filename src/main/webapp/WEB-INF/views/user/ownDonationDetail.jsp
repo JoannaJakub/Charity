@@ -48,7 +48,7 @@
                 <td><c:out value="${ownDonationDetail.categories}"/></td>
             </tr>
             <tr>
-                <td>Instutucja</td>
+                <td>Instytucja</td>
                 <td><c:out value="${ownDonationDetail.institution.name}"/></td>
             </tr>
             <tr>
