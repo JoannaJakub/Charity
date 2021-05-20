@@ -5,10 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.model.User;
@@ -19,6 +16,7 @@ import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class UserInstitutionController {
@@ -43,6 +41,12 @@ public class UserInstitutionController {
         institutionRepository.save(institution);
         return "user/institutionAddByUserSuccess";
 
+    }
+    @GetMapping(value = {"/institutionDetailsByUser/{id}"})
+    public String donationDetails(@PathVariable long id, Model model) {
+        Optional<Institution> institution = institutionRepository.findById(id);
+        model.addAttribute("institutionDetailsByUser", institution.get());
+        return "user/institutionDetailsByUser";
     }
 
 }

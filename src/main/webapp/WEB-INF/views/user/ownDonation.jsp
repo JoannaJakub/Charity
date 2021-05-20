@@ -24,7 +24,7 @@
         <th>Kod pocztowy</th>
         <th>Ulica</th>
         <th>Numer telefonu</th>
-        <th>Dla Fundacji</th>
+        <th>Szczegóły Fundacji</th>
         <th>Usuń</th>
         <th>Edytuj</th>
         <th>Szczegóły</th>
@@ -43,7 +43,7 @@
         <td><c:out value="${ownDonation.zipCode}"/></td>
         <td><c:out value="${ownDonation.street}"/></td>
         <td><c:out value="${ownDonation.phoneNumber}"/></td>
-        <td><c:out value="${ownDonation.institution.name}"/></td>
+        <td><a href="/institutionDetailsByUser/${ownDonation.institution.id}"><c:out value="${ownDonation.institution.name}"/></a></td>
         <td ><a href="/donationConfirmDeleteByUser/?id=${ownDonation.id}">Usuń</a></td>
         <td ><a href="/ownDonationEdit/${ownDonation.id}">Edytuj</a></td>
         <td ><a href="/ownDonationDetail/${ownDonation.id}">Szczegóły</a></td>

@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
@@ -31,14 +32,17 @@
             </thead>
             <tbody>
 
-            <c:forEach items="${oneUserContacts}" var="oneUserContacts">
+            <form:form items="${oneUserContacts}" var="oneUserContacts" >
+<%--
+                    action="${userContactDetails}" modelAttribute="userContactDetails">
+--%>
                 <tr>
-                    <td><c:out value="${oneUserContacts.user.id}"/></td>
-                    <td><c:out value="${oneUserContacts.name}"/></td>
-                    <td><c:out value="${oneUserContacts.surname}"/></td>
-                    <td><c:out value="${oneUserContacts.email}"/></td>
+                    <td><c:out value="${oneUserContacts}"/></td>
+                    <td><c:out value="${oneUserContacts}"/></td>
+                    <td><c:out value="${oneUserContacts}"/></td>
+                    <td><c:out value="${oneUserContacts}"/></td>
                 </tr>
-            </c:forEach>
+            </form:form>>
 
             </tbody>
         </table>
@@ -65,7 +69,7 @@
                 <td><c:out value="${oneUserContacts.message}"/></td>
                 <td><c:out value="${oneUserContacts.createdDate}"/></td>
                 <td><c:out value="${oneUserContacts.updateDate}"/></td>
-                <td ><a href="<c:url value="/contactConfirmDelete/?id=${oneUserContacts.id}"/>">Usuń</a></td>
+                <td><a href="<c:url value="/contactConfirmDelete/?id=${oneUserContacts.id}"/>">Usuń</a></td>
                 <td><a href="/contactEdit/${oneUserContacts.id}">Edytuj</a></td>
             </tr>
         </c:forEach>
