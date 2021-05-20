@@ -1,11 +1,10 @@
-package pl.coderslab.charity.controller;
+package pl.coderslab.charity.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Category;
-import pl.coderslab.charity.model.Contact;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 
@@ -17,7 +16,6 @@ import java.util.Optional;
 public class CategoryController {
     private final CategoryRepository categoryRepository;
     private final DonationRepository donationRepository;
-
 
     public CategoryController(CategoryRepository categoryRepository, DonationRepository donationRepository) {
         this.categoryRepository = categoryRepository;
@@ -61,10 +59,8 @@ public class CategoryController {
     @GetMapping(value = {"/categoryDetails/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Category> category = categoryRepository.findById(id);
-
         model.addAttribute("categoryDetails", category.get());
         model.addAttribute("oneCategoryDonations", donationRepository.findDonationByCategoryId(id));
-
         return "admin/categories/categoryDetails";
     }
 
@@ -76,12 +72,10 @@ public class CategoryController {
 
     @RequestMapping(value = "/categoryAddSuccess", method = RequestMethod.POST)
     public String formConfirmationAction(@Valid Category category, BindingResult result) {
-
         if (result.hasErrors()) {
             return "admin/categories/categoryAdd";
         }
         categoryRepository.save(category);
         return "redirect:/adminCategory";
     }
-
 }

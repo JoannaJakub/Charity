@@ -1,4 +1,4 @@
-package pl.coderslab.charity.controller;
+package pl.coderslab.charity.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.model.Donation;
-import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
-import pl.coderslab.charity.repository.InstitutionRepository;
-import pl.coderslab.charity.repository.UserRepository;
-import pl.coderslab.charity.service.UserService;
+
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -20,7 +17,6 @@ import java.util.Optional;
 @Controller
 public class DonationController {
     private final DonationRepository donationRepository;
-
 
     public DonationController(DonationRepository donationRepository) {
         this.donationRepository = donationRepository;
@@ -32,10 +28,7 @@ public class DonationController {
         model.addAttribute("donationCategories", donationRepository.findAll());
         model.addAttribute("donationInstitutions", donationRepository.findAll());
         model.addAttribute("lastDonation", donationRepository.findAll());
-        System.out.println(donationRepository.findTop5ById());
-
         return "admin/donations/adminDonation";
-
     }
 
     @RequestMapping("/donationConfirmDelete")
@@ -67,9 +60,7 @@ public class DonationController {
     @GetMapping(value = {"/donationDetails/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Donation> donation = donationRepository.findById(id);
-
         model.addAttribute("donationDetails", donation.get());
         return "admin/donations/donationDetails";
     }
-
 }

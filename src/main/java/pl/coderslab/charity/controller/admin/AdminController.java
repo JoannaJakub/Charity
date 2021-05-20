@@ -1,4 +1,4 @@
-package pl.coderslab.charity.controller;
+package pl.coderslab.charity.controller.admin;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -40,7 +40,6 @@ public class AdminController {
     public String admin(Model model) {
         model.addAttribute("admin", userService.findAll());
         return "admin/users/adminUsers";
-
     }
 
     @RequestMapping("/userConfirmDelete")
@@ -53,7 +52,6 @@ public class AdminController {
         userService.delete(id);
         return "redirect:/admin";
     }
-
 
     @GetMapping(value = {"/userEdit/{id}"})
     public String userEditForm(@PathVariable long id, Model model) {
@@ -69,6 +67,7 @@ public class AdminController {
         userService.saveUser(user);
         return "redirect:/userConfirmEditing/{id}";
     }
+
     @RequestMapping("/userConfirmEditing/{id}")
     public String userConfirmEditing(@PathVariable long id, Model model) {
         Optional<User> user = userRepository.findById(id);
@@ -89,6 +88,7 @@ public class AdminController {
         model.addAttribute("oneUserDonations", oneUserDonations);
         return "admin/users/oneUserDonations";
     }
+
     @GetMapping("/adminForm")
     public String formAction(Model model) {
         model.addAttribute("donation", new Donation());
@@ -99,17 +99,11 @@ public class AdminController {
 
     @RequestMapping(value = "/adminFormConfirmation", method = RequestMethod.POST)
     public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
-
         if (result.hasErrors()) {
             return "adminForm";
         }
         donationRepository.save(donation);
         return "admin/donations/adminFormConfirmation";
     }
-    @GetMapping(value = {"/oneUserContacts/{id}"})
-    public String oneUserContacts(@PathVariable long id, Model model) {
-        List<Contact> oneUserContact = contactRepository.findContactByUserId(id);
-        model.addAttribute("oneUserContacts", oneUserContact);
-        return "admin/contact/oneUserContacts";
-    }
+
 }

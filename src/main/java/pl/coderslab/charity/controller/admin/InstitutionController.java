@@ -1,4 +1,4 @@
-package pl.coderslab.charity.controller;
+package pl.coderslab.charity.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,6 @@ public class InstitutionController {
 
     public InstitutionController(InstitutionRepository institutionRepository, DonationRepository donationRepository) {
         this.institutionRepository = institutionRepository;
-
         this.donationRepository = donationRepository;
     }
 
@@ -29,7 +28,6 @@ public class InstitutionController {
         model.addAttribute("institutionDonations", donationRepository.findAll());
         model.addAttribute("institutionCategories", donationRepository.findAll());
         return "admin/institutions/adminInstitution";
-
     }
 
     @RequestMapping("/institutionConfirmDelete")
@@ -80,7 +78,5 @@ public class InstitutionController {
         }
         institutionRepository.save(institution);
         return "admin/institutions/institutionAddSuccess";
-
     }
-
 }
