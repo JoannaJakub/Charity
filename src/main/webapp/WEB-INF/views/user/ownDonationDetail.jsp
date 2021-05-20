@@ -10,7 +10,6 @@
 
 <section class="login-page">
     <h2>Szczegóły użytkownika</h2>
-    <tbody>
     <table style="width:35%" cellpadding="15" class="btn btn--without-border active">
         <form:form action="ownDonationDetail" modelAttribute="ownDonationDetail">
             <input type="hidden" name="user" value="${user.id}">
@@ -61,9 +60,7 @@
             </tr>
 
         </form:form>
-        </tbody>
     </table>
-    </tbody>
 </section>
 </html>
 

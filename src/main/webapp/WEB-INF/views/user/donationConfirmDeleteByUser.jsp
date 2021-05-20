@@ -10,10 +10,7 @@
 <%@ include file="userHeader.jsp" %>
 
 <section>
-
     <h2>Czy jesteś pewien usunięcia darowizny?</h2>
-
-    <tbody>
     <table style="width:35%" cellpadding="45" class="btn btn--without-border active">
 
         <tr>
@@ -24,11 +21,7 @@
                 <a href="<c:url value="/donationDeleteByUser/${param.id}"/>" class="btn btn--without-active">TAK</a>
             </td>
         </tr>
-
-        </tbody>
     </table>
-
-
 </section>
 </header>
 </body>

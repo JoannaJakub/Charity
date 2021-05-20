@@ -3,12 +3,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="userHeader.jsp" %>
-
-
     <section class="login-page">
         <h2>Prześlij wiadomość</h2>
         <form:form action="contactAddByUserSuccess" modelAttribute="contactAddByUser" method="post">

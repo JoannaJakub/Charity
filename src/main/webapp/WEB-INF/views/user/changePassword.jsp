@@ -7,34 +7,22 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="userHeader.jsp" %>
-
-
 <section class="login-page">
-    <h2>Szczegóły użytkownika</h2>
-
+    <h2>Zmień hasło</h2>
     <form:form modelAttribute="changePassword" method="post" action="changePasswordSuccess">
+        <div class="form-group">
+            <input path="password" placeholder="Hasło"/>
+            <form:errors path="password"/>
+        </div>
+        <div class="form-group">
+            <input path="retypePassword" required="password" placeholder="Powtórz hasło"/>
 
-        <tr>
-
-            <td>Hasło</td>
-            <td><input path="password" placeholder="Hasło"/></td>
-        </tr>
-        <tr>
-            <td>Hasło</td>
-            <td><input path="retypePassword" required="password" placeholder="Powtórz hasło"/></td>
-        </tr>
-        <tr>
-            <td>
-                <a href="<c:url value="/admin"/>" class="btn btn--without-active">Powrót</a></li>
-            </td>
-            <td>
-                <button type="submit" class="btn btn--without-active"/>Zapisz</button>
-            </td>
-        </tr>
+        </div>
+        <div class="form-group form-group--buttons">
+            <a href="<c:url value="/form"/>" class="btn btn--without-border">Powrót</a>
+            <button class="btn btn--without-active" type="submit">Zmień</button>
+        </div>
     </form:form>
-
 </section>
-
-<script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

@@ -13,8 +13,6 @@
     </h2>
 
     <table style="width:100%" border="1" cellpadding="9">
-
-        <thead>
         <tr>
             <th>Id</th>
             <th>Treść</th>
@@ -25,8 +23,6 @@
 
 
         </tr>
-        </thead>
-        <tbody>
 
         <c:forEach items="${contactsOfUser}" var="contactsOfUser">
             <tr>
@@ -39,13 +35,12 @@
             </tr>
         </c:forEach>
 
-        </tbody>
     </table>
     <br>
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="<c:url value="/contactAddByUser"/>"  class="btn btn--without-border">Dodaj wiadomość</a>
+        <a href="<c:url value="/contactAddByUser"/>" class="btn btn--without-border">Dodaj wiadomość</a>
     </div>
 </section>
 

@@ -10,9 +10,7 @@
 
 <section class="login-page">
     <h2>Czy jesteś pewien zamknięcia wątku?</h2>
-    <tbody>
     <table style="width:35%" cellpadding="45" class="btn btn--without-border active">
-
         <tr>
             <td>
                 <a href="<c:url value="/contactsOfUser"/>" class="btn btn--without-active">NIE</a>
@@ -21,10 +19,7 @@
                 <a href="<c:url value="/contactDeleteByUser/${param.id}"/>" class="btn btn--without-active">TAK</a>
             </td>
         </tr>
-
-
     </table>
-    </tbody>
 </section>
 </header>
 </body>

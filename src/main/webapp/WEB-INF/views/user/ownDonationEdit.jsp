@@ -12,8 +12,6 @@
 <section class="login-page">
 
     <h2>Edycja darowizny</h2>
-
-    <tbody>
     <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
         <form:form method="post" modelAttribute="ownDonationEdit">
             <tr>
@@ -67,14 +65,11 @@
             </tr>
 
         </form:form>
-        </tbody>
     </table>
     <div class="form-group form-group--buttons">
         <br>
 
     </div>
 </section>
-
-<script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

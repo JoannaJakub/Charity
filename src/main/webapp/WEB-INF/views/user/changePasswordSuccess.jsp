@@ -7,8 +7,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="userHeader.jsp" %>
-
-
 <section>
     <div class="slogan container container--90">
         <h2>
@@ -19,7 +17,5 @@
         </h2>
     </div>
 </section>
-
-<script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>
