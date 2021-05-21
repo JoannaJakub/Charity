@@ -5,19 +5,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
 
 
 <section class="login-page">
     <h2>Szczegóły fundacji</h2>
     <table style="width:50%" border="1" cellpadding="20">
-        <td>Id</td>
         <td>Nazwa</td>
         <td>Opis</td>
 
          <form:form items="${institutionDetailsByUser}" var="institutionDetailsByUser">
             <tr>
-                <td><c:out value="${institutionDetailsByUser.id}"/></td>
                 <td><c:out value="${institutionDetailsByUser.name}"/></td>
                 <td><c:out value="${institutionDetailsByUser.description}"/></td>
             </tr>

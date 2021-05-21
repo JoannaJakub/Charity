@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
 
 <section class="login-page" id="donationsList">
     <h2>Lista darowizn</h2>

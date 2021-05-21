@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
 
     <div class="slogan container container--90">
         <div class="slogan--item">

@@ -30,23 +30,23 @@ public class UserInstitutionController {
     @GetMapping("/institutionAddByUser")
     public String institutionAddForm(Model model) {
         model.addAttribute("institutionAddByUser", new Institution());
-        return "user/institutionAddByUser";
+        return "user/institutions/institutionAddByUser";
     }
 
     @RequestMapping(value = "/institutionAddByUserSuccess", method = RequestMethod.POST)
     public String institutionAddSuccess(@Valid Institution institution, BindingResult result) {
         if (result.hasErrors()) {
-            return "user/institutionAddByUser";
+            return "user/institutions/institutionAddByUser";
         }
         institutionRepository.save(institution);
-        return "user/institutionAddByUserSuccess";
+        return "user/institutions/institutionAddByUserSuccess";
 
     }
     @GetMapping(value = {"/institutionDetailsByUser/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Institution> institution = institutionRepository.findById(id);
         model.addAttribute("institutionDetailsByUser", institution.get());
-        return "user/institutionDetailsByUser";
+        return "user/institutions/institutionDetailsByUser";
     }
 
 }

@@ -6,7 +6,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
 <section class="login-page">
     <h2>Zmień hasło</h2>
     <form:form modelAttribute="changePassword" method="post" action="changePasswordSuccess">

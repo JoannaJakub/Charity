@@ -4,17 +4,20 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
+
 <section>
     <h2>
         <br>
-        Pomyślnie wysłano zgłoszenie.
+        Dziękujemy za przesłanie formularza.
         <br>
+        <br>
+        Na maila prześlemy wszelkie informacje o odbiorze.
     </h2>
 </section>
 <section class="steps" id="steps">
-    <h1>Chcesz wysłać jeszcze jedną wiadomość?</h1>
-    <a href="<c:url value="/contactAddByUser"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
+    <h1>Masz coś jeszcze do przekazania?</h1>
+    <a href="<c:url value="/form"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
 </body>
 </html>

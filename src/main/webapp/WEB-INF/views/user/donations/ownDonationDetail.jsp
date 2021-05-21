@@ -6,7 +6,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
 
 <section class="login-page">
     <h2>Szczegóły użytkownika</h2>
@@ -21,7 +21,6 @@
                 <td>Godzina</td>
                 <td><c:out value="${ownDonationDetail.pickUpTime}"/></td>
             </tr>
-
             <tr>
                 <td>Ilość</td>
                 <td><c:out value="${ownDonationDetail.quantity}"/></td>
@@ -58,7 +57,6 @@
                     <a href="<c:url value="/ownDonationEdit/${ownDonationDetail.id}"/>" class="btn btn--without-active">Edytuj</a>
                 </td>
             </tr>
-
         </form:form>
     </table>
 </section>

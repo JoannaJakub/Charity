@@ -29,13 +29,13 @@ public class UserDonationController {
     public String admin(Model model, Authentication authentication) {
         User user = userService.findByEmail(authentication.getName());
         model.addAttribute("ownDonation", donationRepository.findDonationByUserId(user.getId()));
-        return "user/ownDonation";
+        return "user/donations/ownDonation";
 
     }
 
     @RequestMapping("/donationConfirmDeleteByUser")
     public String donationConfirmDeleteByUser() {
-        return "user/donationConfirmDeleteByUser";
+        return "user/donations/donationConfirmDeleteByUser";
     }
 
     @GetMapping(value = {"/donationDeleteByUser/{id}"})
@@ -48,7 +48,7 @@ public class UserDonationController {
     public String ownDonationEditEditForm(@PathVariable long id, Model model, Authentication authentication) {
         model.addAttribute("ownDonationEdit", donationRepository.findById(id));
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
-        return "user/ownDonationEdit";
+        return "user/donations/ownDonationEdit";
     }
 
     @PostMapping(value = {"ownDonationEdit/{id}"})
@@ -64,7 +64,7 @@ public class UserDonationController {
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Donation> donation = donationRepository.findById(id);
         model.addAttribute("ownDonationDetail", donation.get());
-        return "user/ownDonationDetail";
+        return "user/donations/ownDonationDetail";
     }
 
 }

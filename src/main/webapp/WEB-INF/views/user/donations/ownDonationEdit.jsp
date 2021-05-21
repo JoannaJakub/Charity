@@ -6,11 +6,9 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
-
+<%@ include file="../userHeader.jsp" %>
 
 <section class="login-page">
-
     <h2>Edycja darowizny</h2>
     <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
         <form:form method="post" modelAttribute="ownDonationEdit">
@@ -63,12 +61,10 @@
                     <button type="submit" class="btn btn--without-active"/>Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
     </table>
     <div class="form-group form-group--buttons">
         <br>
-
     </div>
 </section>
 </body>

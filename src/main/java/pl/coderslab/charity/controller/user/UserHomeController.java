@@ -37,16 +37,16 @@ public class UserHomeController {
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("institution", institutionRepository.findAll());
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
-        return "user/form";
+        return "user/donations/form";
     }
 
     @RequestMapping(value = "/formConfirmation", method = RequestMethod.POST)
     public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
 
         if (result.hasErrors()) {
-            return "user/form";
+            return "user/donations/form";
         }
         donationRepository.save(donation);
-        return "user/formConfirmation";
+        return "user/donations/formConfirmation";
     }
 }

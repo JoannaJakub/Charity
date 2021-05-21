@@ -5,7 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
     <section class="login-page">
         <h2>Prześlij wiadomość</h2>
         <form:form action="contactAddByUserSuccess" modelAttribute="contactAddByUser" method="post">

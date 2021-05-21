@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-<%@ include file="userHeader.jsp" %>
+<%@ include file="../userHeader.jsp" %>
 <section class="login-page">
     <h2>Edycja wiadomości</h2>
     <table style="width:35%" cellpadding="15" class="btn btn--without-border-align active">
@@ -14,7 +14,7 @@
             <input type="hidden" name="email" placeholder="Email" path="email" value="${user.email}"/>
             <tr>
                 <td>Wiadomość</td>
-                <td><input path="message"/></td>
+                <td><c:out value="${contactEditByUser.message}"/><input path="message" /></td>
             </tr>
 
             <tr>

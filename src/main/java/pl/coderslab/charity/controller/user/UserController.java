@@ -27,26 +27,26 @@ public class UserController {
     @GetMapping(value = {"/userPersonalDetails"})
     public String userPersonalDetails(Model model, Authentication authentication) {
         model.addAttribute("userPersonalDetails", userService.findByEmail(authentication.getName()));
-        return "user/userPersonalDetails";
+        return "user/user/userPersonalDetails";
     }
 
 
     @GetMapping(value = {"/userEditPersonalDetails"})
     public String userEditPersonalDetails(Model model, Authentication authentication) {
         model.addAttribute("userEditPersonalDetails", userService.findByEmail(authentication.getName()));
-        return "user/userEditPersonalDetails";
+        return "user/user/userEditPersonalDetails";
     }
 
     @RequestMapping(value = "/userEditPersonalDetailsConfirmation", method = RequestMethod.POST)
     public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result, Authentication authentication) {
         userService.saveUser(user);
-        return "user/userPersonalDetails";
+        return "user/user/userPersonalDetails";
     }
 
     @GetMapping(value = {"/changePassword"})
     public String userChangePassword(Authentication authentication, Model model) {
         model.addAttribute("changePassword", userService.findByEmail(authentication.getName()));
-        return "user/changePassword";
+        return "user/user/changePassword";
     }
 
     @PostMapping(value = {"changePasswordSuccess"})
@@ -55,12 +55,6 @@ public class UserController {
         String encodedPassword = new String(String.valueOf(new BCryptPasswordEncoder()));
         user.setPassword(encodedPassword);
         return "redirect:/changePasswordSuccess";
-    }
-
-    @GetMapping("/forum")
-    public String forum(Model model, Authentication authentication) {
-        model.addAttribute("lastlyDonatedForum", donationRepository.findAll());
-        return "user/forum";
     }
 
 }
