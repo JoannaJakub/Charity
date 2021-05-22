@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -37,6 +38,7 @@ public class Contact {
     private LocalDateTime updateDate;
     @ManyToOne
     private User user;
-
+    @ManyToOne
+    private ContactCategory contactCategory;
 
 }

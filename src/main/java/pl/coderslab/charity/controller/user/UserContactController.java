@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Contact;
+import pl.coderslab.charity.model.ContactCategory;
 import pl.coderslab.charity.model.User;
+import pl.coderslab.charity.repository.ContactCategoryRepository;
 import pl.coderslab.charity.repository.ContactRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.service.UserService;
@@ -19,18 +21,22 @@ public class UserContactController {
     private final UserService userService;
     private final ContactRepository contactRepository;
     private final DonationRepository donationRepository;
+    private final ContactCategoryRepository contactCategoryRepository;
 
 
-    public UserContactController(UserService userService, ContactRepository contactRepository, DonationRepository donationRepository) {
+    public UserContactController(UserService userService, ContactRepository contactRepository, DonationRepository donationRepository, ContactCategoryRepository contactCategoryRepository) {
         this.userService = userService;
         this.contactRepository = contactRepository;
         this.donationRepository = donationRepository;
+        this.contactCategoryRepository = contactCategoryRepository;
     }
 
     @GetMapping("/contactAddByUser")
     public String contactAddByUser(Model model, Authentication authentication) {
         model.addAttribute("contactAddByUser", new Contact());
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        model.addAttribute("contactCategory", contactCategoryRepository.findAll());
+
         return "user/contacts/contactAddByUser";
     }
 

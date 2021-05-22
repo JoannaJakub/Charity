@@ -19,10 +19,10 @@
     <nav class="container container--70">
         <ul>
             <li><a href="<c:url value="#contactsList"/>" class="btn btn--without-border">Lista wiadomości</a></li>
-            <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Ostatnia kategoria</a></li>
-            <li><a href="<c:url value="#categoriesListDonations"/>" class="btn btn--without-border">Lista kategorii wg darowizn</a></li>
+            <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Kategorie</a></li>
+            <li><a href="<c:url value="#categoriesListContact"/>" class="btn btn--without-border">Wiadomośći z podziałem na kategorie</a></li>
             <li><a href="<c:url value="#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg fundacji</a></li>
-            <li><a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a></li>
+            <li><a href="<c:url value="#contactCategoryList"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
 
         </ul>
     </nav>
@@ -39,6 +39,7 @@
             <th>Id</th>
             <th>Id użytkownika</th>
             <th>Wiadomość</th>
+            <th>Kategoria</th>
             <th>Data przesłania wiadomości</th>
             <th>Usuń</th>
             <th>Edytuj</th>
@@ -55,6 +56,7 @@
                 <td><c:out value="${adminContact.id}"/></td>
                 <td><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>"><c:out value="${adminContact.user.id}"/></a></td>
                 <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>"><c:out value="${adminContact.message}"/></a></td>
+                <td><c:out value="${adminContact.contactCategory.name}"/></td>
                 <td><c:out value="${adminContact.createdDate}"/></td>
                 <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
                 <td ><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edytuj</a></td>
@@ -74,7 +76,7 @@
     </div>
 </section>
 
-<section class="login-page" id="categoriesListDonations">
+<section class="login-page" id="categoriesListContact">
     <h2>Lista kategorii wg darowizn</h2>
     <table style="width:100%" border="1" cellpadding="9">
 
@@ -122,22 +124,22 @@
         <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
-<section class="login-page" id="categoriesListInstitution">
-    <h2>Lista kategorii według fundacji</h2>
+<section class="login-page" id="contactCategoryList">
+    <h2>Lista kategorii wiadomości</h2>
     <table style="width:100%" border="1" cellpadding="9">
 
         <thead>
         <tr>
-            <th>Kategorie</th>
-            <th>Instytucje</th>
+            <th>Id</th>
+            <th>Kategoria</th>
         </tr>
         </thead>
         <tbody>
 
-        <c:forEach items="${categoryInstitutions}" var="categoryInstitutions">
+        <c:forEach items="${contactCategoryList}" var="contactCategoryList">
             <tr>
-                <td><c:out value="${categoryInstitutions.categories}"/></td>
-                <td><c:out value="${categoryInstitutions.institution}"/></td>
+                <td><c:out value="${contactCategoryList.id}"/></td>
+                <td><c:out value="${contactCategoryList.name}"/></td>
 
             </tr>
         </c:forEach>

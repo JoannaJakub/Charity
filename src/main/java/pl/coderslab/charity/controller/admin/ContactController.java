@@ -19,17 +19,20 @@ public class ContactController {
     private final ContactRepository contactRepository;
     private final UserService userService;
     private final UserRepository userRepository;
+    private final ContactCategoryRepository contactCategoryRepository;
 
 
-    public ContactController(ContactRepository contactRepository, UserService userService, UserRepository userRepository) {
+    public ContactController(ContactRepository contactRepository, UserService userService, UserRepository userRepository, ContactCategoryRepository contactCategoryRepository) {
         this.contactRepository = contactRepository;
         this.userService = userService;
         this.userRepository = userRepository;
+        this.contactCategoryRepository = contactCategoryRepository;
     }
 
     @GetMapping(value = {"/adminContact"})
     public String adminContact(Model model) {
         model.addAttribute("adminContact", contactRepository.findAll());
+        model.addAttribute("contactCategoryList", contactCategoryRepository.findAll());
         return "admin/contact/adminContact";
     }
 
