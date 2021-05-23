@@ -17,6 +17,11 @@
     <table style="width:35%" cellpadding="15" class="btn btn--without-border-align active">
         <form:form items="${contactDetails}" var="contactDetails">
             <tr>
+                <td>Kategoria</td>
+                <td><c:out value="${contactDetails.contactCategory.name}"/></td>
+
+            </tr>
+            <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
 
