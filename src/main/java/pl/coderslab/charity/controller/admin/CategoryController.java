@@ -76,6 +76,6 @@ public class CategoryController {
             return "admin/categories/categoryAdd";
         }
         categoryRepository.save(category);
-        return "redirect:/adminCategory";
+        return "admin/categories/categoryAddSuccess";
     }
 }
