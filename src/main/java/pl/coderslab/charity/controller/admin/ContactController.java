@@ -4,7 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Contact;
+import pl.coderslab.charity.model.ContactCategory;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.*;
 import pl.coderslab.charity.service.UserService;
@@ -96,5 +98,19 @@ public class ContactController {
         }
         contactRepository.save(contact);
         return "redirect:/adminContact";
+    }
+    @GetMapping("/contactCategoryAdd")
+    public String contactCategoryAdd(Model model) {
+        model.addAttribute("contactCategoryAdd", new ContactCategory());
+        return "admin/contact/contactCategoryAdd";
+    }
+
+    @RequestMapping(value = "/contactCategoryAddSuccess", method = RequestMethod.POST)
+    public String contactCategoryAddConfirmationAction(@Valid ContactCategory contactCategory, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/contact/contactCategoryAdd";
+        }
+        contactCategoryRepository.save(contactCategory);
+        return "admin/contact/contactCategoryAddSuccess";
     }
 }

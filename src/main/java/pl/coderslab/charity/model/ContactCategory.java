@@ -20,6 +20,7 @@ public class ContactCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Proszę wpisać nazwę")
     private String name;
 
 

@@ -150,7 +150,7 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj fundacje</a>
+        <a href="<c:url value="/contactCategoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a>
     </div>
 </section>
 
