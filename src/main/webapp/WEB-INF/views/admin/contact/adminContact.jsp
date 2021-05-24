@@ -19,7 +19,6 @@
     <nav class="container container--70">
         <ul>
             <li><a href="<c:url value="#contactsList"/>" class="btn btn--without-border">Lista wiadomości</a></li>
-            <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Kategorie</a></li>
             <li><a href="<c:url value="#contactCategoryDivision"/>" class="btn btn--without-border">Wiadomości z podziałem na kategorie</a></li>
             <li><a href="<c:url value="#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg fundacji</a></li>
             <li><a href="<c:url value="#contactCategoryList"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
@@ -97,18 +96,18 @@
         </thead>
         <tbody>
 
-        <c:forEach items="${adminContact}" var="adminContact">
+        <c:forEach items="${adminContactq}" var="adminContactq">
             <tr>
-                <td><c:out value="${adminContact.contactCategory.name}"/></td>
-                <td><c:out value="${adminContact.id}"/></td>
-                <td><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>"><c:out value="${adminContact.user.id}"/></a></td>
-                <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>"><c:out value="${adminContact.message}"/></a></td>
-                <td><c:out value="${adminContact.createdDate}"/></td>
-                <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
-                <td ><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edytuj</a></td>
-                <td ><a href="<c:url value="/contactDetails/${adminContact.id}"/>">Szczegóły</a></td>
-                <td ><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>">Wiadomości użytkownika</a></td>
-                <td ><a href="<c:url value="/contactReplay/${adminContact.id}"/>">Odpowiedz</a></td>
+                <td><a href="<c:url value="/oneUserContacts/${adminContactq.contactCategory.id}"/>"><c:out value="${adminContactq.contactCategory.name}"/></a></td>
+                <td><c:out value="${adminContactq.id}"/></td>
+                <td><a href="<c:url value="/oneUserContacts/${adminContactq.user.id}"/>"><c:out value="${adminContactq.user.id}"/></a></td>
+                <td><a href="<c:url value="/contactDetails/${adminContactq.id}"/>"><c:out value="${adminContactq.message}"/></a></td>
+                <td><c:out value="${adminContactq.createdDate}"/></td>
+                <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContactq.id}"/>">Usuń</a></td>
+                <td ><a href="<c:url value="/contactEdit/${adminContactq.id}"/>">Edytuj</a></td>
+                <td ><a href="<c:url value="/contactDetails/${adminContactq.id}"/>">Szczegóły</a></td>
+                <td ><a href="<c:url value="/oneUserContacts/${adminContactq.user.id}"/>">Wiadomości użytkownika</a></td>
+                <td ><a href="<c:url value="/contactReplay/${adminContactq.id}"/>">Odpowiedz</a></td>
             </tr>
         </c:forEach>
 
@@ -136,7 +135,7 @@
         <c:forEach items="${contactCategoryList}" var="contactCategoryList">
             <tr>
                 <td><c:out value="${contactCategoryList.id}"/></td>
-                <td><c:out value="${contactCategoryList.name}"/></td>
+                <td><a href="<c:url value="/contactByCategory/${contactCategoryList.id}"/>"><c:out value="${contactCategoryList.name}"/><a/></td>
 
             </tr>
         </c:forEach>

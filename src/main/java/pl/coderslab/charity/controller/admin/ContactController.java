@@ -34,6 +34,7 @@ public class ContactController {
     @GetMapping(value = {"/adminContact"})
     public String adminContact(Model model) {
         model.addAttribute("adminContact", contactRepository.findAll());
+        model.addAttribute("adminContactq", contactRepository.findAll());
         model.addAttribute("contactCategoryList", contactCategoryRepository.findAll());
         return "admin/contact/adminContact";
     }
@@ -113,4 +114,12 @@ public class ContactController {
         contactCategoryRepository.save(contactCategory);
         return "admin/contact/contactCategoryAddSuccess";
     }
+    @GetMapping(value = {"/contactByCategory/{id}"})
+    public String contactByCategory(@PathVariable long id, Model model) {
+        List<Contact> contact = contactRepository.findByContactCategory(id);
+        model.addAttribute("contactByCategory", contact);
+        return "admin/contact/contactByCategory";
+    }
+
+
 }

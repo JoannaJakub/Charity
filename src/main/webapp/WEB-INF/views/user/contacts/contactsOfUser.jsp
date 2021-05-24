@@ -18,6 +18,7 @@
             <th>Treść</th>
             <th>Data wysłania</th>
             <th>Data modyfikacji</th>
+            <th>Kategoria</th>
             <th>Zamknij</th>
             <th>Odpowiedz</th>
 
@@ -30,6 +31,7 @@
                 <td><c:out value="${contactsOfUser.message}"/></td>
                 <td><c:out value="${contactsOfUser.createdDate}"/></td>
                 <td><c:out value="${contactsOfUser.updateDate}"/></td>
+                <td><c:out value="${contactsOfUser.contactCategory.name}"/></td>
                 <td><a href="<c:url value="/contactConfirmDeleteByUser/?id=${contactsOfUser.id}"/>">Zamknij</a></td>
                 <td><a href="/contactEditByUser/${contactsOfUser.id}">Edytuj</a></td>
             </tr>
