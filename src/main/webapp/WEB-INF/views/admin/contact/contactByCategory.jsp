@@ -18,10 +18,10 @@
 <header>
     <nav class="container container--70">
         <ul>
-            <li><a href="<c:url value="#contactsList"/>" class="btn btn--without-border">Lista wiadomości</a></li>
-            <li><a href="<c:url value="#contactCategoryDivision"/>" class="btn btn--without-border">Wiadomości z podziałem na kategorie</a></li>
-            <li><a href="<c:url value="#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg fundacji</a></li>
-            <li><a href="<c:url value="#contactCategoryList"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
+            <li><a href="<c:url value="/adminContact/#contactsList"/>" class="btn btn--without-border">Lista wiadomości</a></li>
+            <li><a href="<c:url value="/adminContact/#contactCategoryDivision"/>" class="btn btn--without-border">Wiadomości z podziałem na kategorie</a></li>
+            <li><a href="<c:url value="/adminContact/#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg fundacji</a></li>
+            <li><a href="<c:url value="/adminContact/#contactCategoryList"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
 
         </ul>
     </nav>

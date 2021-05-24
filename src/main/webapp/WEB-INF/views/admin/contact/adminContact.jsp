@@ -55,7 +55,7 @@
                 <td><c:out value="${adminContact.id}"/></td>
                 <td><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>"><c:out value="${adminContact.user.id}"/></a></td>
                 <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>"><c:out value="${adminContact.message}"/></a></td>
-                <td><c:out value="${adminContact.contactCategory.name}"/></td>
+                <td><a href="<c:url value="/contactByCategory/${adminContact.contactCategory.id}"/>"><c:out value="${adminContact.contactCategory.name}"/></a></td>
                 <td><c:out value="${adminContact.createdDate}"/></td>
                 <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
                 <td ><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edytuj</a></td>
@@ -98,7 +98,7 @@
 
         <c:forEach items="${adminContactq}" var="adminContactq">
             <tr>
-                <td><a href="<c:url value="/oneUserContacts/${adminContactq.contactCategory.id}"/>"><c:out value="${adminContactq.contactCategory.name}"/></a></td>
+                <td><a href="<c:url value="/contactByCategory/${adminContactq.contactCategory.id}"/>"><c:out value="${adminContactq.contactCategory.name}"/></a></td>
                 <td><c:out value="${adminContactq.id}"/></td>
                 <td><a href="<c:url value="/oneUserContacts/${adminContactq.user.id}"/>"><c:out value="${adminContactq.user.id}"/></a></td>
                 <td><a href="<c:url value="/contactDetails/${adminContactq.id}"/>"><c:out value="${adminContactq.message}"/></a></td>
