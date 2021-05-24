@@ -116,7 +116,7 @@ public class ContactController {
     }
     @GetMapping(value = {"/contactByCategory/{id}"})
     public String contactByCategory(@PathVariable long id, Model model) {
-        List<Contact> contact = contactRepository.findByContactCategory(id);
+        List<Contact> contact = contactRepository.findByContactCategoryId(id);
         model.addAttribute("contactByCategory", contact);
         return "admin/contact/contactByCategory";
     }
