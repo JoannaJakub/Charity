@@ -1,5 +1,6 @@
 package pl.coderslab.charity.controller.admin;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -119,6 +120,24 @@ public class ContactController {
         List<Contact> contact = contactRepository.findByContactCategoryId(id);
         model.addAttribute("contactByCategory", contact);
         return "admin/contact/contactByCategory";
+    }
+    @GetMapping("/contactAddAdmin")
+    public String contactAdd(Model model, Authentication authentication) {
+        model.addAttribute("contactAdd", new Contact());
+      //  model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        model.addAttribute("contactCategory", contactCategoryRepository.findAll());
+
+        return "admin/contact/contactAdd";
+    }
+
+    @RequestMapping(value = "/contactAddSuccessAdmin", method = RequestMethod.POST)
+    private String contactAddConfirmationAction(@Valid Contact contact, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "admin/contact/contactAdd";
+        }
+        contactRepository.save(contact);
+        return "admin/contact/contactAddSuccess";
     }
 
 

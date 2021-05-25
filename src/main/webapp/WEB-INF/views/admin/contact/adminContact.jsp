@@ -21,6 +21,7 @@
             <li><a href="<c:url value="#contactsList"/>" class="btn btn--without-border">Lista wiadomości</a></li>
             <li><a href="<c:url value="#contactCategoryDivision"/>" class="btn btn--without-border">Wiadomości z podziałem na kategorie</a></li>
             <li><a href="<c:url value="#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg fundacji</a></li>
+            <li><a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Dodaj wiadomość</a></li>
             <li><a href="<c:url value="#contactCategoryList"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
 
         </ul>
@@ -71,7 +72,8 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="register" class="btn btn--without-border">Dodaj użytkownika</a>
+
+        <a href="register" class="btn btn--without-border">Dodaj wiadomość</a>
     </div>
 </section>
 
