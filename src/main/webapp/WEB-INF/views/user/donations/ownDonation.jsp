@@ -53,6 +53,63 @@
         <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
+<section class="login-page" id="categoriesListDonations">
+    <h2>Lista kategorii</h2>
+    <table style="width:100%" border="1" cellpadding="9">
 
+        <thead>
+        <tr>
+            <th>Data darowizny</th>
+            <th>Nazwa kategori</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach items="${ownDonation}" var="ownDonation">
+            <tr>
+                <td><c:out value="${ownDonation.pickUpDate}"/></td>
+                <td><c:out value="${ownDonation.categories}"/></td>
+
+            </tr>
+        </c:forEach>
+
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+
+</section>
+<section class="login-page" id="categoriesListInstitution">
+    <h2>Lista fundacji</h2>
+    <table style="width:100%" border="1" cellpadding="9">
+
+        <thead>
+        <tr>
+            <th>Data darowizny</th>
+            <th>Nazwa fundacji</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach items="${ownDonation}" var="ownDonation">
+            <tr>
+                <td><c:out value="${ownDonation.pickUpDate}"/></td>
+                <td><c:out value="${ownDonation.institution.name}"/></td>
+
+            </tr>
+        </c:forEach>
+
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+        <a href="<c:url value="/institutionAddByUser"/>" class="btn btn--without-border">Dodaj fundacje</a>
+    </div>
+</section>
 </body>
 </html>
