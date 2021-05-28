@@ -35,6 +35,7 @@ public class ContactController {
     @GetMapping(value = {"/adminContact"})
     public String adminContact(Model model) {
         model.addAttribute("adminContact", contactRepository.findAll());
+        model.addAttribute("contactsUsers", contactRepository.findAll());
         model.addAttribute("adminContactq", contactRepository.findAll());
         model.addAttribute("contactCategoryList", contactCategoryRepository.findAll());
         return "admin/contact/adminContact";

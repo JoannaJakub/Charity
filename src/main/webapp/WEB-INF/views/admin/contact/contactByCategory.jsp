@@ -28,7 +28,7 @@
 </header>
 
 <section class="login-page" id="contactCategoryDivision">
-    <h2>Wiadomości z podziałem na kategorie</h2>
+    <h2>Wiadomości z podziałem na kategorie </h2>
     <table style="width:100%" border="1" cellpadding="9">
 
         <thead>
@@ -49,7 +49,7 @@
 
         <c:forEach items="${contactByCategory}" var="contactByCategory">
             <tr>
-                <td><c:out value="${contactByCategory.name}"/></td>
+                <td><c:out value="${contactByCategory.contactCategory.name}"/></td>
                 <td><c:out value="${contactByCategory.id}"/></td>
                 <td><c:out value="${contactByCategory.message}"/></td>
                 <td><c:out value="${contactByCategory.createdDate}"/></td>
