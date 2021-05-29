@@ -20,7 +20,8 @@
             <th>Data modyfikacji</th>
             <th>Kategoria</th>
             <th>Zamknij</th>
-            <th>Odpowiedz</th>
+            <th>Edytuj</th>
+            <th>Szczegóły</th>
 
 
         </tr>
@@ -34,6 +35,7 @@
                 <td><c:out value="${contactsOfUser.contactCategory.name}"/></td>
                 <td><a href="<c:url value="/contactConfirmDeleteByUser/?id=${contactsOfUser.id}"/>">Zamknij</a></td>
                 <td><a href="/contactEditByUser/${contactsOfUser.id}">Edytuj</a></td>
+                <td><a href="/contactDetailsByUser/${contactsOfUser.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
 

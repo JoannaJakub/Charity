@@ -89,4 +89,11 @@ public class UserContactController {
         model.addAttribute("lastlyDonatedForum", donationRepository.findAll());
         return "user/contacts/forum";
     }
+    @GetMapping(value = {"/contactDetailsByUser/{id}"})
+    public String donationDetails(@PathVariable long id, Model model) {
+        Optional<Contact> contact = contactRepository.findById(id);
+        model.addAttribute("contactDetailsByUser", contact.get());
+        return "user/contacts/contactDetailsByUser";
+    }
+
 }
