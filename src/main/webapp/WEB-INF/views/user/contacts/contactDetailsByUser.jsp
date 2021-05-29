@@ -22,15 +22,6 @@
 
             </tr>
             <tr>
-                <td>ID</td>
-                <td><c:out value="${id}"/></td>
-
-            </tr>
-            <tr>
-                <td>Id użytkownika</td>
-                <td><c:out value="${contactDetailsByUser.user.id}"/></td>
-            </tr>
-            <tr>
                 <td>Imię</td>
                 <td><c:out value="${contactDetailsByUser.name}"/></td>
             </tr>
