@@ -50,9 +50,9 @@
     </table>
     <div class="form-group form-group--buttons">
         <br>
-        <a href="<c:url value="/adminContact"/>" class="btn btn--without-border">Powrót</a></li>
-        <a href="<c:url value="/contactEdit/${contactDetailsByUser.id}"/>" class="btn btn--without-border">Edycja</a></li>
-        <a href="<c:url value="/contactConfirmDelete/?id=${contactDetailsByUser.id}"/>"
+        <a href="<c:url value="/contactsOfUser"/>" class="btn btn--without-border">Powrót</a></li>
+        <a href="<c:url value="/contactEditByUser/${contactDetailsByUser.id}"/>" class="btn btn--without-border">Edycja</a></li>
+        <a href="<c:url value="/contactConfirmDeleteByUser/?id=${contactDetailsByUser.id}"/>"
            class="btn btn--without-border">Usuń</a></li>
     </div>
 

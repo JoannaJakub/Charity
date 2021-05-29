@@ -16,6 +16,7 @@ import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -30,6 +31,8 @@ public class UserInstitutionController {
     @GetMapping("/institutionAddByUser")
     public String institutionAddForm(Model model) {
         model.addAttribute("institutionAddByUser", new Institution());
+        List<Institution> institution = institutionRepository.findAll();
+        model.addAttribute("institutionList", institution);
         return "user/institutions/institutionAddByUser";
     }
 

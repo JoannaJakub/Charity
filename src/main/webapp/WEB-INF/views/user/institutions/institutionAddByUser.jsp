@@ -25,5 +25,37 @@
         </div>
     </form:form>
 </section>
+<section class="login-page" id="institutionsList">
+    <h2>Lista fundacji</h2>
+
+
+    <table style="width:100%" border="1" cellpadding="9">
+
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach items="${institutionList}" var="institutionList">
+            <tr>
+                <td><c:out value="${institutionList.name}"/></td>
+                <td><c:out value="${institutionList.description}"/></td>
+                <td ><a href="<c:url value="/institutionDetails/${adminInstitution.id}"/>">Szczegóły</a></td>
+            </tr>
+        </c:forEach>
+
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+        <a href="<c:url value="/institutionAddByUser"/>" class="btn btn--without-border">Dodaj fundacje</a>
+    </div>
+</section>
 </body>
 </html>
