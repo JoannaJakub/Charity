@@ -24,7 +24,7 @@
     <h2>Lista użytkowników</h2>
 
 
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
       <thead>
       <tr>
@@ -69,7 +69,7 @@
   <h2>Lista użytkowniów i ich darowizny
 
   </h2>
-  <table style="width:100%" border="1" cellpadding="9">
+  <table>
 
     <thead>
     <tr>

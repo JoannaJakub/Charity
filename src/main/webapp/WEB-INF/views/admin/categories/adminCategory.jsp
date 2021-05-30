@@ -33,7 +33,7 @@
     <h2>Lista kategorii</h2>
 
 
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
@@ -68,7 +68,7 @@
 
 <section class="login-page" id="categoriesListDonations">
     <h2>Lista kategorii wg darowizn</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
@@ -116,7 +116,7 @@
 </section>
 <section class="login-page" id="categoriesListInstitution">
     <h2>Lista kategorii według fundacji</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>

@@ -32,7 +32,7 @@
     <h2>Lista wiadomości</h2>
 
 
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
@@ -81,7 +81,7 @@
     <h2>Lista użytkowników z pytaniami</h2>
 
 
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
@@ -121,7 +121,7 @@
 </section>
 <section class="login-page" id="contactCategoryDivision">
     <h2>Wiadomości z podziałem na kategorie</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
@@ -166,7 +166,7 @@
 </section>
 <section class="login-page" id="contactCategoryList">
     <h2>Lista kategorii wiadomości</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>

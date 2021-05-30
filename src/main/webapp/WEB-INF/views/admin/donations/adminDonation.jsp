@@ -23,8 +23,7 @@
 
   <section class="login-page" id="donationsList">
     <h2>Lista darowizn</h2>
-    <table style="width:100%" border="1" cellpadding="9">
-      <thead>
+    <table>
       <tr>
         <th>Id</th>
         <th>Data</th>
@@ -39,7 +38,7 @@
         <th>Szczegóły</th>
 
       </tr>
-      </thead>
+      </>
       <tbody>
 
       <c:forEach items="${adminDonation}" var="adminDonation">
@@ -59,7 +58,7 @@
       </c:forEach>
 
       </tbody>
-    </table>
+    </table style="width:100%" border="1" cellpadding="9">
     <br>
     <br>
     <br>
@@ -70,7 +69,7 @@
 
 <section class="login-page" id="lastDonation">
   <h2>Ostatnio dodana darowizna</h2>
-  <table style="width:100%" border="1" cellpadding="9">
+  <table>
     <thead>
     <tr>
       <th>Id</th>
@@ -116,7 +115,7 @@
 </section>
 <section class="login-page" id="donationsListCategory">
   <h2>Lista darowizn wg kategorii</h2>
-  <table style="width:100%" border="1" cellpadding="9">
+  <table>
 
     <thead>
     <tr>
@@ -164,7 +163,7 @@
 </section>
 <section class="login-page" id="donationsListInstitution">
   <h2>Lista darowizn wg fundacji</h2>
-  <table style="width:100%" border="1" cellpadding="9">
+  <table>
 
     <thead>
     <tr>
