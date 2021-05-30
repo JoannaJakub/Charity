@@ -28,7 +28,7 @@
     </nav>
 </header>
 
-<section class="login-page" id="contactsList">
+<section class="login-page" id="contactsList" >
     <h2>Lista wiadomości</h2>
 
 

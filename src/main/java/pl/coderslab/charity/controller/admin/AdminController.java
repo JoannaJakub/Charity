@@ -39,6 +39,7 @@ public class AdminController {
     @GetMapping(value = {"/admin"})
     public String admin(Model model) {
         model.addAttribute("admin", userService.findAll());
+        model.addAttribute("usersDonation", donationRepository.findAll());
         return "admin/users/adminUsers";
     }
 

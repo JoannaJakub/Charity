@@ -11,10 +11,8 @@
 <section class="login-page">
     <h2>Szczegóły użytkownika</h2>
     <table style="width:35%" cellpadding="15" class="btn btn--without-border active">
-        <form:form action="userEditPersonalDetailsConfirmation" modelAttribute="userEditPersonalDetails" method="post">
-            <input type="hidden" name="user" value="${user.id}">
-            <input type="hidden" name="user" value="${user.password}">
-            <input type="hidden" name="user" value="${user.retypePassword}">
+        <form:form action="userEditPersonalDetails" modelAttribute="userEditPersonalDetails">
+
             <tr>
                 <td>Imie</td>
                 <td><form:input value="${userPersonalDetails.firstName}" path="firstName"/></td>
@@ -28,6 +26,14 @@
                 <td><form:input value="${userPersonalDetails.email}" path="email"/></td>
             </tr>
 
+            <tr>
+                <td>Hasło</td>
+                <td><form:input value="${userPersonalDetails.password}" path="password"/></td>
+            </tr>
+            <tr>
+                <td>Hasło</td>
+                <td><form:input path="retypePassword"/></td>
+            </tr>
 
             <tr>
 

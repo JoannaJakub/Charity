@@ -32,15 +32,15 @@ public class UserController {
 
 
     @GetMapping(value = {"/userEditPersonalDetails"})
-    public String userEditPersonalDetails(Model model, Authentication authentication) {
+    public String userEditPersonalDetails(Model model, Authentication authentication, @Valid User user) {
         model.addAttribute("userEditPersonalDetails", userService.findByEmail(authentication.getName()));
         return "user/user/userEditPersonalDetails";
     }
 
-    @RequestMapping(value = "/userEditPersonalDetailsConfirmation", method = RequestMethod.POST)
+    @RequestMapping(value = "/userConfirmEditPersonalDetails", method = RequestMethod.POST)
     public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result, Authentication authentication) {
         userService.saveUser(user);
-        return "user/user/userPersonalDetails";
+        return "user/user/userConfirmEditPersonalDetails";
     }
 
     @GetMapping(value = {"/changePassword"})

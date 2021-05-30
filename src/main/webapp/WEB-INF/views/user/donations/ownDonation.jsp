@@ -97,8 +97,8 @@
         <c:forEach items="${ownDonation}" var="ownDonation">
             <tr>
                 <td><c:out value="${ownDonation.pickUpDate}"/></td>
-                <td><c:out value="${ownDonation.institution.name}"/></td>
-
+                <td><a href="/institutionDetailsByUser/${ownDonation.institution.id}"><c:out
+                        value="${ownDonation.institution.name}"/></a></td>
             </tr>
         </c:forEach>
 

@@ -35,16 +35,15 @@
         <tr>
             <th>Nazwa</th>
             <th>Opis</th>
-            <th>Szczegóły</th>
         </tr>
         </thead>
         <tbody>
 
         <c:forEach items="${institutionList}" var="institutionList">
             <tr>
-                <td><c:out value="${institutionList.name}"/></td>
+                <td><a href="/institutionDetailsByUser/${institutionList.id}"><c:out
+                        value="${institutionList.name}"/></a></td>
                 <td><c:out value="${institutionList.description}"/></td>
-                <td ><a href="<c:url value="/institutionDetails/${adminInstitution.id}"/>">Szczegóły</a></td>
             </tr>
         </c:forEach>
 
