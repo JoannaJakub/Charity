@@ -139,5 +139,4 @@
     <a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a>
   </div>
 </section>
-  </body>
 </html>

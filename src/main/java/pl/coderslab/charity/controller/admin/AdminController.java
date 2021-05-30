@@ -40,6 +40,7 @@ public class AdminController {
     public String admin(Model model) {
         model.addAttribute("admin", userService.findAll());
         model.addAttribute("usersDonation", donationRepository.findAll());
+        model.addAttribute("contactsUsers", contactRepository.findAll());
         return "admin/users/adminUsers";
     }
 

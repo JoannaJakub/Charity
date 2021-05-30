@@ -38,7 +38,6 @@
         <th>Szczegóły</th>
 
       </tr>
-      </>
       <tbody>
 
       <c:forEach items="${adminDonation}" var="adminDonation">
@@ -58,7 +57,7 @@
       </c:forEach>
 
       </tbody>
-    </table style="width:100%" border="1" cellpadding="9">
+    </table>
     <br>
     <br>
     <br>

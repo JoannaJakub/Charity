@@ -14,7 +14,7 @@
       <li><a href="<c:url value="#userDonations"/>" class="btn btn--without-border">Użytkownicy z darowiznami</a></li>
       <li><a href="<c:url value="#contactsUsers"/>" class="btn btn--without-border">Lista użytkowników z pytaniami</a></li>
       <li><a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Dodaj wiadomość</a></li>
-      <li><a href="<c:url value="#contactCategoryList"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
+      <li><a href="<c:url value="#userDonations"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
 
     </ul>
   </nav>
@@ -118,5 +118,48 @@
     <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
   </div>
 </section>
-  </body>
+<section class="login-page" id="contactsUsers">
+  <h2>Lista użytkowników z pytaniami</h2>
+
+
+  <table>
+
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Id użytkownika</th>
+      <th>Email użytkownika</th>
+      <th>Kategoria</th>
+      <th>Szczegóły</th>
+      <th>Data przesłania wiadomości</th>
+      <th>Wiadomości użytkownika</th>
+      <th>Odpowiedz</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <c:forEach items="${contactsUsers}" var="contactsUsers">
+      <tr>
+        <td><c:out value="${contactsUsers.id}"/></td>
+        <td><a href="<c:url value="/oneUserContacts/${contactsUsers.user.id}"/>"><c:out value="${contactsUsers.user.id}"/></a></td>
+        <td><a href="<c:url value="/oneUserContacts/${contactsUsers.user.email}"/>"><c:out value="${contactsUsers.user.email}"/></a></td>
+        <td><a href="<c:url value="/contactByCategory/${contactsUsers.contactCategory.id}"/>"><c:out value="${contactsUsers.contactCategory.name}"/></a></td>
+        <td ><a href="<c:url value="/contactDetails/${contactsUsers.id}"/>">Szczegóły</a></td>
+        <td><c:out value="${contactsUsers.createdDate}"/></td>
+        <td ><a href="<c:url value="/oneUserContacts/${contactsUsers.user.id}"/>">Wiadomości użytkownika</a></td>
+        <td ><a href="<c:url value="/contactReplay/${contactsUsers.id}"/>">Odpowiedz</a></td>
+      </tr>
+    </c:forEach>
+
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <div class="form-group form-group--buttons">
+
+    <a href="register" class="btn btn--without-border">Dodaj wiadomość</a>
+  </div>
+</section>
 </html>
