@@ -13,7 +13,7 @@
     <h2>Lista darowizn</h2>
 
 
-    <table style="width:100%" align="left" border="1" cellpadding="9">
+    <table>
 
         <thead>
             <td>Id</td>

@@ -8,14 +8,10 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Czy jesteś pewien usunięcia użytkownika?</h2>
-
     <tbody>
-    <table style="width:35%"  cellpadding="45" class="btn btn--without-border active">
-
+    <table class="btn btn--without-border active">
             <tr>
                 <td>
                     <a href="<c:url value="/admin"/>" class="btn btn--without-active">NIE</a>
@@ -24,12 +20,9 @@
                     <a href="<c:url value="/userDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
                 </td>
             </tr>
-
         </tbody>
     </table>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

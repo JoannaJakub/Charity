@@ -10,15 +10,13 @@
 
 <section class="login-page">
     <h2>Lista darowizn użytkownika
-
         <c:forEach items="${oneUserDonations}" var="oneUserDonations">
             <tr>
                 <td><c:out value="${oneUserDonations.user.firstName}"/></td>
             </tr>
         </c:forEach>
     </h2>
-    <table style="width:100%" border="1" cellpadding="9">
-
+    <table>
         <thead>
         <tr>
             <th>Id</th>
@@ -32,11 +30,9 @@
             <th>Usuń</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${oneUserDonations}" var="oneUserDonations">
             <tr>
                 <td><c:out value="${oneUserDonations.id}"/></td>
@@ -52,7 +48,6 @@
                 <td><a href="/donationDetails/${oneUserDonations.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
@@ -62,6 +57,5 @@
         <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
-
 </body>
 </html>

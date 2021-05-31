@@ -14,7 +14,7 @@
     <h2>Edycja kategorii</h2>
 
     <tbody>
-    <table style="width:35%" cellpadding="15" class="btn btn--without-border active">
+    <table class="btn btn--without-border active">
         <form:form method="post" modelAttribute="categoryEdit">
             <tr>
                 <td>ID</td>

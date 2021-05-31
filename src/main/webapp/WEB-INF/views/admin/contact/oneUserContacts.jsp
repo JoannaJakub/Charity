@@ -20,7 +20,7 @@
 
     </h2>
     <h3>
-        <table style="width:100%" border="1" cellpadding="9">
+        <table>
 
             <thead>
             <tr>
@@ -47,7 +47,7 @@
             </tbody>
         </table>
     </h3>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>

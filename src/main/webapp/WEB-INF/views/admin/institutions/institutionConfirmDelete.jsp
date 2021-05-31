@@ -14,7 +14,7 @@
     <h2>Czy jesteś pewien usunięcia fundacji?</h2>
 
     <tbody>
-    <table style="width:35%"  cellpadding="45" class="btn btn--without-border active">
+    <table class="btn btn--without-border active">
 
             <tr>
                 <td>

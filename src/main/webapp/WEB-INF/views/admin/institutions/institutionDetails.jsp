@@ -46,7 +46,7 @@
 </section>
 <section class="login-page">
     <h2>Lista darowizn dla fundacji</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>

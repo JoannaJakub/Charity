@@ -13,7 +13,7 @@
     <h2>Szczegóły kategori</h2>
 
 
-    <table style="width:50%" border="1" cellpadding="20">
+    <table>
 
         <thead>
             <td>Id</td>
@@ -43,7 +43,7 @@
 <section class="login-page">
     <h2>Lista darowizn dla kategorii
     </h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
