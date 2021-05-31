@@ -12,7 +12,7 @@
     <h2>Moje wiadomości
     </h2>
 
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
         <tr>
             <th>Id</th>
             <th>Treść</th>

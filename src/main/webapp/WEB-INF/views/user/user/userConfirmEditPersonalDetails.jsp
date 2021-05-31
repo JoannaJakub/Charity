@@ -13,7 +13,7 @@
     <h2>Zmiany zostały pomyślnie zapisane</h2>
 
     <tbody>
-    <table style="width:80%"  cellpadding="15" class="btn btn--without-border active">
+    <table class="btn btn--without-border active">
         <form:form items="${userConfirmEditPersonalDetails}" var="userConfirmEditPersonalDetails" >
             <tr>
                 <td>ID</td>

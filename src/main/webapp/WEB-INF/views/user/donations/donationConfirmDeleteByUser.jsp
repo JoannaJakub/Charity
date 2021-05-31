@@ -10,7 +10,7 @@
 
 <section class="login-page">
     <h2>Czy jesteś pewien usunięcia darowizny?</h2>
-    <table style="width:35%" cellpadding="45" class="btn btn--without-border active">
+    <table class="btn btn--without-border active">
         <tr>
             <td>
                 <a href="<c:url value="/ownDonation"/>" class="btn btn--without-active">NIE</a>

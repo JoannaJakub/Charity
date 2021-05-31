@@ -29,7 +29,7 @@
     <h2>Lista fundacji</h2>
 
 
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>

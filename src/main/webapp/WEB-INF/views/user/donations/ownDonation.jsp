@@ -11,7 +11,7 @@
 
 <section class="login-page">
     <h2>Lista darowizn</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
         <tr>
             <th>Data</th>
             <th>Godzina</th>
@@ -55,7 +55,7 @@
 </section>
 <section class="login-page" id="categoriesListDonations">
     <h2>Lista kategorii</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
@@ -83,7 +83,7 @@
 </section>
 <section class="login-page" id="categoriesListInstitution">
     <h2>Lista fundacji</h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>

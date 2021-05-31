@@ -13,8 +13,9 @@
             <input type="hidden" name="surname" placeholder="Nazwisko" path="surname" value="${user.lastName}"/>
             <input type="hidden" name="email" placeholder="Email" path="email" value="${user.email}"/>
             <tr>
+                <br>
                 <td>Wiadomość</td>
-                <td><c:out value="${contactEditByUser.message}"/><input path="message" /></td>
+                <td><c:out value="${contactEditByUser.message}"/><br><input path="message" /></td>
             </tr>
 
             <tr>

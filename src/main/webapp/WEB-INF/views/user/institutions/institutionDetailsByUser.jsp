@@ -10,7 +10,7 @@
 
 <section class="login-page">
     <h2>Szczegóły fundacji</h2>
-    <table style="width:50%" border="1" cellpadding="20">
+    <table>
         <td>Nazwa</td>
         <td>Opis</td>
 

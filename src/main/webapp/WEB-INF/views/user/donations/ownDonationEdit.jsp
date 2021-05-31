@@ -10,7 +10,7 @@
 
 <section class="login-page">
     <h2>Edycja darowizny</h2>
-    <table style="width:35%"  cellpadding="15" class="btn btn--without-border active">
+    <table class="btn btn--without-border active">
         <form:form method="post" modelAttribute="ownDonationEdit">
             <tr>
                 <td>ID</td>
