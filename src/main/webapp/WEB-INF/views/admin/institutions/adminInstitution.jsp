@@ -115,7 +115,7 @@
         <tbody>
         <c:forEach items="${institutionCategories}" var="institutionCategories">
             <tr>
-                <td><c:out value="${institutionCategories.categories}"/></td>
+                <td><c:out value="${institutionCategories.categories[0].name}"/></td>
                 <td><c:out value="${institutionCategories.institution.id}"/></td>
                 <td><c:out value="${institutionCategories.institution.name}"/></td>
             </tr>

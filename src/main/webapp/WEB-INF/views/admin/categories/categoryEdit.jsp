@@ -8,41 +8,32 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Edycja kategorii</h2>
-
     <tbody>
     <table class="btn btn--without-border active">
         <form:form method="post" modelAttribute="categoryEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Nazwa</td>
                 <td><form:input path="name"/></td>
             </tr>
             <tr>
-
-            </tr>
-            <tr>
                 <td>
                     <a href="<c:url value="/adminCategory"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>
+                    Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
         </tbody>
     </table>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

@@ -64,7 +64,7 @@
     <table>
         <thead>
         <tr>
-            <th>Id</th>
+            <th>Nazwa kategorii</th>
             <th>Id</th>
             <th>Data</th>
             <th>Godzina</th>
@@ -81,7 +81,8 @@
         <tbody>
         <c:forEach items="${categoryDonations}" var="categoryDonations">
             <tr>
-                <td><c:out value="${categoryDonations.categories}"/></td>
+                <td><a href="<c:url value="/categoryDetails/${categoryDonations.categories[0].id}"/>">
+                    <c:out value="${categoryDonations.categories[0].name}"/></a></td>
                 <td><c:out value="${categoryDonations.id}"/></td>
                 <td><c:out value="${categoryDonations.pickUpDate}"/></td>
                 <td><c:out value="${categoryDonations.pickUpTime}"/></td>
@@ -117,7 +118,7 @@
         <tbody>
         <c:forEach items="${categoryInstitutions}" var="categoryInstitutions">
             <tr>
-                <td><c:out value="${categoryInstitutions.categories}"/></td>
+                <td><c:out value="${categoryInstitutions.categories[0].name}"/></td>
                 <td><c:out value="${categoryInstitutions.institution.id}"/></td>
                 <td><c:out value="${categoryInstitutions.institution.name}"/></td>
             </tr>

@@ -8,18 +8,14 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Edycja użytkownika</h2>
-
     <tbody>
     <table class="btn btn--without-border-align active">
         <form:form method="post" modelAttribute="userEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Imie</td>
@@ -38,8 +34,8 @@
                 <td><form:input path="password"/></td>
             </tr>
             <tr>
-            <td>Hasło</td>
-            <td><form:input path="retypePassword"/></td>
+                <td>Hasło</td>
+                <td><form:input path="retypePassword"/></td>
             </tr>
             <tr>
                 <td>Uprawnienie admin</td>
@@ -50,16 +46,14 @@
                     <a href="<c:url value="/admin"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>
+                    Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
         </tbody>
     </table>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

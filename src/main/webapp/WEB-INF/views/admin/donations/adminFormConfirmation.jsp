@@ -15,22 +15,16 @@
 <%@ include file="../adminHeader.jsp" %>
 
 <section>
-
-        <h2>
-            <br>
-            Dziękujemy za przesłanie formularza.
-            <br>
-            <br>
-        </h2>
-
+    <h2>
+        <br>
+        Dziękujemy za przesłanie formularza.
+        <br>
+        <br>
+    </h2>
 </section>
-
 <section class="steps" id="steps">
     <h1>Masz coś jeszcze do przekazania?</h1>
     <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
-
-
-
 </body>
 </html>

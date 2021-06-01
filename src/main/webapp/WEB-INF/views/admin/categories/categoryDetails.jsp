@@ -8,19 +8,30 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
+<header>
+    <nav class="container container--70">
+        <ul>
+            <li><a href="<c:url value="/adminCategory#categoriesList"/>" class="btn btn--without-border">Lista
+                kategorii</a></li>
+            <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Ostatnia kategoria</a></li>
+            <li><a href="<c:url value="/adminCategory#categoriesListDonations"/>" class="btn btn--without-border">Lista
+                kategorii wg
+                darowizn</a></li>
+            <li><a href="<c:url value="/adminCategory#categoriesListInstitution"/>" class="btn btn--without-border">Lista
+                kategorii wg
+                fundacji</a></li>
+            <li><a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a></li>
+        </ul>
+    </nav>
+</header>
 <section class="login-page">
     <h2>Szczegóły kategori</h2>
-
-
     <table>
-
         <thead>
-            <td>Id</td>
-            <td>Nazwa</td>
+        <td>Id</td>
+        <td>Nazwa</td>
         </thead>
         <tbody>
-
         <form:form items="${categoryDetails}" var="categoryDetails">
             <tr>
                 <td><c:out value="${categoryDetails.id}"/></td>
@@ -28,23 +39,20 @@
 
             </tr>
         </form:form>
-
-
         </tbody>
     </table>
-
     <div class="form-group form-group--buttons">
         <br>
         <a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Powrót</a></li>
         <a href="<c:url value="/categoryEdit/${categoryDetails.id}"/>" class="btn btn--without-border">Edycja</a></li>
-        <a href="<c:url value="/categoryConfirmDelete/?id=${categoryDetails.id}"/>" class="btn btn--without-border">Usuń</a></li>
+        <a href="<c:url value="/categoryConfirmDelete/?id=${categoryDetails.id}"/>"
+           class="btn btn--without-border">Usuń</a></li>
     </div>
 </section>
 <section class="login-page">
     <h2>Lista darowizn dla kategorii
     </h2>
     <table>
-
         <thead>
         <tr>
             <th>Id</th>
@@ -58,14 +66,13 @@
             <th>Usuń</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${oneCategoryDonations}" var="oneCategoryDonations">
             <tr>
-                <td><c:out value="${oneCategoryDonations.id}"/></td>
+                <td><a href="<c:url value="/donationDetails/${oneCategoryDonations.id}"/>">
+                    <c:out value="${oneCategoryDonations.id}"/></a></td>
                 <td><c:out value="${oneCategoryDonations.pickUpDate}"/></td>
                 <td><c:out value="${oneCategoryDonations.pickUpTime}"/></td>
                 <td><c:out value="${oneCategoryDonations.quantity}"/></td>
@@ -78,17 +85,15 @@
                 <td><a href="/donationDetails/${oneCategoryDonations.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+        <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowiznę</a>
     </div>
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

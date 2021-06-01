@@ -8,18 +8,14 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Odpowiedz użytkownikowi</h2>
-
     <tbody>
     <table class="btn btn--without-border-align active">
-        <form:form  items="${contactReplay}" var="contactReplay">
+        <form:form items="${contactReplay}" var="contactReplay">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Id użytkownika</td>
@@ -50,13 +46,11 @@
                 <td><c:out value="${contactReplay.updateDate}"/></td>
             </tr>
         </form:form>
-
         </tbody>
     </table>
     </tbody>
-    <table style="width:35%" cellpadding="15" class="btn btn--without-border-align active">
+    <table class="btn btn--without-border-align active">
         <form:form method="post" modelAttribute="contactReplay">
-
             <tr>
                 <td>Wiadomość</td>
                 <td><form:input path="message"/></td>
@@ -78,41 +72,12 @@
                     Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
-        <%--<form:form method="post" modelAttribute="contactEdit2">
-
-            <tr>
-                <td>Wiadomość</td>
-                <td><form:input path="message"/></td>
-            </tr>
-            <tr>
-                <td>Data wysłania</td>
-                <td><form:input path="createdDate"/></td>
-            </tr>
-            <tr>
-                <td>Data modyfikacji</td>
-                <td><form:input path="updateDate"/></td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="<c:url value="/adminContact"/>" class="btn btn--without-active">Powrót</a></li>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn--without-active"/>
-                    Zapisz</button>
-                </td>
-            </tr>
-
-        </form:form>
-        </tbody>--%>
     </table>
     <div class="form-group form-group--buttons">
         <br>
-
     </div>
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

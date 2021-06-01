@@ -8,23 +8,18 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page" align="left">
-
     <h2>Szczegóły wiadomości</h2>
-
     <tbody>
     <table class="btn btn--without-border-align active">
         <form:form items="${contactDetails}" var="contactDetails">
             <tr>
                 <td>Kategoria</td>
                 <td><c:out value="${contactDetails.contactCategory.name}"/></td>
-
             </tr>
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Id użytkownika</td>
@@ -64,9 +59,7 @@
         <a href="<c:url value="/contactConfirmDelete/?id=${contactDetails.id}"/>"
            class="btn btn--without-border">Usuń</a></li>
     </div>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

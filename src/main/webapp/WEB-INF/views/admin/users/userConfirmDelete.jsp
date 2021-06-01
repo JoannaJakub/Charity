@@ -12,14 +12,14 @@
     <h2>Czy jesteś pewien usunięcia użytkownika?</h2>
     <tbody>
     <table class="btn btn--without-border active">
-            <tr>
-                <td>
-                    <a href="<c:url value="/admin"/>" class="btn btn--without-active">NIE</a>
-                </td>
-                <td>
-                    <a href="<c:url value="/userDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <a href="<c:url value="/admin"/>" class="btn btn--without-active">NIE</a>
+            </td>
+            <td>
+                <a href="<c:url value="/userDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </section>

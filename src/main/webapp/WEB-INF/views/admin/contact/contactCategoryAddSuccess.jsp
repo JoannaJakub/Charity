@@ -20,15 +20,12 @@
             <br>
             Pomyślnie dodano kategorie wiadomości.
             <br>
-
         </h2>
     </div>
 </section>
-
 <section class="steps" id="steps">
     <h1>Chcesz dodać jeszcze jedną?</h1>
     <a href="<c:url value="/contactCategoryAdd"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
-
 </body>
 </html>

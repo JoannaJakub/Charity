@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -20,10 +19,8 @@
     <div class="slogan--item">
         <h1>
             Pomyślnie wysłano wiadomość.<br/>
-
         </h1>
     </div>
 </div>
-
 </body>
 </html>

@@ -8,18 +8,14 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Edycja fundacji</h2>
-
     <tbody>
     <table class="btn btn--without-border-align active">
         <form:form method="post" modelAttribute="institutionEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Nazwa</td>
@@ -34,16 +30,14 @@
                     <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>
+                    Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
         </tbody>
     </table>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

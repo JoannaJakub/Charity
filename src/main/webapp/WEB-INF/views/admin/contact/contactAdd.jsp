@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -26,7 +25,6 @@
                 <select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id" />
             </h4>
         </div>
-
         <input type="hidden" name="user" value="admin">
         <input type="hidden" name="name" placeholder="Nazwisko" path="surname" value="admin"/>
         <input type="hidden" name="surname" placeholder="Nazwisko" path="surname" value="admin"/>
@@ -36,16 +34,11 @@
             <textarea name="message" placeholder="Wiadomość" rows="3" path="message"></textarea>
             <br>
             <form:errors path="message"/>
-        </div
-
-
-
+        </div>
         <div class="form-group">
             <button class="btn" type="submit">Wyślij</button>
         </div>
     </form:form>
-
 </section>
-
 </body>
 </html>

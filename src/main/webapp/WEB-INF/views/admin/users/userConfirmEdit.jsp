@@ -12,7 +12,7 @@
     <h2>Zmiany zostały pomyślnie zapisane</h2>
     <tbody>
     <table class="btn btn--without-border active">
-        <form:form items="${userConfirmEdit}" var="userConfirmEdit" >
+        <form:form items="${userConfirmEdit}" var="userConfirmEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>

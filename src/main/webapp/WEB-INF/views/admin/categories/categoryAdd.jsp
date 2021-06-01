@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -23,14 +22,11 @@
             <form:input placeholder="Nazwa" path="name" id="name"/>
             <form:errors path="name"/>
         </div>
-
         <div class="form-group form-group--buttons">
             <a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Powrót</a>
             <button class="btn" type="submit">Dodaj</button>
         </div>
     </form:form>
-
 </section>
-
 </body>
 </html>

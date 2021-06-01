@@ -8,18 +8,14 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Edycja wiadomości</h2>
-
     <tbody>
     <table class="btn btn--without-border-align active">
-        <form:form  items="${contactEdit}" var="contactEdit">
+        <form:form items="${contactEdit}" var="contactEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Id użytkownika</td>
@@ -39,7 +35,6 @@
             </tr>
         </form:form>
         <form:form method="post" modelAttribute="contactEdit2">
-
             <tr>
                 <td>Wiadomość</td>
                 <td><form:input path="message"/></td>
@@ -61,16 +56,13 @@
                     Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
         </tbody>
     </table>
     <div class="form-group form-group--buttons">
         <br>
-
     </div>
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

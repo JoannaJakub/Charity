@@ -8,18 +8,14 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Edycja darowizny</h2>
-
     <tbody>
     <table class="btn btn--without-border-align active">
         <form:form method="post" modelAttribute="donationEdit">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Data odbioru</td>
@@ -62,19 +58,17 @@
                     <a href="<c:url value="/adminDonation"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>
+                    Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
         </tbody>
     </table>
     <div class="form-group form-group--buttons">
         <br>
-
     </div>
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

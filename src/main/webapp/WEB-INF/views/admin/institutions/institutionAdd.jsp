@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -26,16 +25,12 @@
         <div class="form-group">
             <form:input type="text" placeholder="Opis fundacji" path="description" id="description"/>
             <form:errors path="description"/>
-
         </div>
-
         <div class="form-group form-group--buttons">
             <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-border">Powrót</a>
             <button class="btn" type="submit">Dodaj</button>
         </div>
     </form:form>
-
 </section>
-
 </body>
 </html>

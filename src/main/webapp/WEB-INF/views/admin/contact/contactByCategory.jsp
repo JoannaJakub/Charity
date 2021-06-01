@@ -18,19 +18,20 @@
 <header>
     <nav class="container container--70">
         <ul>
-            <li><a href="<c:url value="/adminContact/#contactsList"/>" class="btn btn--without-border">Lista wiadomości</a></li>
-            <li><a href="<c:url value="/adminContact/#contactCategoryDivision"/>" class="btn btn--without-border">Wiadomości z podziałem na kategorie</a></li>
-            <li><a href="<c:url value="/adminContact/#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg fundacji</a></li>
-            <li><a href="<c:url value="/adminContact/#contactCategoryList"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
-
+            <li><a href="<c:url value="/adminContact/#contactsList"/>" class="btn btn--without-border">Lista
+                wiadomości</a></li>
+            <li><a href="<c:url value="/adminContact/#contactCategoryDivision"/>" class="btn btn--without-border">Wiadomości
+                z podziałem na kategorie</a></li>
+            <li><a href="<c:url value="/adminContact/#categoriesListInstitution"/>" class="btn btn--without-border">Lista
+                kategorii wg fundacji</a></li>
+            <li><a href="<c:url value="/adminContact/#contactCategoryList"/>" class="btn btn--without-border">Kategorie
+                wiadomości</a></li>
         </ul>
     </nav>
 </header>
-
 <section class="login-page" id="contactCategoryDivision">
     <h2>Wiadomości z podziałem na kategorie </h2>
     <table>
-
         <thead>
         <tr>
             <th>Kategoria</th>
@@ -42,25 +43,22 @@
             <th>Szczegóły</th>
             <th>Wiadomości użytkownika</th>
             <th>Odpowiedz</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${contactByCategory}" var="contactByCategory">
             <tr>
                 <td><c:out value="${contactByCategory.contactCategory.name}"/></td>
                 <td><c:out value="${contactByCategory.id}"/></td>
                 <td><c:out value="${contactByCategory.message}"/></td>
                 <td><c:out value="${contactByCategory.createdDate}"/></td>
-                <td ><a href="<c:url value="/contactConfirmDelete/?id=${adminContactq.id}"/>">Usuń</a></td>
-                <td ><a href="<c:url value="/contactEdit/${adminContactq.id}"/>">Edytuj</a></td>
-                <td ><a href="<c:url value="/contactDetails/${adminContactq.id}"/>">Szczegóły</a></td>
-                <td ><a href="<c:url value="/oneUserContacts/${adminContactq.user.id}"/>">Wiadomości użytkownika</a></td>
-                <td ><a href="<c:url value="/contactReplay/${adminContactq.id}"/>">Odpowiedz</a></td>
+                <td><a href="<c:url value="/contactConfirmDelete/?id=${adminContactq.id}"/>">Usuń</a></td>
+                <td><a href="<c:url value="/contactEdit/${adminContactq.id}"/>">Edytuj</a></td>
+                <td><a href="<c:url value="/contactDetails/${adminContactq.id}"/>">Szczegóły</a></td>
+                <td><a href="<c:url value="/oneUserContacts/${adminContactq.user.id}"/>">Wiadomości użytkownika</a></td>
+                <td><a href="<c:url value="/contactReplay/${adminContactq.id}"/>">Odpowiedz</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
@@ -70,6 +68,5 @@
         <a href="<c:url value="/contactCategoryAdd"/>" class="btn btn--without-border">Dodaj kategorię wiadomości</a>
     </div>
 </section>
-
 </body>
 </html>

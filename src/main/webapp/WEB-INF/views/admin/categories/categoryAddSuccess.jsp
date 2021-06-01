@@ -24,11 +24,9 @@
         </h2>
     </div>
 </section>
-
 <section class="steps" id="steps">
     <h1>Chcesz dodać jeszcze jedną?</h1>
     <a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
-
 </body>
 </html>

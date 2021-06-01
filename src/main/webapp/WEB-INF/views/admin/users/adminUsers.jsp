@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
+
 <header>
     <nav class="container container--70">
         <ul>
@@ -16,17 +17,12 @@
             <li><a href="<c:url value="#contactsUsers"/>" class="btn btn--without-border">Lista użytkowników z
                 pytaniami</a></li>
             <li><a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Dodaj wiadomość</a></li>
-
         </ul>
     </nav>
 </header>
-
 <section class="login-page" id="users">
     <h2>Lista użytkowników</h2>
-
-
     <table>
-
         <thead>
         <tr>
             <th>Id</th>
@@ -38,11 +34,9 @@
             <th>Edytuj</th>
             <th>Szczegóły</th>
             <th>Darowizny użytkownika</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${admin}" var="admin">
             <tr>
                 <td><c:out value="${admin.id}"/></td>
@@ -56,22 +50,19 @@
                 <td><a href="<c:url value="/oneUserDonations/${admin.id}"/>">Darowizny użytkownika</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="<c:url value="/register"/>"class="btn btn--without-border">Dodaj użytkownika</a>
+        <a href="<c:url value="/register"/>" class="btn btn--without-border">Dodaj użytkownika</a>
     </div>
 </section>
 <section class="login-page" id="userDonations">
     <h2>Lista użytkowniów i ich darowizny
-
     </h2>
     <table>
-
         <thead>
         <tr>
             <th>Id użytkownika</th>
@@ -87,11 +78,9 @@
             <th>Usuń</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${usersDonation}" var="usersDonation">
             <tr>
                 <td><c:out value="${usersDonation.user.id}"/></td>
@@ -109,7 +98,6 @@
                 <td><a href="/donationDetails/${usersDonation.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
@@ -121,10 +109,7 @@
 </section>
 <section class="login-page" id="contactsUsers">
     <h2>Lista użytkowników z pytaniami</h2>
-
-
     <table>
-
         <thead>
         <tr>
             <th>Id</th>
@@ -135,11 +120,9 @@
             <th>Data przesłania wiadomości</th>
             <th>Wiadomości użytkownika</th>
             <th>Odpowiedz</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${contactsUsers}" var="contactsUsers">
             <tr>
                 <td><c:out value="${contactsUsers.id}"/></td>
@@ -155,14 +138,12 @@
                 <td><a href="<c:url value="/contactReplay/${contactsUsers.id}"/>">Odpowiedz</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
     <br>
     <br>
     <div class="form-group form-group--buttons">
-
         <a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Dodaj wiadomość</a>
     </div>
 </section>

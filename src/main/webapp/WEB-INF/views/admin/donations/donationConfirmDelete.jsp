@@ -8,28 +8,21 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
-
     <h2>Czy jesteś pewien usunięcia darowizny?</h2>
-
     <tbody>
     <table class="btn btn--without-border active">
-
-            <tr>
-                <td>
-                    <a href="<c:url value="/adminDonation"/>" class="btn btn--without-active">NIE</a>
-                </td>
-                <td>
-                    <a href="<c:url value="/donationDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
-                </td>
-            </tr>
-
+        <tr>
+            <td>
+                <a href="<c:url value="/adminDonation"/>" class="btn btn--without-active">NIE</a>
+            </td>
+            <td>
+                <a href="<c:url value="/donationDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
+            </td>
+        </tr>
         </tbody>
     </table>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

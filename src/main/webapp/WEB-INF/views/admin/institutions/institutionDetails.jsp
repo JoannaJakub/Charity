@@ -8,33 +8,24 @@
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
-
 <section class="login-page">
     <h2>Szczegóły fundacji</h2>
-
-
     <table>
-
         <thead>
         <td>Id</td>
         <td>Nazwa</td>
         <td>Opis</td>
         </thead>
         <tbody>
-
         <form:form items="${institutionDetails}" var="institutionDetails">
             <tr>
                 <td><c:out value="${institutionDetails.id}"/></td>
                 <td><c:out value="${institutionDetails.name}"/></td>
                 <td><c:out value="${institutionDetails.description}"/></td>
-
             </tr>
         </form:form>
-
-
         </tbody>
     </table>
-
     <div class="form-group form-group--buttons">
         <br>
         <a href="<c:url value="/adminInstitution"/>" class="btn btn--without-border">Powrót</a></li>
@@ -47,7 +38,6 @@
 <section class="login-page">
     <h2>Lista darowizn dla fundacji</h2>
     <table>
-
         <thead>
         <tr>
             <th>Id</th>
@@ -61,11 +51,9 @@
             <th>Usuń</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${oneInstitutionDonations}" var="oneInstitutionDonations">
             <tr>
                 <td><c:out value="${oneInstitutionDonations.id}"/></td>
@@ -81,7 +69,6 @@
                 <td><a href="/donationDetails/${oneInstitutionDonations.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
@@ -91,7 +78,6 @@
         <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>
