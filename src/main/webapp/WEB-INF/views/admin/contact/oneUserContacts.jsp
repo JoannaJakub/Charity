@@ -4,20 +4,17 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
 
 <section class="login-page">
     <h2>Lista darowizn użytkownika
-
         <c:forEach items="${oneUserContacts}" var="oneUserContacts">
             <tr>
-                <td><c:out value="${oneUserContacts.user.firstName}"/></td>
+                <td><c:out value="${oneUserContacts.user.email}"/></td>
             </tr>
         </c:forEach>
-
     </h2>
     <h3>
         <table>
@@ -27,28 +24,25 @@
                 <th>Id użytkownika</th>
                 <th>Imie</th>
                 <th>Nazwisko</th>
-                <th>Email</th>
             </tr>
             </thead>
             <tbody>
-
-            <form:form items="${oneUserContacts}" var="oneUserContacts" >
-<%--
-                    action="${userContactDetails}" modelAttribute="userContactDetails">
---%>
+            <c:forEach items="${oneUserContacts}" var="oneUserContacts">
                 <tr>
-                    <td><c:out value="${oneUserContacts}"/></td>
-                    <td><c:out value="${oneUserContacts}"/></td>
-                    <td><c:out value="${oneUserContacts}"/></td>
-                    <td><c:out value="${oneUserContacts}"/></td>
+                    <td><a href="<c:url value="/userDetails/${oneUserContacts.user.id}"/>"><c:out
+                            value="${oneUserContacts.user.id}"/></a></td>
+                    <td><a href="<c:url value="/userDetails/${oneUserContacts.user.id}"/>"><c:out
+                            value="${oneUserContacts.user.firstName}"/></a></td>
+                    <td><a href="<c:url value="/userDetails/${oneUserContacts.user.id}"/>"><c:out
+                            value="${oneUserContacts.user.lastName}"/></a></td>
                 </tr>
-            </form:form>>
-
+            </c:forEach>
             </tbody>
         </table>
     </h3>
+    <br>
+    <br>
     <table>
-
         <thead>
         <tr>
             <th>Id</th>
@@ -57,32 +51,28 @@
             <th>Data modyfikacji</th>
             <th>Usuń</th>
             <th>Odpowiedz</th>
-
-
+            <th>Szczegóły</th>
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${oneUserContacts}" var="oneUserContacts">
             <tr>
                 <td><c:out value="${oneUserContacts.id}"/></td>
-                <td><c:out value="${oneUserContacts.message}"/></td>
+                <td><a href="<c:url value="/contactDetails/${oneUserContacts.id}"/>"><c:out
+                        value="${oneUserContacts.message}"/></a></td>
                 <td><c:out value="${oneUserContacts.createdDate}"/></td>
                 <td><c:out value="${oneUserContacts.updateDate}"/></td>
                 <td><a href="<c:url value="/contactConfirmDelete/?id=${oneUserContacts.id}"/>">Usuń</a></td>
-                <td><a href="/contactEdit/${oneUserContacts.id}">Edytuj</a></td>
+                <td><a href="<c:url value="/contactEdit/${oneUserContacts.id}"/>">Edytuj</a></td>
+                <td><a href="<c:url value="/contactDetails/${oneUserContacts.id}"/>">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
-    <br>
-    <br>
     <br>
     <div class="form-group form-group--buttons">
         <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
-
 </body>
 </html>

@@ -29,7 +29,7 @@
 
 <section class="login-page" id="contactCategoryDivision">
     <h2>Wiadomości z podziałem na kategorie </h2>
-    <table style="width:100%" border="1" cellpadding="9">
+    <table>
 
         <thead>
         <tr>
@@ -67,7 +67,7 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="<c:url value="/contactCategoryAdd"/>" class="btn btn--without-border">Dodaj darowizne</a>
+        <a href="<c:url value="/contactCategoryAdd"/>" class="btn btn--without-border">Dodaj kategorię wiadomości</a>
     </div>
 </section>
 

@@ -207,7 +207,7 @@
   <br>
   <br>
   <div class="form-group form-group--buttons">
-    <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj instytucje</a>
+    <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj fundację</a>
   </div>
 </section>
   </body>

@@ -20,21 +20,17 @@
         <ul>
             <li><a href="<c:url value="#categoriesList"/>" class="btn btn--without-border">Lista kategorii</a></li>
             <li><a href="<c:url value="/adminCategory"/>" class="btn btn--without-border">Ostatnia kategoria</a></li>
-            <li><a href="<c:url value="#categoriesListDonations"/>" class="btn btn--without-border">Lista kategorii wg darowizn</a></li>
-            <li><a href="<c:url value="#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg fundacji</a></li>
+            <li><a href="<c:url value="#categoriesListDonations"/>" class="btn btn--without-border">Lista kategorii wg
+                darowizn</a></li>
+            <li><a href="<c:url value="#categoriesListInstitution"/>" class="btn btn--without-border">Lista kategorii wg
+                fundacji</a></li>
             <li><a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a></li>
-
         </ul>
     </nav>
 </header>
-
-
 <section class="login-page" id="categoriesList">
     <h2>Lista kategorii</h2>
-
-
     <table>
-
         <thead>
         <tr>
             <th>Id</th>
@@ -45,7 +41,6 @@
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${adminCategory}" var="adminCategory">
             <tr>
                 <td><c:out value="${adminCategory.id}"/></td>
@@ -55,7 +50,6 @@
                 <td><a href="<c:url value="/categoryDetails/${adminCategory.id}"/>">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
@@ -65,11 +59,9 @@
         <a href="<c:url value="/categoryAdd"/>" class="btn btn--without-border">Dodaj kategorie</a>
     </div>
 </section>
-
 <section class="login-page" id="categoriesListDonations">
     <h2>Lista kategorii wg darowizn</h2>
     <table>
-
         <thead>
         <tr>
             <th>Id</th>
@@ -84,7 +76,6 @@
             <th>Usuń</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
-
         </tr>
         </thead>
         <tbody>
@@ -104,7 +95,6 @@
                 <td><a href="/donationDetails/${categoryDonations.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
@@ -117,26 +107,21 @@
 <section class="login-page" id="categoriesListInstitution">
     <h2>Lista kategorii według fundacji</h2>
     <table>
-
         <thead>
         <tr>
             <th>Kategorie</th>
             <th>Id fundacji</th>
             <th>Nazwa fundacji</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${categoryInstitutions}" var="categoryInstitutions">
             <tr>
                 <td><c:out value="${categoryInstitutions.categories}"/></td>
                 <td><c:out value="${categoryInstitutions.institution.id}"/></td>
                 <td><c:out value="${categoryInstitutions.institution.name}"/></td>
-
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
@@ -146,6 +131,5 @@
         <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj fundacje</a>
     </div>
 </section>
-
 </body>
 </html>

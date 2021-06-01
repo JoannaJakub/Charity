@@ -16,7 +16,6 @@
             <li><a href="<c:url value="#contactsUsers"/>" class="btn btn--without-border">Lista użytkowników z
                 pytaniami</a></li>
             <li><a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Dodaj wiadomość</a></li>
-            <li><a href="<c:url value="#userDonations"/>" class="btn btn--without-border">Kategorie wiadomości</a></li>
 
         </ul>
     </nav>
@@ -64,7 +63,7 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="register" class="btn btn--without-border">Dodaj użytkownika</a>
+        <a href="<c:url value="/register"/>"class="btn btn--without-border">Dodaj użytkownika</a>
     </div>
 </section>
 <section class="login-page" id="userDonations">
@@ -117,7 +116,7 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+        <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
 <section class="login-page" id="contactsUsers">
@@ -164,7 +163,7 @@
     <br>
     <div class="form-group form-group--buttons">
 
-        <a href="register" class="btn btn--without-border">Dodaj wiadomość</a>
+        <a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Dodaj wiadomość</a>
     </div>
 </section>
 </html>
