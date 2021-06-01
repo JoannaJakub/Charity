@@ -8,18 +8,14 @@
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
 
-
 <section class="login-page" align="left">
-
     <h2>Szczegóły wiadomości</h2>
-
     <tbody>
     <table class="btn btn--without-border-align active">
         <form:form items="${contactDetailsByUser}" var="contactDetailsByUser">
             <tr>
                 <td>Kategoria</td>
                 <td><c:out value="${contactDetailsByUser.contactCategory.name}"/></td>
-
             </tr>
             <tr>
                 <td>Imię</td>
@@ -51,13 +47,12 @@
     <div class="form-group form-group--buttons">
         <br>
         <a href="<c:url value="/contactsOfUser"/>" class="btn btn--without-border">Powrót</a></li>
-        <a href="<c:url value="/contactEditByUser/${contactDetailsByUser.id}"/>" class="btn btn--without-border">Edycja</a></li>
+        <a href="<c:url value="/contactEditByUser/${contactDetailsByUser.id}"/>"
+           class="btn btn--without-border">Edycja</a></li>
         <a href="<c:url value="/contactConfirmDeleteByUser/?id=${contactDetailsByUser.id}"/>"
            class="btn btn--without-border">Usuń</a></li>
     </div>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

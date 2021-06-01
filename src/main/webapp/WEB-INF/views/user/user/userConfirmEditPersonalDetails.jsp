@@ -9,16 +9,13 @@
 <%@ include file="../userHeader.jsp" %>
 
 <section class="login-page">
-
     <h2>Zmiany zostały pomyślnie zapisane</h2>
-
     <tbody>
     <table class="btn btn--without-border active">
-        <form:form items="${userConfirmEditPersonalDetails}" var="userConfirmEditPersonalDetails" >
+        <form:form items="${userConfirmEditPersonalDetails}" var="userConfirmEditPersonalDetails">
             <tr>
                 <td>ID</td>
                 <td><c:out value="${id}"/></td>
-
             </tr>
             <tr>
                 <td>Imie</td>
@@ -46,21 +43,13 @@
             </tr>
             <tr>
                 <td>
-
-                </td>
-                <td>
                     <a href="<c:url value="/admin"/>" class="btn btn--without-active">Powrót do głównego panelu</a></li>
                 </td>
-
             </tr>
-
         </form:form>
-
         </tbody>
     </table>
-
 </section>
-
 <script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

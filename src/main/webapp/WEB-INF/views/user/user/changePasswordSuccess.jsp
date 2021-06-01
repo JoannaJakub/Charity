@@ -13,7 +13,6 @@
             <br>
             Hasło zostało zmienione
             <br>
-
         </h2>
     </div>
 </section>

@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
+
 <section>
     <h2>
         <br>

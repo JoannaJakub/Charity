@@ -11,7 +11,6 @@
 <section class="login-page">
     <h2>Moje wiadomości
     </h2>
-
     <table>
         <tr>
             <th>Id</th>
@@ -22,10 +21,7 @@
             <th>Zamknij</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
-
-
         </tr>
-
         <c:forEach items="${contactsOfUser}" var="contactsOfUser">
             <tr>
                 <td><c:out value="${contactsOfUser.id}"/></td>
@@ -38,7 +34,6 @@
                 <td><a href="/contactDetailsByUser/${contactsOfUser.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
     </table>
     <br>
     <br>
@@ -47,6 +42,5 @@
         <a href="<c:url value="/contactAddByUser"/>" class="btn btn--without-border">Dodaj wiadomość</a>
     </div>
 </section>
-
 </body>
 </html>

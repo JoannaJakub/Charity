@@ -12,7 +12,6 @@
     <h2>Szczegóły użytkownika</h2>
     <table class="btn btn--without-border active">
         <form:form action="userEditPersonalDetails" modelAttribute="userEditPersonalDetails">
-
             <tr>
                 <td>Imie</td>
                 <td><form:input value="${userPersonalDetails.firstName}" path="firstName"/></td>
@@ -25,7 +24,6 @@
                 <td>Email</td>
                 <td><form:input value="${userPersonalDetails.email}" path="email"/></td>
             </tr>
-
             <tr>
                 <td>Hasło</td>
                 <td><form:input value="${userPersonalDetails.password}" path="password"/></td>
@@ -34,14 +32,11 @@
                 <td>Hasło</td>
                 <td><form:input path="retypePassword"/></td>
             </tr>
-
             <tr>
-
                 <td>
-                <a href="<c:url value="/changePassword"/>" class="btn btn--without-active">Zmień hasło</a>
+                    <a href="<c:url value="/changePassword"/>" class="btn btn--without-active">Zmień hasło</a>
                 </td>
             </tr>
-
             <tr>
                 <td>
                     <a href="<c:url value="/userPersonalDetails"/>" class="btn btn--without-active">Powrót</a>
@@ -50,10 +45,8 @@
                     <button type="submit" class="btn">Zapisz</button>
                 </td>
             </tr>
-
         </form:form>
     </table>
-
 </section>
 </header>
 </body>

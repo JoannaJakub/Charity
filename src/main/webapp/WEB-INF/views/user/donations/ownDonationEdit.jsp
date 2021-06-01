@@ -58,7 +58,8 @@
                     <a href="<c:url value="/ownDonation"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>
+                    Zapisz</button>
                 </td>
             </tr>
         </form:form>

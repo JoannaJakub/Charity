@@ -7,14 +7,13 @@
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
 
-
 <section class="login-page">
     <h2>Szczegóły fundacji</h2>
     <table>
         <td>Nazwa</td>
         <td>Opis</td>
 
-         <form:form items="${institutionDetailsByUser}" var="institutionDetailsByUser">
+        <form:form items="${institutionDetailsByUser}" var="institutionDetailsByUser">
             <tr>
                 <td><c:out value="${institutionDetailsByUser.name}"/></td>
                 <td><c:out value="${institutionDetailsByUser.description}"/></td>

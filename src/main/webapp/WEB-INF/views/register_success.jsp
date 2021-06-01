@@ -20,16 +20,13 @@
             <br>
             Proces rejestracji przebiegł pomyślnie.
             <br>
-
         </h2>
     </div>
 </section>
-
 <section class="steps" id="steps">
     <h1>Chcesz się zalogować?</h1>
     <a href="<c:url value="/login"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
 </section>
-
 <%@ include file="footer.jsp" %>
 </body>
 </html>

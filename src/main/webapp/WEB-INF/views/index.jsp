@@ -10,25 +10,21 @@
     <div class="container container--85">
         <div class="stats--item">
             <em>${quantity}</em>
-
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>
         </div>
-
         <div class="stats--item">
             <em>${id}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
         </div>
-
     </div>
 </section>
 
 <section class="steps" id="steps">
     <h2>Wystarczą 4 proste kroki</h2>
-
     <div class="steps--container">
         <div class="steps--item">
             <span class="icon icon--hands"></span>
@@ -53,7 +49,6 @@
     </div>
     <a href="<c:url value="register"/>" class="btn btn--large">Załóż konto</a>
 </section>
-
 <section class="about-us" id="about">
     <div class="about-us--text">
         <h2>O nas</h2>
@@ -64,19 +59,14 @@
     <div class="about-us--image"><img src="<c:url value="resources/images/about-us.jpg"/>" alt="People in circle"/>
     </div>
 </section>
-
-
 <section class="help" id="help">
     <h2>Komu pomagamy?</h2>
-
     <!-- SLIDE 1 -->
     <div class="help--slides active" data-id="1">
         <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
             Możesz sprawdzić czym się zajmują.</p>
-
         <ul class="help--slides-items">
             <c:forEach items="${institution}" var="institution" varStatus="status">
-
                 <c:if test="${status.index%2 == 0}">
                     <li>
                 </c:if>
@@ -84,18 +74,13 @@
                     <div class="title"><c:out value="${institution.name}"/></div>
                     <div class="subtitle"><c:out value="${institution.name}"/></div>
                 </div>
-
                 <c:if test="${status.index%2 == 1}">
                     </li>
                 </c:if>
             </c:forEach>
         </ul>
     </div>
-
 </section>
-
-
-
 <%@ include file="footer.jsp" %>
 </body>
 </html>

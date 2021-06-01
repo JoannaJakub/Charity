@@ -2,8 +2,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
-
 <%@ include file="../userHeader.jsp" %>
+
 <section class="login-page">
     <h2>Edycja wiadomości</h2>
     <table style="width:35%" cellpadding="15" class="btn btn--without-border-align active">
@@ -15,15 +15,15 @@
             <tr>
                 <br>
                 <td>Wiadomość</td>
-                <td><c:out value="${contactEditByUser.message}"/><br><input path="message" /></td>
+                <td><c:out value="${contactEditByUser.message}"/><br><input path="message"/></td>
             </tr>
-
             <tr>
                 <td>
                     <a href="<c:url value="/contactsOfUser"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn--without-active"/>Zapisz</button>
+                    <button type="submit" class="btn btn--without-active"/>
+                    Zapisz</button>
                 </td>
             </tr>
         </form:form>

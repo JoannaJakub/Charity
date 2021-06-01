@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
+
 <section class="login-page">
     <h2>Zmień hasło</h2>
     <form:form modelAttribute="changePassword" method="post" action="changePasswordSuccess">
@@ -16,7 +17,6 @@
         </div>
         <div class="form-group">
             <input path="retypePassword" required="password" placeholder="Powtórz hasło"/>
-
         </div>
         <div class="form-group form-group--buttons">
             <a href="<c:url value="/form"/>" class="btn btn--without-border">Powrót</a>

@@ -6,19 +6,17 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
+
 <section class="login-page">
     <h2>Prześlij wiadomość</h2>
-
-
     <form:form action="contactAddByUserSuccess" modelAttribute="contactAddByUser" method="post">
         <div class="form--steps-counter">
-             <label for="contactCategory">Wybierz kategorie</label>
+            <label for="contactCategory">Wybierz kategorie</label>
             <br>
             <h4>
-            <form:select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id" />
+                <form:select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id"/>
             </h4>
         </div>
-
         <input type="hidden" name="user" value="${user.id}">
         <input type="hidden" name="name" placeholder="Nazwisko" path="surname" value="${user.firstName}"/>
         <input type="hidden" name="surname" placeholder="Nazwisko" path="surname" value="${user.lastName}"/>
@@ -29,15 +27,10 @@
             <br>
             <form:errors path="message"/>
         </div
-
-
-
         <div class="form-group">
             <button class="btn" type="submit">Wyślij</button>
         </div>
-
     </form:form>
-
 </section>
 </header>
 </body>

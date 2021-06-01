@@ -25,7 +25,6 @@
                 <td>Email</td>
                 <td><c:out value="${userPersonalDetails.email}"/></td>
             </tr>
-
             <tr>
                 <td>
                     <a href="<c:url value="/form"/>" class="btn btn--without-active">Powrót</a></li>
@@ -34,7 +33,6 @@
                     <a href="<c:url value="/userEditPersonalDetails"/>" class="btn btn--without-active">Edytuj</a>
                 </td>
             </tr>
-
         </form:form>
     </table>
 </section>

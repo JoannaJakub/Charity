@@ -8,7 +8,6 @@
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
 
-
 <section class="login-page">
     <h2>Lista darowizn</h2>
     <table>
@@ -24,9 +23,7 @@
             <th>Usuń</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
-
         </tr>
-
         <c:forEach items="${ownDonation}" var="ownDonation">
             <input type="hidden" name="user" value="${user.id}">
             <tr>
@@ -44,7 +41,6 @@
                 <td><a href="/ownDonationDetail/${ownDonation.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
-
     </table>
     <br>
     <br>
@@ -56,44 +52,35 @@
 <section class="login-page" id="categoriesListDonations">
     <h2>Lista kategorii</h2>
     <table>
-
         <thead>
         <tr>
             <th>Data darowizny</th>
-            <th>Nazwa kategori</th>
-
+            <th>Nazwa kategorii</th>
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${ownDonation}" var="ownDonation">
             <tr>
                 <td><c:out value="${ownDonation.pickUpDate}"/></td>
                 <td><c:out value="${ownDonation.categories}"/></td>
-
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
     <br>
     <br>
-
 </section>
 <section class="login-page" id="categoriesListInstitution">
     <h2>Lista fundacji</h2>
     <table>
-
         <thead>
         <tr>
             <th>Data darowizny</th>
             <th>Nazwa fundacji</th>
-
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${ownDonation}" var="ownDonation">
             <tr>
                 <td><c:out value="${ownDonation.pickUpDate}"/></td>
@@ -101,7 +88,6 @@
                         value="${ownDonation.institution.name}"/></a></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>

@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -32,11 +31,11 @@
             <form:errors path="email"/>
         </div>
         <div class="form-group">
-            <form:input type="password" name="password" placeholder="Hasło" path="password" />
+            <form:input type="password" name="password" placeholder="Hasło" path="password"/>
             <form:errors path="password"/>
         </div>
         <div class="form-group">
-            <form:input type="password" name="retypePassword" placeholder="Powtórz hasło" path="retypePassword"   />
+            <form:input type="password" name="retypePassword" placeholder="Powtórz hasło" path="retypePassword"/>
             <form:errors path="retypePassword"/>
         </div>
 
@@ -46,7 +45,6 @@
         </div>
     </form:form>
 </section>
-
 <%@ include file="footer.jsp" %>
 </body>
 </html>

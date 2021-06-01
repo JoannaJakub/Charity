@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
@@ -27,10 +26,7 @@
 </section>
 <section class="login-page" id="institutionsList">
     <h2>Lista fundacji</h2>
-
-
     <table>
-
         <thead>
         <tr>
             <th>Nazwa</th>
@@ -38,7 +34,6 @@
         </tr>
         </thead>
         <tbody>
-
         <c:forEach items="${institutionList}" var="institutionList">
             <tr>
                 <td><a href="/institutionDetailsByUser/${institutionList.id}"><c:out
@@ -46,7 +41,6 @@
                 <td><c:out value="${institutionList.description}"/></td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
     <br>
