@@ -58,7 +58,7 @@
                     <a href="<c:url value="/adminDonation"/>" class="btn btn--without-active">Powrót</a></li>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn--without-active"/>
+                    <button type="submit"  class="btn btn--without-active"/>
                     Zapisz</button>
                 </td>
             </tr>

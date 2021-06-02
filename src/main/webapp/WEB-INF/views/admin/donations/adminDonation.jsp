@@ -17,7 +17,8 @@
                 kategorii</a></li>
             <li><a href="<c:url value="#donationsListInstitution"/>" class="btn btn--without-border">Lista darowizn wg
                 fundacji</a></li>
-            <li><a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a></li>
+            <li><a href="<c:url value="#userDonations"/>" class="btn btn--without-border">Lista użytkowników i ich darowizny</a></li>
+            <li><a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowiznę</a></li>
         </ul>
     </nav>
 </header>
@@ -110,7 +111,7 @@
     <table>
         <thead>
         <tr>
-            <th>Id</th>
+            <th>Nazwa kategori</th>
             <th>Id</th>
             <th>Data</th>
             <th>Godzina</th>
@@ -136,9 +137,9 @@
                 <td><c:out value="${donationCategories.zipCode}"/></td>
                 <td><c:out value="${donationCategories.street}"/></td>
                 <td><c:out value="${donationCategories.phoneNumber}"/></td>
-                <td><a href="/donationDelete/${donationCategories.id}">Usuń</a></td>
-                <td><a href="/donationEdit/${donationCategories.id}">Edytuj</a></td>
-                <td><a href="/donationDetails/${donationCategories.id}">Szczegóły</a></td>
+                <td><a href="<c:url value="/donationConfirmDelete/?id=${donationCategories.id}"/>">Usuń</a></td>
+                <td><a href="<c:url value="/donationEdit/${donationCategories.id}"/>">Edytuj</a></td>
+                <td><a href="<c:url value="/donationDetails/${donationCategories.id}"/>">Szczegóły</a></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -173,9 +174,12 @@
         <tbody>
         <c:forEach items="${donationInstitutions}" var="donationInstitutions">
             <tr>
-                <td><c:out value="${donationInstitutions.institution.id}"/></td>
-                <td><c:out value="${donationInstitutions.institution.name}"/></td>
-                <td><c:out value="${donationInstitutions.id}"/></td>
+                <td><a href="<c:url value="/institutionDetails/${donationInstitutions.institution.id}"/>"><c:out
+                        value="${donationInstitutions.institution.id}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${donationInstitutions.institution.id}"/>"><c:out
+                        value="${donationInstitutions.institution.name}"/></a></td>
+                <td><a href="<c:url value="/donationDetails/${donationInstitutions.id}"/>"><c:out
+                        value="${donationInstitutions.id}"/></a></td>
                 <td><c:out value="${donationInstitutions.pickUpDate}"/></td>
                 <td><c:out value="${donationInstitutions.pickUpTime}"/></td>
                 <td><c:out value="${donationInstitutions.quantity}"/></td>
@@ -183,9 +187,9 @@
                 <td><c:out value="${donationInstitutions.zipCode}"/></td>
                 <td><c:out value="${donationInstitutions.street}"/></td>
                 <td><c:out value="${donationInstitutions.phoneNumber}"/></td>
-                <td><a href="/donationDelete/${donationInstitutions.id}">Usuń</a></td>
-                <td><a href="/donationEdit/${institutionDonations.id}">Edytuj</a></td>
-                <td><a href="/donationDetails/${donationInstitutions.id}">Szczegóły</a></td>
+                <td><a href="<c:url value="/donationConfirmDelete/?id=${donationInstitutions.id}"/>">Usuń</a></td>
+                <td><a href="<c:url value="/donationEdit/${donationInstitutions.id}"/>">Edytuj</a></td>
+                <td><a href="<c:url value="/donationDetails/${donationInstitutions.id}"/>">Szczegóły</a></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -195,6 +199,57 @@
     <br>
     <div class="form-group form-group--buttons">
         <a href="<c:url value="/institutionAdd"/>" class="btn btn--without-border">Dodaj fundację</a>
+    </div>
+</section>
+<section class="login-page" id="userDonations">
+    <h2>Lista użytkowników i ich darowizny
+    </h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Id użytkownika</th>
+            <th>Użytkownik</th>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Godzina</th>
+            <th>ilość</th>
+            <th>Miasto</th>
+            <th>Kod pocztowy</th>
+            <th>Ulica</th>
+            <th>Numer telefonu</th>
+            <th>Usuń</th>
+            <th>Edytuj</th>
+            <th>Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${adminDonation}" var="adminDonation">
+            <tr>
+                <td><a href="<c:url value="/oneUserDonations/${adminDonation.user.id}"/>"><c:out
+                        value="${adminDonation.user.id}"/></a></td>
+                <td><a href="<c:url value="/oneUserDonations/${adminDonation.user.id}"/>"><c:out
+                        value="${adminDonation.user.email}"/></a></td>
+                <td><a href="<c:url value="/donationDetails/${adminDonation.id}"/>"><c:out
+                        value="${adminDonation.id}"/></a></td>
+                <td><c:out value="${adminDonation.pickUpDate}"/></td>
+                <td><c:out value="${adminDonation.pickUpTime}"/></td>
+                <td><c:out value="${adminDonation.quantity}"/></td>
+                <td><c:out value="${adminDonation.city}"/></td>
+                <td><c:out value="${adminDonation.zipCode}"/></td>
+                <td><c:out value="${adminDonation.street}"/></td>
+                <td><c:out value="${adminDonation.phoneNumber}"/></td>
+                <td><a href="<c:url value="/donationConfirmDelete/?id=${adminDonation.id}"/>">Usuń</a></td>
+                <td><a href="<c:url value="/donationEdit/${adminDonation.id}"/>">Edytuj</a></td>
+                <td><a href="<c:url value="/donationDetails/${adminDonation.id}"/>">Szczegóły</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <div class="form-group form-group--buttons">
+        <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
     </div>
 </section>
 </body>
