@@ -38,9 +38,12 @@
         <tbody>
         <c:forEach items="${adminInstitution}" var="adminInstitution">
             <tr>
-                <td><c:out value="${adminInstitution.id}"/></td>
-                <td><c:out value="${adminInstitution.name}"/></td>
-                <td><c:out value="${adminInstitution.description}"/></td>
+                <td><a href="<c:url value="/institutionDetails/${adminInstitution.id}"/>"><c:out
+                        value="${adminInstitution.id}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${adminInstitution.id}"/>"><c:out
+                        value="${adminInstitution.name}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${adminInstitution.id}"/>"><c:out
+                        value="${adminInstitution.description}"/></a></td>
                 <td><a href="<c:url value="/institutionConfirmDelete/?id=${adminInstitution.id}"/>">Usuń</a></td>
                 <td><a href="<c:url value="/institutionEdit/${adminInstitution.id}"/>">Edytuj</a></td>
                 <td><a href="<c:url value="/institutionDetails/${adminInstitution.id}"/>">Szczegóły</a></td>
@@ -78,9 +81,12 @@
         <tbody>
         <c:forEach items="${institutionDonations}" var="institutionDonations">
             <tr>
-                <td><c:out value="${institutionDonations.institution.id}"/></td>
-                <td><c:out value="${institutionDonations.institution.name}"/></td>
-                <td><c:out value="${institutionDonations.id}"/></td>
+                <td><a href="<c:url value="/institutionDetails/${institutionDonations.institution.id}"/>"><c:out
+                        value="${institutionDonations.institution.id}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${institutionDonations.institution.id}"/>"><c:out
+                        value="${institutionDonations.institution.name}"/></a></td>
+                <td><a href="<c:url value="/donationDetails/${institutionDonations.id}"/>"><c:out
+                        value="${institutionDonations.id}"/></a></td>
                 <td><c:out value="${institutionDonations.pickUpDate}"/></td>
                 <td><c:out value="${institutionDonations.pickUpTime}"/></td>
                 <td><c:out value="${institutionDonations.quantity}"/></td>
@@ -115,9 +121,12 @@
         <tbody>
         <c:forEach items="${institutionCategories}" var="institutionCategories">
             <tr>
-                <td><c:out value="${institutionCategories.categories[0].name}"/></td>
-                <td><c:out value="${institutionCategories.institution.id}"/></td>
-                <td><c:out value="${institutionCategories.institution.name}"/></td>
+                <td><a href="<c:url value="/categoryDetails/${institutionCategories.categories[0].id}"/>">
+                    <c:out value="${institutionCategories.categories[0].name}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${institutionCategories.institution.id}"/>"><c:out
+                        value="${institutionCategories.institution.id}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${institutionCategories.institution.id}"/>"><c:out
+                        value="${institutionCategories.institution.name}"/></a></td>
             </tr>
         </c:forEach>
         </tbody>
