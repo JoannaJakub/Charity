@@ -43,8 +43,10 @@
         <tbody>
         <c:forEach items="${adminCategory}" var="adminCategory">
             <tr>
-                <td><c:out value="${adminCategory.id}"/></td>
-                <td><c:out value="${adminCategory.name}"/></td>
+                <td><a href="<c:url value="/categoryDetails/${adminCategory.id}"/>">
+                    <c:out value="${adminCategory.id}"/></a></td>
+                <td><a href="<c:url value="/categoryDetails/${adminCategory.id}"/>">
+                    <c:out value="${adminCategory.name}"/></a></td>
                 <td><a href="<c:url value="/categoryConfirmDelete/?id=${adminCategory.id}"/>">Usuń</a></td>
                 <td><a href="<c:url value="/categoryEdit/${adminCategory.id}"/>">Edytuj</a></td>
                 <td><a href="<c:url value="/categoryDetails/${adminCategory.id}"/>">Szczegóły</a></td>
@@ -83,7 +85,8 @@
             <tr>
                 <td><a href="<c:url value="/categoryDetails/${categoryDonations.categories[0].id}"/>">
                     <c:out value="${categoryDonations.categories[0].name}"/></a></td>
-                <td><c:out value="${categoryDonations.id}"/></td>
+                <td><a href="<c:url value="/donationDetails/${categoryDonations.id}"/>"><c:out
+                        value="${categoryDonations.id}"/></a></td>
                 <td><c:out value="${categoryDonations.pickUpDate}"/></td>
                 <td><c:out value="${categoryDonations.pickUpTime}"/></td>
                 <td><c:out value="${categoryDonations.quantity}"/></td>
@@ -118,9 +121,12 @@
         <tbody>
         <c:forEach items="${categoryInstitutions}" var="categoryInstitutions">
             <tr>
-                <td><c:out value="${categoryInstitutions.categories[0].name}"/></td>
-                <td><c:out value="${categoryInstitutions.institution.id}"/></td>
-                <td><c:out value="${categoryInstitutions.institution.name}"/></td>
+                <td><a href="<c:url value="/categoryDetails/${categoryInstitutions.categories[0].id}"/>">
+                    <c:out value="${categoryInstitutions.categories[0].name}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${categoryInstitutions.institution.id}"/>">
+                    <c:out value="${categoryInstitutions.institution.id}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${categoryInstitutions.institution.id}"/>">
+                    <c:out value="${categoryInstitutions.institution.name}"/></a></td>
             </tr>
         </c:forEach>
         </tbody>
