@@ -34,8 +34,9 @@
     <table>
         <thead>
         <tr>
+            <th>Id kategorii</th>
             <th>Kategoria</th>
-            <th>Id</th>
+            <th>Id wiadomości</th>
             <th>Wiadomość</th>
             <th>Data przesłania wiadomości</th>
             <th>Usuń</th>
@@ -48,15 +49,18 @@
         <tbody>
         <c:forEach items="${contactByCategory}" var="contactByCategory">
             <tr>
-                <td><c:out value="${contactByCategory.contactCategory.name}"/></td>
                 <td><c:out value="${contactByCategory.id}"/></td>
-                <td><c:out value="${contactByCategory.message}"/></td>
+                <td><c:out value="${contactByCategory.contactCategory.name}"/></td>
+                <td><a href="<c:url value="/contactDetails/${contactByCategory.id}"/>">
+                    <c:out value="${contactByCategory.id}"/></a></td>
+                <td><a href="<c:url value="/contactDetails/${contactByCategory.id}"/>">
+                    <c:out value="${contactByCategory.message}"/></a></td>
                 <td><c:out value="${contactByCategory.createdDate}"/></td>
-                <td><a href="<c:url value="/contactConfirmDelete/?id=${adminContactq.id}"/>">Usuń</a></td>
-                <td><a href="<c:url value="/contactEdit/${adminContactq.id}"/>">Edytuj</a></td>
-                <td><a href="<c:url value="/contactDetails/${adminContactq.id}"/>">Szczegóły</a></td>
-                <td><a href="<c:url value="/oneUserContacts/${adminContactq.user.id}"/>">Wiadomości użytkownika</a></td>
-                <td><a href="<c:url value="/contactReplay/${adminContactq.id}"/>">Odpowiedz</a></td>
+                <td><a href="<c:url value="/contactConfirmDelete/?id=${contactByCategory.id}"/>">Usuń</a></td>
+                <td><a href="<c:url value="/contactEdit/${contactByCategory.id}"/>">Edytuj</a></td>
+                <td><a href="<c:url value="/contactDetails/${contactByCategory.id}"/>">Szczegóły</a></td>
+                <td><a href="<c:url value="/oneUserContacts/${contactByCategory.user.id}"/>">Wiadomości użytkownika</a></td>
+                <td><a href="<c:url value="/contactReplay/${contactByCategory.id}"/>">Odpowiedz</a></td>
             </tr>
         </c:forEach>
         </tbody>

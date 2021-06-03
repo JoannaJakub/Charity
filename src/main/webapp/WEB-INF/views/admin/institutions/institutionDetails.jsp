@@ -56,7 +56,8 @@
         <tbody>
         <c:forEach items="${oneInstitutionDonations}" var="oneInstitutionDonations">
             <tr>
-                <td><c:out value="${oneInstitutionDonations.id}"/></td>
+                <td><a href="<c:url value="/donationDetails/${oneInstitutionDonations.id}"/>"><c:out
+                        value="${oneInstitutionDonations.id}"/></a></td>
                 <td><c:out value="${oneInstitutionDonations.pickUpDate}"/></td>
                 <td><c:out value="${oneInstitutionDonations.pickUpTime}"/></td>
                 <td><c:out value="${oneInstitutionDonations.quantity}"/></td>

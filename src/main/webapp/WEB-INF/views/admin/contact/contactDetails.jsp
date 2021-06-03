@@ -43,7 +43,8 @@
             </tr>
             <tr>
                 <td>Wiadomość</td>
-                <td><c:out value="${contactDetails.message}"/></td>
+                <td><a href="<c:url value="/contactDetails/${contactDetails.id}"/>">
+                    <c:out value="${contactDetails.message}"/></a></td>
             </tr>
             <tr>
                 <td>Data wysłania</td>
