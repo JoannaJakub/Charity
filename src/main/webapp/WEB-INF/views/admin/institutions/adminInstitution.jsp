@@ -113,6 +113,7 @@
     <table>
         <thead>
         <tr>
+            <th>Id kategorii</th>
             <th>Kategoria</th>
             <th>Id Instytucji</th>
             <th>Nazwa Instytucji</th>
@@ -121,6 +122,8 @@
         <tbody>
         <c:forEach items="${institutionCategories}" var="institutionCategories">
             <tr>
+                <td><a href="<c:url value="/categoryDetails/${institutionCategories.categories[0].id}"/>">
+                    <c:out value="${institutionCategories.categories[0].id}"/></a></td>
                 <td><a href="<c:url value="/categoryDetails/${institutionCategories.categories[0].id}"/>">
                     <c:out value="${institutionCategories.categories[0].name}"/></a></td>
                 <td><a href="<c:url value="/institutionDetails/${institutionCategories.institution.id}"/>"><c:out

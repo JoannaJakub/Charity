@@ -41,7 +41,8 @@
         <tbody>
         <c:forEach items="${adminDonation}" var="adminDonation">
             <tr>
-                <td><c:out value="${adminDonation.id}"/></td>
+                <td><a href="<c:url value="/donationDetails/${adminDonation.id}"/>"><c:out
+                        value="${adminDonation.id}"/></a></td>
                 <td><c:out value="${adminDonation.pickUpDate}"/></td>
                 <td><c:out value="${adminDonation.pickUpTime}"/></td>
                 <td><c:out value="${adminDonation.quantity}"/></td>
@@ -111,8 +112,9 @@
     <table>
         <thead>
         <tr>
-            <th>Nazwa kategori</th>
-            <th>Id</th>
+            <th>Id kategorii</th>
+            <th>Nazwa kategorii</th>
+            <th>Id darowizny</th>
             <th>Data</th>
             <th>Godzina</th>
             <th>ilość</th>
@@ -128,8 +130,12 @@
         <tbody>
         <c:forEach items="${donationCategories}" var="donationCategories">
             <tr>
-                <td><c:out value="${donationCategories.categories[0].name}"/></td>
-                <td><c:out value="${donationCategories.id}"/></td>
+                <td><a href="<c:url value="/categoryDetails/${donationCategories.categories[0].id}"/>"><c:out
+                        value="${donationCategories.categories[0].id}"/></a></td>
+                <td><a href="<c:url value="/categoryDetails/${donationCategories.categories[0].id}"/>"><c:out
+                        value="${donationCategories.categories[0].name}"/></a></td>
+                <td><a href="<c:url value="/donationDetails/${donationCategories.id}"/>"><c:out
+                        value="${donationCategories.id}"/></a></td>
                 <td><c:out value="${donationCategories.pickUpDate}"/></td>
                 <td><c:out value="${donationCategories.pickUpTime}"/></td>
                 <td><c:out value="${donationCategories.quantity}"/></td>
@@ -249,7 +255,7 @@
     <br>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="<c:url value="/adminForm"/>" class="btn btn--without-border">Dodaj darowizne</a>
+        <a href="<c:url value="/register"/>" class="btn btn--without-border">Dodaj użytkownika</a>
     </div>
 </section>
 </body>

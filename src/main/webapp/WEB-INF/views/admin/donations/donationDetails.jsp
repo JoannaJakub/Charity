@@ -9,7 +9,7 @@
 <%@ include file="../adminHeader.jsp" %>
 
 <section class="login-page">
-    <h2>Lista darowizn</h2>
+    <h2>Szczegóły darowizny</h2>
     <table>
         <thead>
         <td>Id</td>
@@ -20,9 +20,13 @@
         <td>Kod pocztowy</td>
         <td>Ulica</td>
         <td>Numer telefonu</td>
+        <td>Komentarz</td>
         <td>Kategorie</td>
-        <td>Instutucja</td>
-        <td>Uzytkownik</td>
+        <td>Instytucja</td>
+        <td>Id użytkownika</td>
+        <td>Email użytkownik</td>
+        <td>Imie użytkownik</td>
+        <td>Nazwisko użytkownik</td>
         </thead>
         <tbody>
         <form:form items="${donationDetails}" var="donationDetails">
@@ -35,9 +39,19 @@
                 <td><c:out value="${donationDetails.zipCode}"/></td>
                 <td><c:out value="${donationDetails.street}"/></td>
                 <td><c:out value="${donationDetails.phoneNumber}"/></td>
-                <td><c:out value="${donationDetails.categories[0].name}"/></td>
-                <td><c:out value="${donationDetails.institution.name}"/></td>
-                <td><c:out value="${donationDetails.user.id}"/></td>
+                <td><c:out value="${donationDetails.pickUpComment}"/></td>
+                <td><a href="<c:url value="/categoryDetails/${donationDetails.categories[0].id}"/>"><c:out
+                        value="${donationDetails.categories[0].name}"/></a></td>
+                <td><a href="<c:url value="/institutionDetails/${donationDetails.institution.id}"/>"><c:out
+                        value="${donationDetails.institution.name}"/></a></td>
+                <td><a href="<c:url value="/userDetails/${donationDetails.user.id}"/>"><c:out
+                        value="${donationDetails.user.id}"/></a></td>
+                <td><a href="<c:url value="/userDetails/${donationDetails.user.id}"/>"><c:out
+                        value="${donationDetails.user.email}"/></a></td>
+                <td><a href="<c:url value="/userDetails/${donationDetails.user.id}"/>"><c:out
+                        value="${donationDetails.user.firstName}"/></a></td>
+                <td><a href="<c:url value="/userDetails/${donationDetails.user.id}"/>"><c:out
+                        value="${donationDetails.user.lastName}"/></a></td>
             </tr>
         </form:form>
         </tbody>

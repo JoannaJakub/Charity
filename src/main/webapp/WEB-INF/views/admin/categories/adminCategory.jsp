@@ -66,6 +66,7 @@
     <table>
         <thead>
         <tr>
+            <th>Id kategorii</th>
             <th>Nazwa kategorii</th>
             <th>Id</th>
             <th>Data</th>
@@ -83,6 +84,8 @@
         <tbody>
         <c:forEach items="${categoryDonations}" var="categoryDonations">
             <tr>
+                <td><a href="<c:url value="/categoryDetails/${categoryDonations.categories[0].id}"/>">
+                    <c:out value="${categoryDonations.categories[0].id}"/></a></td>
                 <td><a href="<c:url value="/categoryDetails/${categoryDonations.categories[0].id}"/>">
                     <c:out value="${categoryDonations.categories[0].name}"/></a></td>
                 <td><a href="<c:url value="/donationDetails/${categoryDonations.id}"/>"><c:out
@@ -113,6 +116,7 @@
     <table>
         <thead>
         <tr>
+            <th>Id kategorii</th>
             <th>Kategorie</th>
             <th>Id fundacji</th>
             <th>Nazwa fundacji</th>
@@ -121,6 +125,8 @@
         <tbody>
         <c:forEach items="${categoryInstitutions}" var="categoryInstitutions">
             <tr>
+                <td><a href="<c:url value="/categoryDetails/${categoryInstitutions.categories[0].id}"/>">
+                    <c:out value="${categoryInstitutions.categories[0].id}"/></a></td>
                 <td><a href="<c:url value="/categoryDetails/${categoryInstitutions.categories[0].id}"/>">
                     <c:out value="${categoryInstitutions.categories[0].name}"/></a></td>
                 <td><a href="<c:url value="/institutionDetails/${categoryInstitutions.institution.id}"/>">

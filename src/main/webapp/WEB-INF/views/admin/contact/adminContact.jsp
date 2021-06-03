@@ -35,10 +35,11 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>Id użytkownika</th>
             <th>Wiadomość</th>
             <th>Kategoria</th>
             <th>Data przesłania wiadomości</th>
+            <th>Id użytkownika</th>
+            <th>Email użytkownika</th>
             <th>Usuń</th>
             <th>Edytuj</th>
             <th>Szczegóły</th>
@@ -49,14 +50,17 @@
         <tbody>
         <c:forEach items="${adminContact}" var="adminContact">
             <tr>
-                <td><c:out value="${adminContact.id}"/></td>
-                <td><a href="<c:url value="/oneUserContacts/${adminContact.user.id}"/>"><c:out
-                        value="${adminContact.user.id}"/></a></td>
+                <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>"><c:out
+                        value="${adminContact.id}"/></a></td>
                 <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>"><c:out
                         value="${adminContact.message}"/></a></td>
                 <td><a href="<c:url value="/contactByCategory/${adminContact.contactCategory.id}"/>"><c:out
                         value="${adminContact.contactCategory.name}"/></a></td>
                 <td><c:out value="${adminContact.createdDate}"/></td>
+                <td><a href="<c:url value="/userDetails/${adminContact.user.id}"/>"><c:out
+                        value="${adminContact.user.id}"/></a></td>
+                <td><a href="<c:url value="/userDetails/${adminContact.user.id}"/>"><c:out
+                        value="${adminContact.email}"/></a></td>
                 <td><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Usuń</a></td>
                 <td><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edytuj</a></td>
                 <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>">Szczegóły</a></td>
@@ -78,9 +82,10 @@
     <table>
         <thead>
         <tr>
-            <th>Id</th>
             <th>Id użytkownika</th>
             <th>Email użytkownika</th>
+            <th>Id</th>
+            <th>Wiadomość</th>
             <th>Kategoria</th>
             <th>Data przesłania wiadomości</th>
             <th>Wiadomości użytkownika</th>
@@ -90,11 +95,14 @@
         <tbody>
         <c:forEach items="${contactsUsers}" var="contactsUsers">
             <tr>
-                <td><c:out value="${contactsUsers.id}"/></td>
-                <td><a href="<c:url value="/oneUserContacts/${contactsUsers.user.id}"/>"><c:out
+                <td><a href="<c:url value="/userDetails/${contactsUsers.user.id}"/>"><c:out
                         value="${contactsUsers.user.id}"/></a></td>
-                <td><a href="<c:url value="/oneUserContacts/${contactsUsers.user.id}"/>"><c:out
+                <td><a href="<c:url value="/userDetails/${contactsUsers.user.id}"/>"><c:out
                         value="${contactsUsers.user.email}"/></a></td>
+                <td><a href="<c:url value="/contactDetails/${contactsUsers.id}"/>"><c:out
+                        value="${contactsUsers.id}"/></a></td>
+                <td><a href="<c:url value="/contactDetails/${contactsUsers.id}"/>"><c:out
+                        value="${contactsUsers.message}"/></a></td>
                 <td><a href="<c:url value="/contactByCategory/${contactsUsers.contactCategory.id}"/>"><c:out
                         value="${contactsUsers.contactCategory.name}"/></a></td>
                 <td><c:out value="${contactsUsers.createdDate}"/></td>
@@ -116,8 +124,8 @@
     <table>
         <thead>
         <tr>
+            <th>Id kategorii</th>
             <th>Kategoria</th>
-            <th>Id</th>
             <th>Id użytkownika</th>
             <th>Wiadomość</th>
             <th>Data przesłania wiadomości</th>
@@ -132,11 +140,12 @@
         <c:forEach items="${adminContactq}" var="adminContactq">
             <tr>
                 <td><a href="<c:url value="/contactByCategory/${adminContactq.contactCategory.id}"/>"><c:out
+                        value="${adminContactq.contactCategory.id}"/></a></td>
+                <td><a href="<c:url value="/contactByCategory/${adminContactq.contactCategory.id}"/>"><c:out
                         value="${adminContactq.contactCategory.name}"/></a></td>
-                <td><c:out value="${adminContactq.id}"/></td>
-                <td><a href="<c:url value="/oneUserContacts/${adminContactq.user.id}"/>"><c:out
+                <td><a href="<c:url value="/userDetails/${adminContactq.user.id}"/>"><c:out
                         value="${adminContactq.user.id}"/></a></td>
-                <td><a href="<c:url value="/contactDetails/${adminContactq.id}"/>"><c:out
+                <td><a href="<c:url value="/userDetails/${adminContactq.id}"/>"><c:out
                         value="${adminContactq.message}"/></a></td>
                 <td><c:out value="${adminContactq.createdDate}"/></td>
                 <td><a href="<c:url value="/contactConfirmDelete/?id=${adminContactq.id}"/>">Usuń</a></td>

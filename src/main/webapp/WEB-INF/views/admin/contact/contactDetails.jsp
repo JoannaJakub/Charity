@@ -23,19 +23,23 @@
             </tr>
             <tr>
                 <td>Id użytkownika</td>
-                <td><c:out value="${contactDetails.user.id}"/></td>
+                <td><a href="<c:url value="/userDetails/${contactDetails.user.id}"/>"><c:out
+                        value="${contactDetails.user.id}"/></a></td>
             </tr>
             <tr>
                 <td>Imię</td>
-                <td><c:out value="${contactDetails.name}"/></td>
+                <td><a href="<c:url value="/userDetails/${contactDetails.user.id}"/>"><c:out
+                        value="${contactDetails.name}"/></a></td>
             </tr>
             <tr>
                 <td>Nazwisko</td>
-                <td><c:out value="${contactDetails.surname}"/></td>
+                <td><a href="<c:url value="/userDetails/${contactDetails.user.id}"/>"><c:out
+                        value="${contactDetails.surname}"/></a></td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><c:out value="${contactDetails.email}"/></td>
+                <td><a href="<c:url value="/userDetails/${contactDetails.user.id}"/>"><c:out
+                        value="${contactDetails.email}"/></a></td>
             </tr>
             <tr>
                 <td>Wiadomość</td>
