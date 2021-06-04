@@ -53,6 +53,5 @@
            class="btn btn--without-border">Usuń</a></li>
     </div>
 </section>
-<script src="<c:url value="../resources/js/app.js"/>"></script>
 </body>
 </html>

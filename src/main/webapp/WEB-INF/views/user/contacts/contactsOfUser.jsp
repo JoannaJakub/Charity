@@ -24,14 +24,16 @@
         </tr>
         <c:forEach items="${contactsOfUser}" var="contactsOfUser">
             <tr>
-                <td><c:out value="${contactsOfUser.id}"/></td>
-                <td><c:out value="${contactsOfUser.message}"/></td>
+                <td><a href="<c:url value="/contactDetailsByUser/${contactsOfUser.id}"/>">
+                    <c:out value="${contactsOfUser.id}"/></a></td>
+                <td><a href="<c:url value="/contactDetailsByUser/${contactsOfUser.id}"/>">
+                    <c:out value="${contactsOfUser.message}"/></a></td>
                 <td><c:out value="${contactsOfUser.createdDate}"/></td>
                 <td><c:out value="${contactsOfUser.updateDate}"/></td>
                 <td><c:out value="${contactsOfUser.contactCategory.name}"/></td>
                 <td><a href="<c:url value="/contactConfirmDeleteByUser/?id=${contactsOfUser.id}"/>">Zamknij</a></td>
-                <td><a href="/contactEditByUser/${contactsOfUser.id}">Edytuj</a></td>
-                <td><a href="/contactDetailsByUser/${contactsOfUser.id}">Szczegóły</a></td>
+                <td><a href="<c:url value="/contactEditByUser/${contactsOfUser.id}"/>">Edytuj</a></td>
+                <td><a href="<c:url value="/contactDetailsByUser/${contactsOfUser.id}"/>">Szczegóły</a></td>
             </tr>
         </c:forEach>
     </table>

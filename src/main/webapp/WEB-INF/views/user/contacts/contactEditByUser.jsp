@@ -6,7 +6,7 @@
 
 <section class="login-page">
     <h2>Edycja wiadomości</h2>
-    <table style="width:35%" cellpadding="15" class="btn btn--without-border-align active">
+    <table class="btn btn--without-border-align active">
         <form:form method="post" modelAttribute="contactEditByUser">
             <input type="hidden" name="user" value="${user.id}">
             <input type="hidden" name="name" placeholder="Nazwisko" path="surname" value="${user.firstName}"/>

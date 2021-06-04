@@ -25,7 +25,7 @@
     </form:form>
 </section>
 <section class="login-page" id="institutionsList">
-    <h2>Lista fundacji</h2>
+    <h2>Lista fundacji współpracujących z nami</h2>
     <table>
         <thead>
         <tr>

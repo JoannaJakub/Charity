@@ -9,7 +9,7 @@
 <%@ include file="../userHeader.jsp" %>
 
 <section class="login-page">
-    <h2>Szczegóły użytkownika</h2>
+    <h2>Szczegóły darowizny</h2>
     <table class="btn btn--without-border active">
         <form:form action="ownDonationDetail" modelAttribute="ownDonationDetail">
             <input type="hidden" name="user" value="${user.id}">
@@ -43,11 +43,12 @@
             </tr>
             <tr>
                 <td>Kategorie</td>
-                <td><c:out value="${ownDonationDetail.categories}"/></td>
+                <td><c:out value="${ownDonationDetail.categories[0].name}"/></td>
             </tr>
             <tr>
                 <td>Instytucja</td>
-                <td><c:out value="${ownDonationDetail.institution.name}"/></td>
+                <td><a href="<c:url value="/institutionDetailsByUser/${ownDonationDetail.institution.id}"/>">
+                    <c:out value="${ownDonationDetail.institution.name}"/></a></td>
             </tr>
             <tr>
                 <td>

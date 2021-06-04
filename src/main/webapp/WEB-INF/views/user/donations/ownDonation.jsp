@@ -50,7 +50,7 @@
     </div>
 </section>
 <section class="login-page" id="categoriesListDonations">
-    <h2>Lista kategorii</h2>
+    <h2>Lista kategorii Twoich darowizn</h2>
     <table>
         <thead>
         <tr>
@@ -72,7 +72,7 @@
     <br>
 </section>
 <section class="login-page" id="categoriesListInstitution">
-    <h2>Lista fundacji</h2>
+    <h2>Lista fundacji Twoich darowizn</h2>
     <table>
         <thead>
         <tr>
