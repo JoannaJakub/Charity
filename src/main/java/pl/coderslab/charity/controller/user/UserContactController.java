@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Contact;
-import pl.coderslab.charity.model.ContactCategory;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.ContactCategoryRepository;
 import pl.coderslab.charity.repository.ContactRepository;
@@ -57,6 +56,7 @@ public class UserContactController {
         return "user/contacts/contactsOfUser";
 
     }
+
     @RequestMapping("/contactConfirmDeleteByUser")
     public String userConfirmDelete() {
         return "user/contacts/contactConfirmDeleteByUser";
@@ -84,11 +84,13 @@ public class UserContactController {
         contactRepository.save(contact);
         return "user/contacts/contactsOfUser";
     }
+
     @GetMapping("/forum")
     public String forum(Model model, Authentication authentication) {
         model.addAttribute("lastlyDonatedForum", donationRepository.findAll());
         return "user/contacts/forum";
     }
+
     @GetMapping(value = {"/contactDetailsByUser/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Contact> contact = contactRepository.findById(id);

@@ -24,7 +24,6 @@ public class HomeController {
     private final UserRepository userRepository;
     private final ContactRepository contactRepository;
 
-
     public HomeController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
                           UserRepository userRepository, ContactRepository contactRepository) {
         this.institutionRepository = institutionRepository;
@@ -32,7 +31,6 @@ public class HomeController {
         this.userRepository = userRepository;
         this.contactRepository = contactRepository;
     }
-
 
     @GetMapping("/")
     public String homeAction(Model model) {
@@ -44,7 +42,6 @@ public class HomeController {
         model.addAttribute("id", id);
         return "index";
     }
-
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -67,14 +64,11 @@ public class HomeController {
             return "register_success";
         }
         return "register";
-
     }
-
 
     @GetMapping(value = {"/login"})
     public String login() {
         return "login";
-
     }
 
     @GetMapping("/contact")
@@ -82,10 +76,10 @@ public class HomeController {
         model.addAttribute("contact", new Contact());
         return "footer";
     }
+
     @RequestMapping(value = "/contactAddSuccess", method = RequestMethod.POST)
     private String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
-
-      if (result.hasErrors()) {
+        if (result.hasErrors()) {
             return "index";
         }
         contactRepository.save(contact);

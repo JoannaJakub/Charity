@@ -17,7 +17,6 @@ public class UserController {
     private final DonationRepository donationRepository;
     private final UserService userService;
 
-
     public UserController(DonationRepository donationRepository,
                           UserService userService) {
         this.donationRepository = donationRepository;

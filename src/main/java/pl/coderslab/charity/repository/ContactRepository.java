@@ -3,7 +3,6 @@ package pl.coderslab.charity.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.coderslab.charity.model.Contact;
 import pl.coderslab.charity.model.Donation;
-
 import java.util.List;
 
 

@@ -18,8 +18,6 @@ public class SpringDataUserDetailsService implements UserDetailsService {
     public SpringDataUserDetailsService(){
     }
 
-
-
     @Override
     public UserDetails loadUserByUsername(String email) {
         User user = userService.findByEmail(email);

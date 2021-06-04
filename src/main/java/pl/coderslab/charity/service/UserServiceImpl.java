@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+
 @Service
 @Scope(proxyMode = ScopedProxyMode.INTERFACES)
 @Transactional
@@ -20,6 +21,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
                            BCryptPasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
