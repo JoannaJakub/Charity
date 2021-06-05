@@ -39,8 +39,8 @@ public class UserContactController {
         return "user/contacts/contactAddByUser";
     }
 
-    @RequestMapping(value = "/contactAddByUserSuccess", method = RequestMethod.POST)
-    private String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result) {
+    @PostMapping(value = "/contactAddByUserSuccess")
+    public String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result) {
 
         if (result.hasErrors()) {
             return "user/contacts/contactAddByUser";

@@ -15,8 +15,7 @@ import java.util.Set;
 public class SpringDataUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
-    public SpringDataUserDetailsService(){
-    }
+
 
     @Override
     public UserDetails loadUserByUsername(String email) {

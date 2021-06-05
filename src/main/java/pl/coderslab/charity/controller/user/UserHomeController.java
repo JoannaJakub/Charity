@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.coderslab.charity.model.Donation;
@@ -40,7 +41,7 @@ public class UserHomeController {
         return "user/donations/form";
     }
 
-    @RequestMapping(value = "/formConfirmation", method = RequestMethod.POST)
+    @PostMapping(value = "/formConfirmation")
     public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
 
         if (result.hasErrors()) {

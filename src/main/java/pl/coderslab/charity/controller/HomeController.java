@@ -49,7 +49,7 @@ public class HomeController {
         return "register";
     }
 
-    @RequestMapping(value = "/register_success", method = RequestMethod.POST)
+    @PostMapping(value = "/register_success")
     public String processRegister(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "register";
@@ -77,8 +77,8 @@ public class HomeController {
         return "footer";
     }
 
-    @RequestMapping(value = "/contactAddSuccess", method = RequestMethod.POST)
-    private String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
+    @PostMapping (value = "/contactAddSuccess")
+    public String contactConfirmationAction(@Valid Contact contact, BindingResult result) {
         if (result.hasErrors()) {
             return "index";
         }

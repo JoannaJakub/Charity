@@ -1,6 +1,5 @@
 package pl.coderslab.charity.controller.admin;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,7 +8,6 @@ import pl.coderslab.charity.model.Contact;
 import pl.coderslab.charity.model.ContactCategory;
 import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.*;
-import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,14 +17,12 @@ import java.util.Optional;
 
 public class ContactController {
     private final ContactRepository contactRepository;
-    private final UserService userService;
     private final UserRepository userRepository;
     private final ContactCategoryRepository contactCategoryRepository;
 
 
-    public ContactController(ContactRepository contactRepository, UserService userService, UserRepository userRepository, ContactCategoryRepository contactCategoryRepository) {
+    public ContactController(ContactRepository contactRepository, UserRepository userRepository, ContactCategoryRepository contactCategoryRepository) {
         this.contactRepository = contactRepository;
-        this.userService = userService;
         this.userRepository = userRepository;
         this.contactCategoryRepository = contactCategoryRepository;
     }
@@ -107,7 +103,7 @@ public class ContactController {
         return "admin/contact/contactCategoryAdd";
     }
 
-    @RequestMapping(value = "/contactCategoryAddSuccess", method = RequestMethod.POST)
+    @PostMapping(value = "/contactCategoryAddSuccess")
     public String contactCategoryAddConfirmationAction(@Valid ContactCategory contactCategory, BindingResult result) {
         if (result.hasErrors()) {
             return "admin/contact/contactCategoryAdd";
@@ -122,16 +118,15 @@ public class ContactController {
         return "admin/contact/contactByCategory";
     }
     @GetMapping("/contactAddAdmin")
-    public String contactAdd(Model model, Authentication authentication) {
+    public String contactAdd(Model model) {
         model.addAttribute("contactAdd", new Contact());
-      //  model.addAttribute("user", userService.findByEmail(authentication.getName()));
         model.addAttribute("contactCategory", contactCategoryRepository.findAll());
 
         return "admin/contact/contactAdd";
     }
 
-    @RequestMapping(value = "/contactAddSuccessAdmin", method = RequestMethod.POST)
-    private String contactAddConfirmationAction(@Valid Contact contact, BindingResult result) {
+    @PostMapping(value = "/contactAddSuccessAdmin")
+    public String contactAddConfirmationAction(@Valid Contact contact, BindingResult result) {
 
         if (result.hasErrors()) {
             return "admin/contact/contactAdd";

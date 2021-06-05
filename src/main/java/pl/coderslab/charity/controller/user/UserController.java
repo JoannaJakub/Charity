@@ -14,12 +14,9 @@ import javax.validation.Valid;
 
 @Controller
 public class UserController {
-    private final DonationRepository donationRepository;
     private final UserService userService;
 
-    public UserController(DonationRepository donationRepository,
-                          UserService userService) {
-        this.donationRepository = donationRepository;
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -36,7 +33,7 @@ public class UserController {
         return "user/user/userEditPersonalDetails";
     }
 
-    @RequestMapping(value = "/userConfirmEditPersonalDetails", method = RequestMethod.POST)
+    @PostMapping(value = "/userConfirmEditPersonalDetails")
     public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result, Authentication authentication) {
         userService.saveUser(user);
         return "user/user/userConfirmEditPersonalDetails";
@@ -50,8 +47,7 @@ public class UserController {
 
     @PostMapping(value = {"changePasswordSuccess"})
     public String userChangePasswordSave(@Valid User user) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = new String(String.valueOf(new BCryptPasswordEncoder()));
+        String encodedPassword = String.valueOf(new BCryptPasswordEncoder());
         user.setPassword(encodedPassword);
         return "redirect:/changePasswordSuccess";
     }

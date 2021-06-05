@@ -28,7 +28,7 @@ public class UserInstitutionController {
         return "user/institutions/institutionAddByUser";
     }
 
-    @RequestMapping(value = "/institutionAddByUserSuccess", method = RequestMethod.POST)
+    @PostMapping(value = "/institutionAddByUserSuccess")
     public String institutionAddSuccess(@Valid Institution institution, BindingResult result) {
         if (result.hasErrors()) {
             return "user/institutions/institutionAddByUser";

@@ -171,6 +171,7 @@
         <tr>
             <th>Id</th>
             <th>Kategoria</th>
+            <th>Lista wiadomości</th>
         </tr>
         </thead>
         <tbody>
@@ -179,6 +180,7 @@
                 <td><c:out value="${contactCategoryList.id}"/></td>
                 <td><a href="<c:url value="/contactByCategory/${contactCategoryList.id}"/>"><c:out
                         value="${contactCategoryList.name}"/><a/></td>
+                <td><a href="<c:url value="/contactByCategory/${contactCategoryList.id}"/>">Lista wiadomości<a/></td>
             </tr>
         </c:forEach>
         </tbody>

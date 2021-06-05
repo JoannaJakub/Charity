@@ -26,7 +26,6 @@ public class CategoryController {
     public String adminCategory(Model model) {
         model.addAttribute("adminCategory", categoryRepository.findAll());
         model.addAttribute("categoryDonations", donationRepository.findAll());
-        System.out.println(donationRepository.findAll());
         model.addAttribute("categoryInstitutions", donationRepository.findAll());
         return "admin/categories/adminCategory";
     }
@@ -71,7 +70,7 @@ public class CategoryController {
         return "admin/categories/categoryAdd";
     }
 
-    @RequestMapping(value = "/categoryAddSuccess", method = RequestMethod.POST)
+    @PostMapping(value = "/categoryAddSuccess")
     public String formConfirmationAction(@Valid Category category, BindingResult result) {
         if (result.hasErrors()) {
             return "admin/categories/categoryAdd";
