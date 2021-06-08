@@ -77,9 +77,13 @@ public class AdminController {
     }
 
     @GetMapping(value = {"/userDetails/{id}"})
-    public String userDetails(@PathVariable long id, Model model) {
-        Optional<User> user = userRepository.findById(id);
-        model.addAttribute("userDetails", user.get());
+    public String userDetails(@ModelAttribute("userDetails") User user, @PathVariable long id, Model model, BindingResult result) {
+        Optional<User> findUser = userRepository.findById(id);
+        if (findUser.isPresent()) {
+            model.addAttribute("userDetails", findUser.get());
+        }
+        else{ return "admin/adminError";}
+
         return "admin/users/userDetails";
     }
 
