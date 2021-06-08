@@ -72,12 +72,14 @@ public class AdminController {
     @RequestMapping("/userConfirmEditing/{id}")
     public String userConfirmEditing(@PathVariable long id, Model model) {
         Optional<User> user = userRepository.findById(id);
-        model.addAttribute("userConfirmEdit", user.get());
+        if (user.isPresent()) {
+            model.addAttribute("userConfirmEdit", user.get());
+        }else{ return "admin/adminError";}
         return "admin/users/userConfirmEdit";
     }
 
     @GetMapping(value = {"/userDetails/{id}"})
-    public String userDetails(@ModelAttribute("userDetails") User user, @PathVariable long id, Model model, BindingResult result) {
+    public String userDetails(@PathVariable long id, Model model) {
         Optional<User> findUser = userRepository.findById(id);
         if (findUser.isPresent()) {
             model.addAttribute("userDetails", findUser.get());
@@ -102,7 +104,7 @@ public class AdminController {
         return "admin/donations/adminForm";
     }
 
-    @RequestMapping(value = "/adminFormConfirmation", method = RequestMethod.POST)
+    @PostMapping(value = "/adminFormConfirmation")
     public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
         if (result.hasErrors()) {
             return "adminForm";
