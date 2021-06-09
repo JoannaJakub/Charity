@@ -63,7 +63,9 @@ public class UserDonationController {
     @GetMapping(value = {"/ownDonationDetail/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Donation> donation = donationRepository.findById(id);
-        model.addAttribute("ownDonationDetail", donation.get());
+        if (donation.isPresent()) {
+            model.addAttribute("ownDonationDetail", donation.get());
+        }else{ return "admin/adminError";}
         return "user/donations/ownDonationDetail";
     }
 

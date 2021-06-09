@@ -71,7 +71,9 @@ public class UserContactController {
     @GetMapping(value = {"/contactEditByUser/{id}"})
     public String contactEditForm(@PathVariable long id, Model model, Authentication authentication) {
         Optional<Contact> contact = contactRepository.findById(id);
-        model.addAttribute("contactEditByUser", contact.get());
+        if (contact.isPresent()) {
+            model.addAttribute("contactEditByUser", contact.get());
+        }else{ return "admin/adminError";}
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
         return "user/contacts/contactEditByUser";
     }
@@ -94,7 +96,9 @@ public class UserContactController {
     @GetMapping(value = {"/contactDetailsByUser/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Contact> contact = contactRepository.findById(id);
-        model.addAttribute("contactDetailsByUser", contact.get());
+        if (contact.isPresent()) {
+            model.addAttribute("contactDetailsByUser", contact.get());
+        }else{ return "admin/adminError";}
         return "user/contacts/contactDetailsByUser";
     }
 

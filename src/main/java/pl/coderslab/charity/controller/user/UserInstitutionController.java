@@ -40,7 +40,9 @@ public class UserInstitutionController {
     @GetMapping(value = {"/institutionDetailsByUser/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Institution> institution = institutionRepository.findById(id);
-        model.addAttribute("institutionDetailsByUser", institution.get());
+        if (institution.isPresent()) {
+            model.addAttribute("institutionDetailsByUser", institution.get());
+        }else{ return "admin/adminError";}
         return "user/institutions/institutionDetailsByUser";
     }
 }
