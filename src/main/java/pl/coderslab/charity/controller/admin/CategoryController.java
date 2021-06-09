@@ -59,7 +59,9 @@ public class CategoryController {
     @GetMapping(value = {"/categoryDetails/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Category> category = categoryRepository.findById(id);
-        model.addAttribute("categoryDetails", category.get());
+        if (category.isPresent()) {
+            model.addAttribute("categoryDetails", category.get());
+        }else{ return "admin/adminError";}
         model.addAttribute("oneCategoryDonations", donationRepository.findDonationByCategoryId(id));
         return "admin/categories/categoryDetails";
     }

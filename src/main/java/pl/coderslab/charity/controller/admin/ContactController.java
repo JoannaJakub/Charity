@@ -41,7 +41,9 @@ public class ContactController {
         List<Contact> oneUserContact = contactRepository.findContactByUserId(id);
         model.addAttribute("oneUserContacts", oneUserContact);
         Optional<User> user = userRepository.findById(id);
-        model.addAttribute("userContactDetails", user.get());
+        if (user.isPresent()) {
+            model.addAttribute("userContactDetails", user.get());
+        }else{ return "admin/adminError";}
         return "admin/contact/oneUserContacts";
     }
 
@@ -59,7 +61,9 @@ public class ContactController {
     @GetMapping(value = {"/contactEdit/{id}"})
     public String contactEditForm(@PathVariable long id, Model model) {
         Optional<Contact> contact = contactRepository.findById(id);
-        model.addAttribute("contactEdit", contact.get());
+        if (contact.isPresent()) {
+            model.addAttribute("contactEdit", contact.get());
+        }else{ return "admin/adminError";}
         model.addAttribute("contactEdit2", contactRepository.findById(id));
         return "admin/contact/contactEdit";
     }
@@ -76,7 +80,9 @@ public class ContactController {
     @GetMapping(value = {"/contactDetails/{id}"})
     public String donationDetails(@PathVariable long id, Model model) {
         Optional<Contact> contact = contactRepository.findById(id);
-        model.addAttribute("contactDetails", contact.get());
+        if (contact.isPresent()) {
+            model.addAttribute("contactDetails", contact.get());
+        }else{ return "admin/adminError";}
         return "admin/contact/contactDetails";
     }
 
@@ -84,7 +90,9 @@ public class ContactController {
     @GetMapping(value = {"/contactReplay/{id}"})
     public String contactReplay(@PathVariable long id, Model model) {
         Optional<Contact> contact = contactRepository.findById(id);
-        model.addAttribute("contactReplay", contact.get());
+        if (contact.isPresent()) {
+            model.addAttribute("contactReplay", contact.get());
+        }else{ return "admin/adminError";}
         model.addAttribute("contactEdit2", contactRepository.findById(id));
         return "admin/contact/contactReplay";
     }
