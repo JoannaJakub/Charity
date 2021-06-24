@@ -9,13 +9,13 @@ Zaimportuj projekt jako projekt `Maven`, wg poniższych wskazówek:
 
 Projekt zawiera:
 
-Java
-Spring Boot
-Spring Security
-Spring Data JPA
-Hibernate
-MySQL
-JavaScript
-JQuery
-CSS
-HTML
+*Java
+*Spring Boot
+*Spring Security
+*Spring Data JPA
+*Hibernate
+*MySQL
+*JavaScript
+*JQuery
+*CSS
+*HTML
