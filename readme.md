@@ -7,15 +7,16 @@ Zaimportuj projekt jako projekt `Maven`, wg poniższych wskazówek:
 	* Wybieramy kolejno opcje: `Next –> Next –> Next –> Finish`
 
 
+
 Projekt zawiera:
 
-*Java
-*Spring Boot
-*Spring Security
-*Spring Data JPA
-*Hibernate
-*MySQL
-*JavaScript
-*JQuery
-*CSS
-*HTML
+	* Java
+	* Spring Boot
+	* Spring Security
+	* Spring Data JPA
+	* Hibernate
+	* MySQL
+	* JavaScript
+	* CSS
+	* HTML
+	
