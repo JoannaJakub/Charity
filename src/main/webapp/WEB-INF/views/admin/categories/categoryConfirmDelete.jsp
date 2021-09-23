@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../adminHeader.jsp" %>
-
 <section class="login-page">
     <h2>Czy jesteś pewien usunięcia kategori?</h2>
     <tbody>

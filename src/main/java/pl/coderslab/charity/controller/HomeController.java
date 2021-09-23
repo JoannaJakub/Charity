@@ -1,5 +1,8 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,7 @@ import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -85,6 +89,19 @@ public class HomeController {
         contactRepository.save(contact);
         return "contactAddSuccess";
     }
+    @GetMapping(value= {"/default"})
+    public String defaultAfterLogin() {
+        Collection<? extends GrantedAuthority> authorities;
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        authorities = auth.getAuthorities();
+        String myRole = authorities.toArray()[0].toString();
+        String admin = "ADMIN";
+        if (myRole.equals(admin)) {
+            return "redirect:/admin";
+        }
+        return "redirect:/form";
+    }
+
 }
 
 
