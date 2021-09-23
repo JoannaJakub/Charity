@@ -59,6 +59,8 @@ public class HomeController {
             return "register";
         } else if (userRepository.findByEmail(user.getEmail().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "email", "Podany email znajduje się w naszej bazie danych"));
+        }else if(!(user.getPassword().equals(user.getRetypePassword()))){
+            result.addError(new FieldError(user.toString(), "retypePassword", "Passwords dont match"));
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
