@@ -15,6 +15,7 @@ import pl.coderslab.charity.repository.ContactRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.repository.UserRepository;
+import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
 import java.util.Collection;
@@ -27,13 +28,15 @@ public class HomeController {
     private final DonationRepository donationRepository;
     private final UserRepository userRepository;
     private final ContactRepository contactRepository;
+    private final UserService userService;
 
     public HomeController(InstitutionRepository institutionRepository, DonationRepository donationRepository,
-                          UserRepository userRepository, ContactRepository contactRepository) {
+                          UserRepository userRepository, ContactRepository contactRepository, UserService userService) {
         this.institutionRepository = institutionRepository;
         this.donationRepository = donationRepository;
         this.userRepository = userRepository;
         this.contactRepository = contactRepository;
+        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -65,8 +68,7 @@ public class HomeController {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
             user.setPassword(encodedPassword);
-
-            userRepository.save(user);
+            userService.saveUser(user);
             return "register_success";
         }
         return "register";
