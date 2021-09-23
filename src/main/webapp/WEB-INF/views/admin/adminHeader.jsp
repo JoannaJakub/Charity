@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -14,8 +15,19 @@
 <header>
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="<c:url value="/login"/>">Zaloguj</a></li>
-            <li class="highlighted"><a href="<c:url value="/register"/>">Załóż konto</a></li>
+            <li class="logged-user">
+                Witaj <c:out value="${pageContext.request.remoteUser}"/>
+                <ul class="dropdown">
+                    <li><a href="<c:url value="/changePassword"/>">Zmień hasło</a></li>
+                    <li>
+                        <a href="<c:url var="logoutUrl" value="/logout"/>">
+                            <form:form action="${logoutUrl}" method="post">
+                                <input type="submit" value="Wyloguj"/>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form:form>
+                        </a></li>
+                </ul>
+            </li>
         </ul>
         <ul>
             <li><a href="<c:url value="/admin"/>" class="btn btn--without-border">Użytkownicy</a></li>
