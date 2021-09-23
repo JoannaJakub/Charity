@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
 </head>
 <body>
-<%@ include file="headerLogReg.jsp" %>
+<%@ include file="main/headerLogReg.jsp" %>
 
 <section>
     <div class="slogan container container--90">
@@ -24,6 +24,6 @@
         </h2>
     </div>
 </section>
-<%@ include file="footer.jsp" %>
+<%@ include file="main/footer.jsp" %>
 </body>
 </html>
