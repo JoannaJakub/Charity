@@ -30,8 +30,8 @@ public class UserHomeController {
         this.userService = userService;
     }
 
-    @GetMapping("/form")
-    public String formAction(Model model, Authentication authentication) {
+    @GetMapping("/userForm")
+    public String userFormAction(Model model, Authentication authentication) {
         model.addAttribute("donation", new Donation());
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("institution", institutionRepository.findAll());
@@ -39,8 +39,8 @@ public class UserHomeController {
         return "user/donations/form";
     }
 
-    @PostMapping(value = "/formConfirmation")
-    public String formConfirmationAction(@Valid Donation donation, BindingResult result) {
+    @PostMapping(value = "/userFormConfirmation")
+    public String userFormConfirmationAction(@Valid Donation donation, BindingResult result) {
 
         if (result.hasErrors()) {
             return "user/donations/form";
