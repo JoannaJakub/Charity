@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
 <%@ include file="../userHeader.jsp" %>
@@ -23,7 +24,7 @@
         <input type="hidden" name="email" placeholder="Email" path="email" value="${user.email}"/>
         <br>
         <div class="form-group">
-            <textarea name="message" placeholder="Wiadomość" rows="3" path="message"></textarea>
+            <input:textarea name="message" placeholder="Wiadomość" rows="3" path="message"></input:textarea>
             <br>
             <form:errors path="message"/>
         </div
