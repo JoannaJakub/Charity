@@ -41,7 +41,6 @@ public class UserHomeController {
 
     @PostMapping(value = "/userFormConfirmation")
     public String userFormConfirmationAction(@Valid Donation donation, BindingResult result) {
-
         if (result.hasErrors()) {
             return "user/donations/form";
         }
