@@ -35,13 +35,11 @@ public class UserContactController {
         model.addAttribute("contactAddByUser", new Contact());
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
         model.addAttribute("contactCategory", contactCategoryRepository.findAll());
-
         return "user/contacts/contactAddByUser";
     }
 
     @PostMapping(value = "/contactAddByUserSuccess")
     public String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result) {
-
         if (result.hasErrors()) {
             return "user/contacts/contactAddByUser";
         }
@@ -73,6 +71,7 @@ public class UserContactController {
         Optional<Contact> contact = contactRepository.findById(id);
         if (contact.isPresent()) {
             model.addAttribute("contactEditByUser", contact.get());
+            model.addAttribute("contactCategory", contactCategoryRepository.findAll());
         }else{ return "admin/adminError";}
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
         return "user/contacts/contactEditByUser";
@@ -84,7 +83,7 @@ public class UserContactController {
             return "user/contacts/contactEditByUser";
         }
         contactRepository.save(contact);
-        return "user/contacts/contactsOfUser";
+        return "user/contacts/contactEditByUserSuccess";
     }
 
     @GetMapping("/forum")
