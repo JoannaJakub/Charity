@@ -15,22 +15,17 @@
             <tr>
                 <td>Imie</td>
                 <td><form:input value="${userPersonalDetails.firstName}" path="firstName"/></td>
+                <form:errors path="firstName"/>
             </tr>
             <tr>
                 <td>Nazwisko</td>
                 <td><form:input value="${userPersonalDetails.lastName}" path="lastName"/></td>
+                <form:errors path="lastName"/>
             </tr>
             <tr>
                 <td>Email</td>
                 <td><form:input value="${userPersonalDetails.email}" path="email"/></td>
-            </tr>
-            <tr>
-                <td>Hasło</td>
-                <td><form:input value="${userPersonalDetails.password}" path="password"/></td>
-            </tr>
-            <tr>
-                <td>Hasło</td>
-                <td><form:input path="retypePassword"/></td>
+                <form:errors path="email"/>
             </tr>
             <tr>
                 <td>

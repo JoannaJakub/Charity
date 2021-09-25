@@ -15,7 +15,12 @@
             <tr>
                 <br>
                 <td>Wiadomość</td>
-                <td><c:out value="${contactEditByUser.message}"/><br><input path="message"/></td>
+                <td><c:out value="${contactEditByUser.message}"/>
+                    <br>
+                    <form:input path="message"/>
+                    <form:errors path="message"/>
+
+                </td>
             </tr>
             <tr>
                 <td>

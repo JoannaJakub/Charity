@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.User;
-import pl.coderslab.charity.repository.*;
 import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
@@ -15,9 +14,11 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
     private final UserService userService;
+    private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping(value = {"/userPersonalDetails"})
@@ -28,14 +29,27 @@ public class UserController {
 
 
     @GetMapping(value = {"/userEditPersonalDetails"})
-    public String userEditPersonalDetails(Model model, Authentication authentication, @Valid User user) {
+    public String userEditPersonalDetails(Model model, Authentication authentication) {
         model.addAttribute("userEditPersonalDetails", userService.findByEmail(authentication.getName()));
         return "user/user/userEditPersonalDetails";
     }
 
-    @PostMapping(value = "/userConfirmEditPersonalDetails")
-    public String userEditPersonalDetailsConfirmation(@Valid User user, BindingResult result, Authentication authentication) {
-        userService.saveUser(user);
+    @PostMapping(value = "/userEditPersonalDetails")
+    public String userEditPersonalDetailsSave(@Valid User user, BindingResult result) {
+        String password = passwordEncoder.encode(user.getPassword());
+        System.out.println("hgjghghghjg"+password);
+        user.setRetypePassword(password);
+        if (result.hasErrors()) {
+            return "redirect:/userEditPersonalDetails";
+        } else {
+            userService.saveUser(user);
+            return "redirect:/userConfirmEditPersonalDetails";
+        }
+    }
+
+    @RequestMapping(value = "/userConfirmEditPersonalDetails")
+    public String userEditPersonalDetailsConfirmation(Model model, Authentication authentication) {
+        model.addAttribute("userEditPersonalDetails", userService.findByEmail(authentication.getName()));
         return "user/user/userConfirmEditPersonalDetails";
     }
 
