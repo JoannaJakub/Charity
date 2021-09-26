@@ -10,22 +10,22 @@
 
 <section class="login-page">
     <h2>Prześlij wiadomość</h2>
-    <form:form action="contactAddByUserSuccess" modelAttribute="contactAddByUser" method="post">
-        <div class="form--steps-counter">
-            <label for="contactCategory">Wybierz kategorie</label>
-            <br>
-            <h4>
-                <form:select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id"/>
-            </h4>
-        </div>
+    <form:form action="contactAddByUserSuccess" modelAttribute="contact" method="post">
         <input type="hidden" name="user" value="${user.id}">
-        <input type="hidden" name="name" placeholder="Nazwisko" path="surname" value="${user.firstName}"/>
+        <input type="hidden" name="name" placeholder="Imię" path="name" value="${user.firstName}"/>
         <input type="hidden" name="surname" placeholder="Nazwisko" path="surname" value="${user.lastName}"/>
         <input type="hidden" name="email" placeholder="Email" path="email" value="${user.email}"/>
-        <br>
         <div class="form-group">
-            <input:textarea name="message" placeholder="Wiadomość" rows="3" path="message"></input:textarea>
-            <br>
+            <tr>
+            <label for="contactCategory">Wybierz kategorie</label>
+            </tr>
+            <tr>
+                <form:select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id"/>
+            </h4>
+            </tr>
+        </div>
+        <div class="form-group">
+            <form:input name="message" placeholder="Wiadomość" rows="3" path="message"/>
             <form:errors path="message"/>
         </div
         <div class="form-group">

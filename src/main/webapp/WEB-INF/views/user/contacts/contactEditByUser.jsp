@@ -12,18 +12,17 @@
             <input type="hidden" name="name" placeholder="Nazwisko" path="surname" value="${user.firstName}"/>
             <input type="hidden" name="surname" placeholder="Nazwisko" path="surname" value="${user.lastName}"/>
             <input type="hidden" name="email" placeholder="Email" path="email" value="${user.email}"/>
-            <input  value="${createdDate}"/>
+            <input  type="hidden" path="createdDate" value="${createdDate}"/>
             <tr>
                 <br>
                 <td>Wiadomość</td>
-                <td><c:out value="${contactEditByUser.contactCategory.name}"/>
-                    <br>
+                <td>
                     <form:select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id" />
                 </td>
             </tr>
             <tr>
                 <td>Wiadomość</td>
-                <td><c:out value="${contactEditByUser.message}"/>
+                <td>
                     <br>
                     <form:input path="message"/>
                     <form:errors path="message"/>

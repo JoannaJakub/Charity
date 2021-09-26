@@ -32,19 +32,21 @@ public class UserContactController {
 
     @GetMapping("/contactAddByUser")
     public String contactAddByUser(Model model, Authentication authentication) {
-        model.addAttribute("contactAddByUser", new Contact());
+        model.addAttribute("contact", new Contact());
         model.addAttribute("user", userService.findByEmail(authentication.getName()));
         model.addAttribute("contactCategory", contactCategoryRepository.findAll());
         return "user/contacts/contactAddByUser";
     }
 
     @PostMapping(value = "/contactAddByUserSuccess")
-    public String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result) {
+    public String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result,Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("contactCategory", contactCategoryRepository.findAll());
             return "user/contacts/contactAddByUser";
+        }else {
+            contactRepository.save(contact);
+            return "user/contacts/contactAddByUserSuccess";
         }
-        contactRepository.save(contact);
-        return "user/contacts/contactAddByUserSuccess";
     }
 
     @GetMapping(value = {"/contactsOfUser"})
@@ -72,9 +74,9 @@ public class UserContactController {
         if (contact.isPresent()) {
             model.addAttribute("contactEditByUser", contact.get());
             model.addAttribute("contactCategory", contactCategoryRepository.findAll());
-        }else{ return "admin/adminError";}
-        model.addAttribute("user", userService.findByEmail(authentication.getName()));
-        return "user/contacts/contactEditByUser";
+            model.addAttribute("user", userService.findByEmail(authentication.getName()));
+        }
+            return "user/contacts/contactEditByUser";
     }
 
     @PostMapping(value = {"contactEditByUser/{id}"})
@@ -82,6 +84,7 @@ public class UserContactController {
         if (result.hasErrors()) {
             return "user/contacts/contactEditByUser";
         }
+
         contactRepository.save(contact);
         return "user/contacts/contactEditByUserSuccess";
     }
