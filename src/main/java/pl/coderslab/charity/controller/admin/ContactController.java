@@ -112,7 +112,7 @@ public class ContactController {
 
     @GetMapping("/contactCategoryAdd")
     public String contactCategoryAdd(Model model) {
-        model.addAttribute("contactCategoryAdd", new ContactCategory());
+        model.addAttribute("contactCategory", new ContactCategory());
         return "admin/contact/contactCategoryAdd";
     }
 
@@ -120,9 +120,10 @@ public class ContactController {
     public String contactCategoryAddConfirmationAction(@Valid ContactCategory contactCategory, BindingResult result) {
         if (result.hasErrors()) {
             return "admin/contact/contactCategoryAdd";
+        } else {
+            contactCategoryRepository.save(contactCategory);
+            return "admin/contact/contactCategoryAddSuccess";
         }
-        contactCategoryRepository.save(contactCategory);
-        return "admin/contact/contactCategoryAddSuccess";
     }
 
     @GetMapping(value = {"/contactByCategory/{id}"})

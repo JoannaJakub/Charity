@@ -1,8 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -17,8 +17,9 @@
 
 <section class="login-page">
     <h2>Dodaj kategorię</h2>
-    <form:form action="contactCategoryAddSuccess" modelAttribute="contactCategoryAdd" method="post">
+    <form:form action="contactCategoryAddSuccess" modelAttribute="contactCategory" method="post">
         <div class="form-group">
+            <form:hidden path="id"/>
             <form:input placeholder="Nazwa" path="name" id="name"/>
             <form:errors path="name"/>
         </div>
