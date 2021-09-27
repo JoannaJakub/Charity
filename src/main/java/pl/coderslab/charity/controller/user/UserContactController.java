@@ -39,9 +39,10 @@ public class UserContactController {
     }
 
     @PostMapping(value = "/contactAddByUserSuccess")
-    public String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result,Model model) {
+    public String contactAddByUserConfirmationAction(@Valid Contact contact, BindingResult result,Model model,Authentication authentication) {
         if (result.hasErrors()) {
             model.addAttribute("contactCategory", contactCategoryRepository.findAll());
+            model.addAttribute("user", userService.findByEmail(authentication.getName()));
             return "user/contacts/contactAddByUser";
         }else {
             contactRepository.save(contact);

@@ -181,6 +181,8 @@
                 <td><a href="<c:url value="/contactByCategory/${contactCategoryList.id}"/>"><c:out
                         value="${contactCategoryList.name}"/><a/></td>
                 <td><a href="<c:url value="/contactByCategory/${contactCategoryList.id}"/>">Lista wiadomości<a/></td>
+                <td><a href="<c:url value="/contactCategoryConfirmDelete/?id=${contactCategoryList.id}"/>">Usuń</a></td>
+                <td><a href="<c:url value="/contactCategoryEdit/${contactCategoryList.id}"/>">Edytuj</a></td>
             </tr>
         </c:forEach>
         </tbody>

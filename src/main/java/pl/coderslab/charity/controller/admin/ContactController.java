@@ -110,22 +110,6 @@ public class ContactController {
         return "redirect:/adminContact";
     }
 
-    @GetMapping("/contactCategoryAdd")
-    public String contactCategoryAdd(Model model) {
-        model.addAttribute("contactCategory", new ContactCategory());
-        return "admin/contact/contactCategoryAdd";
-    }
-
-    @PostMapping(value = "/contactCategoryAddSuccess")
-    public String contactCategoryAddConfirmationAction(@Valid ContactCategory contactCategory, BindingResult result) {
-        if (result.hasErrors()) {
-            return "admin/contact/contactCategoryAdd";
-        } else {
-            contactCategoryRepository.save(contactCategory);
-            return "admin/contact/contactCategoryAddSuccess";
-        }
-    }
-
     @GetMapping(value = {"/contactByCategory/{id}"})
     public String contactByCategory(@PathVariable long id, Model model) {
         List<Contact> contact = contactRepository.findByContactCategoryId(id);
