@@ -17,21 +17,18 @@
 
 <section class="login-page">
     <h2>Dodaj kategorię</h2>
-    <form:form action="contactAddSuccessAdmin" modelAttribute="contactAddAdmin" method="post">
+    <form:form action="contactAddSuccessAdmin" modelAttribute="contactAdd" method="post">
         <div class="form--steps-counter">
             <label for="contactCategory">Wybierz kategorie</label>
             <br>
             <h4>
-                <select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id" />
+                <form:select path="contactCategory" items="${contactCategory}" itemLabel="name" itemValue="id"/>
             </h4>
         </div>
-        <input type="hidden" name="user" value="admin">
-        <input type="hidden" name="name" placeholder="Nazwisko" path="surname" value="admin"/>
-        <input type="hidden" name="surname" placeholder="Nazwisko" path="surname" value="admin"/>
-        <input type="hidden" name="email" placeholder="Email" path="email" value="admin"/>
+        <form:select path="user" items="${user}" type="long" class="form-control"/>
         <br>
         <div class="form-group">
-            <textarea name="message" placeholder="Wiadomość" rows="3" path="message"></textarea>
+            <form:input name="message" placeholder="Wiadomość" rows="3" path="message"></form:input>
             <br>
             <form:errors path="message"/>
         </div>

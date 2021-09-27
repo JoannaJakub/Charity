@@ -15,12 +15,16 @@
 <body>
 <%@ include file="../adminHeader.jsp" %>
 
-<div class="slogan container container--90">
-    <div class="slogan--item">
-        <h1>
-            Pomyślnie wysłano wiadomość.<br/>
-        </h1>
-    </div>
-</div>
+<section>
+    <h2>
+        <br>
+        Pomyślnie wysłano wiadmość.
+        <br>
+    </h2>
+</section>
+<section class="steps" id="steps">
+    <h1>Chcesz wysłać jeszcze jedną wiadomość?</h1>
+    <a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Kliknij tutaj</a></li>
+</section>
 </body>
 </html>

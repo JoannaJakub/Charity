@@ -9,7 +9,7 @@
 <%@ include file="../adminHeader.jsp" %>
 
 <section class="login-page">
-    <h2>Lista darowizn użytkownika
+    <h2>Lista wiadomości użytkownika
         <c:forEach items="${oneUserContacts}" var="oneUserContacts">
             <tr>
                 <td><c:out value="${oneUserContacts.user.email}"/></td>
@@ -71,7 +71,7 @@
     </table>
     <br>
     <div class="form-group form-group--buttons">
-        <a href="form" class="btn btn--without-border">Dodaj darowizne</a>
+        <a href="<c:url value="/contactAddAdmin"/>" class="btn btn--without-border">Dodaj wiadomość</a>
     </div>
 </section>
 </body>
