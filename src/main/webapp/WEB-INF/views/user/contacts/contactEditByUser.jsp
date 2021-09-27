@@ -12,7 +12,6 @@
             <input type="hidden" name="name" placeholder="Nazwisko" path="surname" value="${user.firstName}"/>
             <input type="hidden" name="surname" placeholder="Nazwisko" path="surname" value="${user.lastName}"/>
             <input type="hidden" name="email" placeholder="Email" path="email" value="${user.email}"/>
-            <input  type="hidden" path="createdDate" value="${createdDate}"/>
             <tr>
                 <br>
                 <td>Wiadomość</td>

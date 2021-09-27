@@ -80,8 +80,9 @@ public class UserContactController {
     }
 
     @PostMapping(value = {"contactEditByUser/{id}"})
-    public String contactEditSave(@Valid Contact contact, BindingResult result) {
+    public String contactEditSave(@Valid Contact contact, BindingResult result,Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("contactCategory", contactCategoryRepository.findAll());
             return "user/contacts/contactEditByUser";
         }
 
