@@ -172,6 +172,8 @@
             <th>Id</th>
             <th>Kategoria</th>
             <th>Lista wiadomości</th>
+            <th>Usuń</th>
+            <th>Edytuj</th>
         </tr>
         </thead>
         <tbody>

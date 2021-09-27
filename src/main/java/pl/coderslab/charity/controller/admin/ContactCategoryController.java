@@ -58,7 +58,7 @@ public class ContactCategoryController {
     @GetMapping(value = {"/contactCategoryDelete/{id}"})
     public String userContactCategoryDelete(@PathVariable long id) {
         contactCategoryRepository.deleteById(id);
-        return "redirect:/adminContact";
+        return "redirect:/adminContact#contactCategoryList";
     }
 
 }
