@@ -12,7 +12,7 @@
     <h2>Edycja wiadomości</h2>
     <tbody>
     <table class="btn btn--without-border-align active">
-        <form:form method="post" modelAttribute="contactCategoryEdit">
+        <form:form method="post" modelAttribute="contactCategoryName">
             <tr>
                 <td>Id</td>
                 <td><c:out value="id"/></td>
