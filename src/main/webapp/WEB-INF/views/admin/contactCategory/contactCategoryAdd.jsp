@@ -24,7 +24,7 @@
             <form:errors path="name"/>
         </div>
         <div class="form-group form-group--buttons">
-            <a href="<c:url value="/adminContact"/>" class="btn btn--without-border">Powrót</a>
+            <a href="<c:url value="/adminContact#contactCategoryList"/>" class="btn btn--without-border">Powrót</a>
             <button class="btn" type="submit">Dodaj</button>
         </div>
     </form:form>

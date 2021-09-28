@@ -61,4 +61,22 @@ public class ContactCategoryController {
         return "redirect:/adminContact#contactCategoryList";
     }
 
+    @GetMapping(value = {"/contactCategoryEdit/{id}"})
+    public String contactCategoryEditForm(@PathVariable long id, Model model) {
+        Optional<ContactCategory> contactCategory = contactCategoryRepository.findById(id);
+        if (contactCategory.isPresent()) {
+            model.addAttribute("contactCategoryEdit", contactCategory.get());
+        }else{ return "admin/adminError";}
+        model.addAttribute("contactCategoryEdit", contactCategoryRepository.findById(id));
+        return "admin/contactCategory/contactCategoryEdit";
+    }
+
+    @PostMapping(value = {"contactCategoryEdit/{id}"})
+    public String contactCategoryEditSave(@Valid ContactCategory contactCategory, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/contactCategory/contactCategoryEdit";
+        }
+        contactCategoryRepository.save(contactCategory);
+        return "redirect:/adminContact#contactCategoryList";
+    }
 }
